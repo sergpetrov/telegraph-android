@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryDark"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/height_status_bar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/closeImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/margin_8"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/margin_8"
+            android:src="@drawable/ic_close"
+            android:tint="?attr/colorControlNormal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_toEndOf="@id/closeImageView"
+            android:text="@string/edit_account"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/actionsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/margin_8"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/doneImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/margin_8"
+                android:src="@drawable/ic_done"
+                android:tint="?attr/colorControlNormal" />
+
+            <ImageView
+                android:id="@+id/moreImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/margin_8"
+                android:src="@drawable/ic_more"
+                android:tint="?attr/colorControlNormal" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_16">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_8"
+                android:hint="@string/account_name"
+                app:hintAnimationEnabled="false"
+                app:hintTextAppearance="@style/TextInputLayoutHintStyle">
+
+                <EditText
+                    android:id="@+id/accountNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="textCapWords"
+                    android:paddingTop="@dimen/margin_8"
+                    android:paddingBottom="@dimen/margin_8" />
+
+                <TextView
+                    android:id="@+id/accountNameLimitTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="@dimen/text_size_tiny"
+                    android:visibility="gone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_8"
+                android:hint="@string/author_name"
+                app:hintAnimationEnabled="false"
+                app:hintTextAppearance="@style/TextInputLayoutHintStyle">
+
+                <EditText
+                    android:id="@+id/authorNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="textCapWords"
+                    android:paddingTop="@dimen/margin_8"
+                    android:paddingBottom="@dimen/margin_8" />
+
+                <TextView
+                    android:id="@+id/authorNameLimitTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="@dimen/text_size_tiny"
+                    android:visibility="gone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_8"
+                android:hint="@string/author_url"
+                app:hintAnimationEnabled="false"
+                app:hintTextAppearance="@style/TextInputLayoutHintStyle">
+
+                <EditText
+                    android:id="@+id/authorUrlEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="textUri"
+                    android:paddingTop="@dimen/margin_8"
+                    android:paddingBottom="@dimen/margin_8" />
+
+                <TextView
+                    android:id="@+id/authorUrlErrorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="@dimen/text_size_tiny"
+                    android:visibility="gone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_16">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8"
+        android:hint="@string/author_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/authorNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:paddingTop="@dimen/margin_8"
+            android:paddingBottom="@dimen/margin_8" />
+
+        <TextView
+            android:id="@+id/authorNameLimitTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_size_tiny"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8"
+        android:hint="@string/author_url">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/authorUrlEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:paddingTop="@dimen/margin_8"
+            android:paddingBottom="@dimen/margin_8" />
+
+        <TextView
+            android:id="@+id/authorUrlErrorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_size_tiny"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

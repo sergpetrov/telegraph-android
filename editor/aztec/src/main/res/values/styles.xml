@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="FormatBarButton">
+        <item name="android:minWidth">@dimen/aztec_format_bar_height</item>
+        <item name="android:minHeight">@dimen/aztec_format_bar_height</item>
+        <item name="android:textOn">@null</item>
+        <item name="android:textOff">@null</item>
+    </style>
+
+    <style name="DividerHorizontal">
+        <item name="android:background">@color/format_bar_divider_horizontal</item>
+    </style>
+
+    <style name="ToolbarLayoutDirection">
+        <item name="android:layoutDirection" tools:targetApi="jelly_bean_mr1">ltr</item>
+    </style>
+
+    <style name="DividerVertical">
+        <item name="android:background">@color/format_bar_divider_vertical</item>
+    </style>
+
+    <style name="DividerSourceView">
+        <item name="android:background">@color/sourceview_separator</item>
+    </style>
+
+    <style name="AztecTextStyle">
+        <item name="android:textCursorDrawable">?attr/textColor</item>
+        <item name="backgroundColor">@android:color/transparent</item>
+        <item name="blockVerticalPadding">@dimen/block_vertical_padding</item>
+        <item name="bulletColor">@color/blue_medium</item>
+        <item name="bulletMargin">@dimen/bullet_margin</item>
+        <item name="bulletPadding">@dimen/bullet_padding</item>
+        <item name="bulletWidth">@dimen/bullet_width</item>
+        <item name="codeBackground">@color/code_background</item>
+        <item name="codeBackgroundAlpha">75%</item>
+        <item name="codeColor">@color/code</item>
+        <item name="lineSpacingExtra">@dimen/spacing_extra</item>
+        <item name="lineSpacingMultiplier">@dimen/spacing_multiplier</item>
+        <item name="linkColor">@color/blue_wordpress</item>
+        <item name="linkUnderline">false</item>
+        <item name="preformatBackground">@color/code_background</item>
+        <item name="preformatBackgroundAlpha">75%</item>
+        <item name="preformatColor">@color/white</item>
+        <item name="quoteBackground">@color/blue_wordpress</item>
+        <item name="quoteBackgroundAlpha">75%</item>
+        <item name="quoteColor">@color/blue_medium</item>
+        <item name="quoteMargin">@dimen/quote_margin</item>
+        <item name="quotePadding">@dimen/quote_padding</item>
+        <item name="quoteWidth">@dimen/quote_width</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorHint">@android:color/darker_gray</item>
+    </style>
+
+    <style name="AztecToolbarStyle">
+        <item name="advanced">false</item>
+    </style>
+
+    <style name="Shortcut.Key.Multiple" parent="TextAppearance.AppCompat">
+        <item name="android:background">@drawable/bg_key</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/margin_key</item>
+        <item name="android:minWidth">@dimen/width_key</item>
+        <item name="android:paddingLeft">@dimen/padding_key</item>
+        <item name="android:paddingRight">@dimen/padding_key</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_key</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Shortcut.Key.Single" parent="TextAppearance.AppCompat">
+        <item name="android:background">@drawable/bg_key</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/margin_key</item>
+        <item name="android:minWidth">@dimen/width_key</item>
+        <item name="android:paddingLeft">@dimen/padding_key</item>
+        <item name="android:paddingRight">@dimen/padding_key</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_key</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="Shortcut.Header" parent="TextAppearance.AppCompat">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/margin_dialog</item>
+        <item name="android:layout_marginRight">@dimen/margin_dialog</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/blue_wordpress</item>
+        <item name="android:textSize">@dimen/text_header</item>
+    </style>
+
+    <style name="Shortcut.Item" parent="TextAppearance.AppCompat">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_item</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+</resources>

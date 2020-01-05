@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+
+    <dimen name="text_size_tiny_extra">12sp</dimen>
+    <dimen name="text_size_tiny">15sp</dimen>
+    <dimen name="text_size_small">18sp</dimen>
+    <dimen name="text_size_middle">20sp</dimen>
+    <dimen name="text_size_big">22sp</dimen>
+    <dimen name="text_size_large">25sp</dimen>
+
+    <dimen name="icon_size_normal">20dp</dimen>
+    <dimen name="height_status_bar">24dp</dimen>
+    <dimen name="bullet_radius">2dp</dimen>
+    <dimen name="bullet_gap_width">8dp</dimen>
+    <dimen name="quote_stripe_width">8dp</dimen>
+    <dimen name="quote_gap_width">3dp</dimen>
+    <dimen name="height_item_page">140dp</dimen>
+    <dimen name="editor_toolbar_height">48dp</dimen>
+    <dimen name="web_view_video_height">200dp</dimen>
+    <dimen name="radius_card_corner">8dp</dimen>
+    <dimen name="height_divider" format="float">0.5dp</dimen>
+    <dimen name="height_drawer_header_layout">170dp</dimen>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="chip_radius">16dp</dimen>
+    <dimen name="dialog_corner_radius">8dp</dimen>
+    <dimen name="toolbar_layout_elevation">4dp</dimen>
+    <dimen name="item_format_more_width">6dp</dimen>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/blockMoreLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/margin_8"
+    android:paddingTop="@dimen/margin_8"
+    android:paddingEnd="@dimen/margin_12"
+    android:paddingBottom="@dimen/margin_8">
+
+    <ImageView
+        android:layout_width="@dimen/item_format_more_width"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_more"
+        android:tint="@color/grey" />
+
+    <ImageView
+        android:layout_width="@dimen/item_format_more_width"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_more"
+        android:tint="@color/grey" />
+
+</LinearLayout>

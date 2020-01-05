@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>top_banner</key>
+        <value>null</value>
+    </entry>
+    <entry>
+        <key>created_with_caption_disabled</key>
+        <value>true</value>
+    </entry>
+</defaultsMap>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+
+    <org.wordpress.aztec.source.SourceViewEditText
+        xmlns:aztec="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/source"
+        android:gravity="top|start"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="textNoSuggestions|textMultiLine"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="@dimen/margin_large"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:textSize="@dimen/text_dialog"
+        aztec:codeDialog="true" >
+    </org.wordpress.aztec.source.SourceViewEditText>
+
+</ScrollView>

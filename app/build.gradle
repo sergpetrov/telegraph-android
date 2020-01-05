@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+
+apply from: "../ktlint.gradle"
+
+android {
+    compileSdkVersion rootProject.compileSdk
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdk
+        targetSdkVersion rootProject.targetSdk
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        multiDexEnabled true
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                output.outputFileName = "v${versionName}-telex-${variant.productFlavors[0].name}-${variant.buildType.name}.apk"
+            }
+        }
+    }
+
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    buildTypes {
+        debug {
+            addManifestPlaceholders([
+                    enableCrashlytics: "false",
+                    enableAnalytics  : "false"
+            ])
+            minifyEnabled false
+        }
+        release {
+            addManifestPlaceholders([
+                    enableCrashlytics: "true",
+                    enableAnalytics  : "true"
+            ])
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        free {
+            applicationId "com.telex"
+        }
+
+        pro {
+            applicationId "com.telex.pro"
+        }
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets']
+            java.srcDirs = ['src/main/java']
+        }
+        free {
+            java.srcDirs = ['src/free/java']
+        }
+        pro {
+            java.srcDirs = ['src/pro/java']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(':base')
+
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'com.google.firebase:firebase-core:17.2.1'
+    implementation 'com.google.firebase:firebase-config:19.1.0'
+
+    kapt "com.github.moxy-community:moxy-compiler:$moxyVersion"
+    kapt 'com.github.stephanenicolas.toothpick:toothpick-compiler:3.0.2'
+}
+
+apply plugin: 'com.google.gms.google-services'

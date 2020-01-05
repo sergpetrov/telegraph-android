@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_description">Приложение для сервиса публикаций <a href="http://telegra.ph">Telegra.ph</a></string>
+    <string name="ok">OK</string>
+    <string name="share_using">Поделиться…</string>
+    <string name="add">Добавить</string>
+    <string name="skip">Пропустить</string>
+    <string name="add_link">Добавить ссылку</string>
+    <string name="delete_link">Удалить ссылку</string>
+    <string name="add_iframe">Добавить iframe</string>
+    <string name="iframe_hint">Вставьте ссылку на YouTube, Vimeo, Twitter или Telegram пост</string>
+    <string name="cancel">Отмена</string>
+    <string name="title">Заголовок</string>
+    <string name="your_story">Ваш рассказ…</string>
+    <string name="author">Автор</string>
+    <string name="add_name">Добавить имя</string>
+    <string name="empty_content">Пустое содержимое</string>
+    <string name="choose_action">Выберите действие</string>
+    <string name="choose_action_for_block">Выберите действие для блока</string>
+    <string name="duplicate">Дублировать</string>
+    <string name="insert_below">Вставить ниже</string>
+    <string name="share">Поделиться</string>
+    <string name="edit">Редактировать</string>
+    <string name="publish">Опубликовать</string>
+    <string name="copy_link">Копировать ссылку</string>
+    <string name="link_copied">Ссылка скопирована в буфер обмена</string>
+    <string name="account_name">Имя аккаунта</string>
+    <string name="author_name">Имя автора</string>
+    <string name="author_url">Ссылка на автора</string>
+    <string name="logout">Выход</string>
+    <string name="yes">Да</string>
+    <string name="please_wait">Пожалуйста подождите…</string>
+    <string name="no_posts">Нет публикаций</string>
+    <string name="click_button_to_create_a_new_post">Нажмите кнопку + чтобы создать новую публикацию</string>
+    <string name="no_drafts">Нет черновиков</string>
+    <string name="drafts_are_storing_on_device_only">Черновики будут храниться только на вашем устройстве</string>
+    <string name="login_description">Авторизуйтесь на этом устройстве через <b>@Telegraph</b> бота в Telegram, а затем выберите приложение Telegraph X, чтобы продолжить</string>
+    <string name="launch_telegram">Открыть Telegram</string>
+    <string name="log_in">Войти</string>
+    <plurals name="d_posts">
+        <item quantity="one">%d публикация</item>
+        <item quantity="few">%d публикации</item>
+        <item quantity="many">%d публикаций</item>
+        <item quantity="other">%d публикаций</item>
+    </plurals>
+    <string name="about">О приложении</string>
+    <string name="app_version">Версия</string>
+    <string name="contact_us">Связаться со мной</string>
+    <string name="report_bug">Расскажите об ошибках или новых функциях</string>
+    <string name="developer">Разработчик</string>
+    <string name="edit_account">Редактировать аккаунт</string>
+    <string name="delete">Удалить</string>
+    <string name="caption_optional">Подпись (необязательно)</string>
+    <string name="url_invalid">Невалидный url</string>
+    <string name="error_app_not_found">Приложение не найдено. Установите и попробуйте еще раз пожалуйста.</string>
+    <string name="invalid">Невалидный</string>
+    <string name="drafts">Черновики</string>
+    <string name="published">Публикации</string>
+    <string name="untitled">Без заголовка</string>
+    <string name="discard_draft">Удалить черновик</string>
+    <string name="delete_post">Удалить публикацию</string>
+    <string name="insert_image">Вставить изображение</string>
+    <string name="from_gallery">Из галереи</string>
+    <string name="by_url">По ссылке</string>
+    <string name="official_telegram_channel">Официальный телеграм канал</string>
+    <string name="join_channel">Присоединяйтесь к каналу, чтобы быть в курсе новостей, обновлений и новых функций</string>
+    <string name="save_draft">В черновики</string>
+    <string name="do_you_want_publish">Вы хотите опубликовать эту статью?</string>
+    <string name="delete_post_description">Восстановить содержимое будет невозможно.</string>
+    <string name="copy_image_link">Копировать ссылку</string>
+    <string name="open">Открыть</string>
+    <string name="night_mode">Ночной режим</string>
+    <string name="insert_multiple_images_in_pro">Установите Telegraph X Pro и загружайте несколько изображений одновременно.</string>
+    <string name="created_with">"Создано с помощью "</string>
+
+    <!-- Errors -->
+    <string name="server_error">Ошибка сервера</string>
+    <string name="network_error">Нет соединения с интернетом</string>
+    <string name="not_working_proxy_error">Нет соединения с интернетом. Попробуйте использовать другой прокси-сервер.</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
+    <string name="page_access_denied_error">Вы не можете опубликовать эту статью из текущего аккаунта</string>
+    <string name="something_went_wrong">Что-то пошло не так, пожалуйста, попробуйте еще раз</string>
+    <string name="upload_in_progress_error">Идет загрузка. Пожалуйста, подождите…</string>
+
+    <!-- Privacy Policy -->
+    <string name="privacy_policy_description">Продолжая вы соглашаетесь с политикой конфиденциальности</string>
+    <string name="privacy_policy_description_part_to_click">политикой конфиденциальности</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="learn_privacy_policy">Изучить политику конфиденциальности</string>
+
+    <!-- Editor toolbar -->
+    <string name="format_bold">Жирный</string>
+    <string name="format_heading">Заголовок</string>
+    <string name="format_subheading">Подзаголовок</string>
+    <string name="format_italic">Курсивный</string>
+    <string name="format_list_ordered">Нумеровнный список</string>
+    <string name="format_list_unordered">Ненумеровнный список</string>
+    <string name="format_paragraph">Параграф</string>
+    <string name="format_block_quote">Цитата</string>
+    <string name="format_strike">Зачеркнутый</string>
+    <string name="format_underline">Подчеркнутый</string>
+    <string name="format_link">Ссылка</string>
+    <string name="format_hr">Горизонтальный разделитель</string>
+    <string name="format_embed">Вставить видео или пост</string>
+    <string name="format_block_move_up">Переместить блок вверх</string>
+    <string name="format_block_move_down">Переместить блок вниз</string>
+
+    <!-- Proxy -->
+    <string name="proxy">Прокси</string>
+    <string name="server">Сервер</string>
+    <string name="port">Порт</string>
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="socks5">socks5</string>
+    <string name="http">http</string>
+    <string name="proxy_description">Использование прокси-сервера может помочь, если Telegraph не удается установить соединение в Вашем регионе.</string>
+
+    <string name="add_account">Добавить аккаунт</string>
+    <string name="add_account_description">Выберите еще один аккаунт через бота @Telegraph и откройте ссылку в приложении %s</string>
+
+    <!-- Statistics -->
+    <string name="statistics">Статистика</string>
+    <string name="month">Месяц</string>
+    <string name="choose_month">Выберите месяц</string>
+    <string name="choose_year">Выберите год</string>
+    <string name="next_month">След. месяц</string>
+    <string name="next_year">След. год</string>
+    <string name="prev_month">Пред. месяц</string>
+    <string name="prev_year">Пред. год</string>
+    <string name="total_views">Всего</string>
+    <string name="views">Просмотры</string>
+
+    <!-- Upgrade to Pro -->
+    <string name="upgrade_to_pro">Установить Pro</string>
+    <string name="available_in_pro">Доступно в Pro</string>
+    <string name="why_pro">Установите Telegraph X Pro, чтобы поддержать разработку приложения, и получить доступ к дополнительным функциям, таким как:</string>
+    <string name="install_pro_app">Установить Pro</string>
+    <string name="delete_posts">Удаление ненужных публикаций.</string>
+    <string name="support_multiple_accounts">Поддержка нескольких аккаунтов одновременно.</string>
+    <string name="detailed_viewing_statistics">Детальная статистика просмотров за выбранный месяц/год.</string>
+    <string name="upload_multiple_images">Загрузка нескольких изображений одновременно.</string>
+</resources>

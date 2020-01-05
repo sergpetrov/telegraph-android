@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/margin_8"
+    android:paddingTop="@dimen/margin_16"
+    android:paddingEnd="@dimen/margin_16"
+    android:paddingBottom="@dimen/margin_16">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/title"
+        android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+        android:textSize="@dimen/text_size_large" />
+
+    <TextView
+        android:id="@+id/titleLimitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/text_size_tiny"
+        android:visibility="gone"
+        tools:text="0/256"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/contentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:paddingStart="@dimen/margin_8"
+        android:paddingEnd="@dimen/margin_8"
+        android:text="@string/your_story"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/text_size_tiny" />
+
+    <TextView
+        android:id="@+id/emptyContentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/empty_content"
+        android:textColor="@color/error"
+        android:textSize="@dimen/text_size_tiny"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</LinearLayout>

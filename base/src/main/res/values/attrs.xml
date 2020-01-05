@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ThemeColor">
+        <attr name="colorPrimary" format="color" />
+        <attr name="colorPrimaryDark" format="color" />
+        <attr name="colorAccent" format="color" />
+        <attr name="colorAccentDark" format="color" />
+        <attr name="placeholderColor" format="color" />
+        <attr name="dividerColor" format="color" />
+        <attr name="selectorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ChipView">
+        <attr name="title" format="string" />
+        <attr name="closable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FormatToggleButton">
+        <attr name="icon" format="reference" />
+    </declare-styleable>
+
+</resources>

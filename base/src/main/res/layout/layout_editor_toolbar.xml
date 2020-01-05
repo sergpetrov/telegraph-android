@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/editor_toolbar_height"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:background="?attr/colorPrimary"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_divider"
+        android:background="?attr/dividerColor" />
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/optionsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/boldFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_bold" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/italicFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_italic" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/strikethroughFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_strikethrough" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/underlineFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_underlined" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/linkButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_insert_link" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/paragraphButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_block_text_subject" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/headingFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_heading" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/subHeadingFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_subheading" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/quoteFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_quote" />
+
+            <ImageView
+                android:id="@+id/insertImageButton"
+                style="@style/FormatButtonImageViewStyle"
+                android:src="@drawable/ic_image" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/unorderedListFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_list_bulleted" />
+
+            <com.telex.ui.FormatToggleButton
+                android:id="@+id/orderedListFormatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_format_list_numbered" />
+
+            <ImageView
+                android:id="@+id/insertLineButton"
+                style="@style/FormatButtonImageViewStyle"
+                android:src="@drawable/ic_insert_line" />
+
+            <ImageView
+                android:id="@+id/insertIframeButton"
+                style="@style/FormatButtonImageViewStyle"
+                android:src="@drawable/ic_code" />
+
+            <ImageView
+                android:id="@+id/moveUpButton"
+                style="@style/FormatButtonImageViewStyle"
+                android:src="@drawable/ic_move_up" />
+
+            <ImageView
+                android:id="@+id/moveDownButton"
+                style="@style/FormatButtonImageViewStyle"
+                android:src="@drawable/ic_move_down" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

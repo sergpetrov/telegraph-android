@@ -1,0 +1,203 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="AppTheme.Base" />
+
+    <style name="AppTheme.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/primary_black</item>
+        <item name="colorAccentDark">@color/dark_white</item>
+        <item name="colorControlNormal">@color/primary_black</item>
+        <item name="android:textColor">@color/dark_primary_text_color</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="placeholderColor">@color/light_grey</item>
+        <item name="dividerColor">@color/light_divider_color</item>
+        <item name="selectorColor">@color/light_grey</item>
+        <item name="android:listDivider">@drawable/item_divider</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogStyle</item>
+        <item name="textInputStyle">@style/TextInputStyle</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="tabStyle">@style/TabLayoutStyle</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogStyle</item>
+    </style>
+
+    <style name="AppTheme.Transparent" parent="AppTheme">
+        <item name="android:windowBackground">@color/dark_primary_text_color</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Splash" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="AztecTextStyle">
+        <item name="android:textCursorDrawable">?attr/textColor</item>
+        <item name="backgroundColor">@android:color/transparent</item>
+        <item name="blockVerticalPadding">@dimen/block_vertical_padding</item>
+        <item name="bulletColor">?android:attr/textColor</item>
+        <item name="bulletMargin">@dimen/bullet_margin</item>
+        <item name="bulletPadding">@dimen/bullet_padding</item>
+        <item name="bulletWidth">@dimen/bullet_width</item>
+        <item name="codeBackground">@color/format_code</item>
+        <item name="codeBackgroundAlpha">75%</item>
+        <item name="codeColor">@color/black</item>
+        <item name="lineSpacingExtra">@dimen/spacing_extra</item>
+        <item name="lineSpacingMultiplier">@dimen/spacing_multiplier</item>
+        <item name="linkColor">?android:attr/textColor</item>
+        <item name="linkUnderline">true</item>
+        <item name="preformatBackground">@color/format_code</item>
+        <item name="preformatBackgroundAlpha">75%</item>
+        <item name="preformatColor">@color/black</item>
+        <item name="quoteBackgroundAlpha">0%</item>
+        <item name="quoteColor">?android:attr/textColor</item>
+        <item name="quoteMargin">@dimen/margin_4</item>
+        <item name="quotePadding">@dimen/quote_padding</item>
+        <item name="quoteWidth">3dp</item>
+        <item name="textColor">?android:attr/textColor</item>
+        <item name="textColorHint">@color/secondary_text_color</item>
+    </style>
+
+    <style name="BottomSheetDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.BottomSheet</item>
+        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.BottomSheet">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/dialog_corner_radius</item>
+        <item name="cornerSizeTopLeft">@dimen/dialog_corner_radius</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.AlertDialogStyle</item>
+        <item name="colorPrimary">?attr/colorAccent</item>
+    </style>
+
+    <style name="TabLayoutStyle" parent="@style/Widget.MaterialComponents.TabLayout">
+        <item name="tabTextColor">@color/secondary_text_color</item>
+        <item name="tabSelectedTextColor">?android:attr/textColor</item>
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/text_size_tiny_extra</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.AlertDialogStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/dialog_corner_radius</item>
+    </style>
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="FormatButtonCheckBoxStyle">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:tint">?attr/colorControlNormal</item>
+        <item name="android:background">@drawable/button_format</item>
+    </style>
+
+    <style name="FormatButtonImageViewStyle">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:tint">?attr/colorControlNormal</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="TextInputStyle" parent="@style/Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="android:textColorHint">@color/secondary_text_color</item>
+        <item name="hintTextColor">@color/secondary_text_color</item>
+        <item name="hintTextAppearance">@style/TextInputLayoutHintStyle</item>
+        <item name="hintAnimationEnabled">false</item>
+        <item name="errorTextColor">@color/error</item>
+        <item name="errorIconDrawable">@null</item>
+    </style>
+
+    <style name="EditTextStyle" parent="@style/Base.Widget.MaterialComponents.TextInputEditText">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColorHint">@color/secondary_text_color</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="TextInputLayoutHintStyle" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+    </style>
+
+    <style name="donate_item_description">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">@dimen/margin_4</item>
+    </style>
+
+    <style name="about_title_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="about_subtitle_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+    </style>
+
+    <style name="NavigationViewStyle">
+        <item name="android:listDivider">?attr/dividerColor</item>
+    </style>
+
+    <style name="OptionTextViewStyle" parent="TextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/margin_16</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:lines">2</item>
+        <item name="android:paddingBottom">@dimen/margin_8</item>
+        <item name="android:paddingEnd">@dimen/margin_16</item>
+        <item name="android:paddingStart">@dimen/margin_16</item>
+        <item name="android:paddingTop">@dimen/margin_8</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+    </style>
+
+    <style name="OutlinedButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">?android:attr/textColor</item>
+        <item name="rippleColor">@color/btn_ripple_color</item>
+        <item name="android:layout_height">56dp</item>
+    </style>
+
+    <style name="TextButtonStyle" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColor</item>
+        <item name="rippleColor">@color/btn_ripple_color</item>
+    </style>
+
+</resources>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryDark"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/height_status_bar">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/closeImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/margin_8"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/margin_8"
+            android:src="@drawable/ic_close"
+            android:tint="?attr/colorControlNormal" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/installProButton"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/installProButton"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:letterSpacing="0.05"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/why_pro"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/margin_16">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_16"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/chart_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:lineSpacingExtra="4sp"
+                    android:paddingTop="@dimen/margin_16"
+                    android:paddingBottom="@dimen/margin_16"
+                    android:text="@string/delete_posts"
+                    android:textSize="@dimen/text_size_tiny" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/margin_16">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_16"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/chart_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:lineSpacingExtra="4sp"
+                    android:paddingTop="@dimen/margin_16"
+                    android:paddingBottom="@dimen/margin_16"
+                    android:text="@string/upload_multiple_images"
+                    android:textSize="@dimen/text_size_tiny" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/margin_16">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_16"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/chart_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:lineSpacingExtra="4sp"
+                    android:paddingTop="@dimen/margin_16"
+                    android:paddingBottom="@dimen/margin_16"
+                    android:text="@string/detailed_viewing_statistics"
+                    android:textSize="@dimen/text_size_tiny" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/margin_16">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_16"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/chart_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:lineSpacingExtra="4sp"
+                    android:paddingTop="@dimen/margin_16"
+                    android:paddingBottom="@dimen/margin_16"
+                    android:text="@string/support_multiple_accounts"
+                    android:textSize="@dimen/text_size_tiny" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/installProButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="@dimen/margin_16"
+        android:backgroundTint="@color/chart_color"
+        android:text="@string/upgrade_to_pro"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
