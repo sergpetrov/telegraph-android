@@ -18,7 +18,19 @@ Telegraph X is Android client for Telegra.ph minimalist publishing tool (made by
 
 * publication views stats
 
-
+* night mode
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+Join the [telegram channel](https://t.me/telegra_ph_x) and you’ll be aware of news, updates, changes and new features.
 
 
 
