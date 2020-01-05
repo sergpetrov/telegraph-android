@@ -1,7 +1,0 @@
-<resources>
-
-    <style name="MainActivityTheme" parent="@style/Theme.AppCompat">
-        <!-- DO NOTHING HERE -->
-    </style>
-
-</resources>
