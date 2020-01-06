@@ -3,7 +3,7 @@ Telegraph X is Android client for Telegra.ph minimalist publishing tool (made by
 
 **[Install on Google Play](https://play.google.com/store/apps/details?id=com.telex)**
 
-## Main features:
+## Main features
 
 * create / edit / delete publications
 
@@ -25,11 +25,12 @@ Telegraph X is Android client for Telegra.ph minimalist publishing tool (made by
   <img src="screenshots/night_mode.png" width="33%"/>
 </p>
 
+## Contribution
+
+Welcome to contribution if you are developer and you want improve app / add a new feature or if you are student and you want to get a development experience.
+
+[Information for contributors](https://github.com/sergpetrov/telegraph-android/wiki/Information-for-contributors)
+
 \
 \
 Join the [telegram channel](https://t.me/telegra_ph_x) and you’ll be aware of news, updates, changes and new features.
-
-
-
-
-
