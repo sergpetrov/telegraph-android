@@ -123,20 +123,6 @@
    <string name="developer_link" translatable="false">"https://github.com/sergpetrov"</string>
    <string name="channel_link" translatable="false">"https://t.me/telegra_ph_x"</string>
 
-   <!-- Donate -->
-   <string name="donate_item1_title" translatable="false">"Coffee"</string>
-   <string name="donate_item1_subtitle" translatable="false">"Buy me a coffee to keeps me awake during my late night coding sessions."</string>
-   <string name="donate_item2_title" translatable="false">"Smoothie"</string>
-   <string name="donate_item2_subtitle" translatable="false">"Buy me a smoothie. This will make my day."</string>
-   <string name="donate_item3_title" translatable="false">"Pizza"</string>
-   <string name="donate_item3_subtitle" translatable="false">"Buy me a pizza. It's my favorite food."</string>
-   <string name="donate_item4_title" translatable="false">"Fancy Meal"</string>
-   <string name="donate_item4_subtitle" translatable="false">"Buy me a meal. I get hungry easily, feed me."</string>
-   <string name="donate_thanks" translatable="false">"Thanks for donating!"</string>
-   <string name="donate_loading" translatable="false">"Loading products…"</string>
-   <string name="support_development" translatable="false">"Support Development"</string>
-   <string name="donate" translatable="false">"Donate"</string>
-
    <!-- Statistics -->
    <string name="statistics">"Statistics"</string>
    <string name="month">"Month"</string>

@@ -32,7 +32,6 @@ class InsertIframeDialogFragment : BaseDialogFragment() {
         val builder = MaterialAlertDialogBuilder(context)
         builder.setView(R.layout.dialog_iframe)
         builder.setTitle(R.string.add_iframe)
-        builder.setMessage(R.string.iframe_hint)
         builder.setNegativeButton(R.string.cancel, null)
         builder.setPositiveButton(R.string.add, null)
         val dialog = builder.create()
