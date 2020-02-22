@@ -2,147 +2,144 @@
 <resources>
     <string name="app_name" translatable="false">"Telegraph X"</string>
     <string name="app_link" translatable="false">"https://play.google.com/store/apps/details?id=com.telex"</string>
+    <string name="app_description">Application for publishing tool <a href="http://telegra.ph">Telegra.ph</a></string>
+    <string name="developer_name" translatable="false">"Sergey Petrov"</string>
+    <string name="developer_email" translatable="false">"s.a.petrov.spb@gmail.com"</string>
+    <string name="developer_link" translatable="false">"https://github.com/sergpetrov"</string>
+    <string name="channel_link" translatable="false">"https://t.me/telegra_ph_x"</string>
+    <string name="ok">"OK"</string>
+    <string name="share_using">"Share using…"</string>
+    <string name="add">"Add"</string>
+    <string name="skip">"Skip"</string>
+    <string name="cancel">"Cancel"</string>
+    <string name="title">"Title"</string>
+    <string name="your_story">"Your story…"</string>
+    <string name="author">"Author"</string>
+    <string name="add_name">"Add name"</string>
+    <string name="empty_content">"Empty content"</string>
+    <string name="choose_action">"Choose action"</string>
+    <string name="choose_action_for_block">"Choose action for block"</string>
+    <string name="duplicate">"Duplicate"</string>
+    <string name="insert_below">"Insert below"</string>
+    <string name="share">"Share"</string>
+    <string name="edit">"Edit"</string>
+    <string name="publish">"Publish"</string>
+    <string name="copy_link">"Copy link"</string>
+    <string name="link_copied">"Link has been copied to the clipboard"</string>
+    <string name="account_name">"Account Name"</string>
+    <string name="author_name">"Author Name"</string>
+    <string name="author_url">"Author Link"</string>
+    <string name="logout">"Logout"</string>
+    <string name="yes">"Yes"</string>
+    <string name="please_wait">"Please wait…"</string>
+    <string name="no_posts">"No Posts"</string>
+    <string name="click_button_to_create_a_new_post">"Click + button to create a new post"</string>
+    <string name="no_drafts">"No Drafts"</string>
+    <string name="drafts_are_storing_on_device_only">"Drafts will be storing on your device only"</string>
+    <string name="login_description">Log in on this device using <b>@Telegraph</b> bot in Telegram and then choose Telegraph X app to continue</string>
+    <string name="launch_telegram">"Launch Telegram"</string>
+    <string name="log_in">"Log in"</string>
+    <plurals name="d_posts">
+        <item quantity="one">"%d post"</item>
+        <item quantity="other">"%d posts"</item>
+    </plurals>
+    <string name="about">"About App"</string>
+    <string name="app_version">"App Version"</string>
+    <string name="contact_us">"Contact with me"</string>
+    <string name="report_bug">"Report bug or request a new feature"</string>
+    <string name="developer">"Developer"</string>
+    <string name="edit_account">"Edit Account"</string>
+    <string name="delete">"Delete"</string>
+    <string name="caption_optional">"Caption (optional)"</string>
+    <string name="url_invalid">"Url Invalid"</string>
+    <string name="invalid">"Invalid"</string>
+    <string name="drafts">"Drafts"</string>
+    <string name="published">"Published"</string>
+    <string name="untitled">"Untitled"</string>
+    <string name="discard_draft">"Discard draft"</string>
+    <string name="delete_post">"Delete post"</string>
+    <string name="insert_image">"Insert image"</string>
+    <string name="from_gallery">"From Gallery"</string>
+    <string name="by_url">"By Url"</string>
+    <string name="official_telegram_channel">"Official Telegram channel"</string>
+    <string name="join_channel">"Join channel and you'll be aware about news, updates, changes and new features"</string>
+    <string name="save_draft">"Save draft"</string>
+    <string name="do_you_want_publish">"Do you want to publish this article?"</string>
+    <string name="delete_post_description">"You won't be able to restore the content."</string>
+    <string name="copy_image_link">"Copy image link"</string>
+    <string name="open">"Open"</string>
+    <string name="night_mode">"Night Mode"</string>
+    <string name="add_account">"Add Account"</string>
+    <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
+    <string name="insert_multiple_images_in_pro">"Install Telegraph X Pro to upload multiple images to the article"</string>
+    <string name="created_with">"Created with "</string>
+    <string name="add_link">"Add link"</string>
+    <string name="delete_link">"Delete link"</string>
+    <string name="add_iframe">"Add iframe"</string>
+    <string name="iframe_hint">"Paste link on YouTube, Vimeo, Twitter or Telegram post"</string>
 
-   <string name="app_description">Application for publishing tool <a href="http://telegra.ph">Telegra.ph</a></string>
-   <string name="ok">"OK"</string>
-   <string name="share_using">"Share using…"</string>
-   <string name="add">"Add"</string>
-   <string name="skip">"Skip"</string>
-   <string name="add_link">"Add link"</string>
-   <string name="delete_link">"Delete link"</string>
-   <string name="add_iframe">Add iframe</string>
-   <string name="iframe_hint">"Paste link on YouTube, Vimeo, Twitter or Telegram post"</string>
-   <string name="cancel">"Cancel"</string>
-   <string name="title">"Title"</string>
-   <string name="your_story">"Your story…"</string>
-   <string name="author">"Author"</string>
-   <string name="add_name">"Add name"</string>
-   <string name="empty_content">"Empty content"</string>
-   <string name="choose_action">"Choose action"</string>
-   <string name="choose_action_for_block">"Choose action for block"</string>
-   <string name="duplicate">"Duplicate"</string>
-   <string name="insert_below">"Insert below"</string>
-   <string name="share">"Share"</string>
-   <string name="edit">"Edit"</string>
-   <string name="publish">"Publish"</string>
-   <string name="copy_link">"Copy link"</string>
-   <string name="link_copied">"Link has been copied to the clipboard"</string>
-   <string name="account_name">"Account Name"</string>
-   <string name="author_name">"Author Name"</string>
-   <string name="author_url">"Author Link"</string>
-   <string name="logout">"Logout"</string>
-   <string name="yes">"Yes"</string>
-   <string name="please_wait">"Please wait…"</string>
-   <string name="no_posts">"No Posts"</string>
-   <string name="click_button_to_create_a_new_post">"Click + button to create a new post"</string>
-   <string name="no_drafts">"No Drafts"</string>
-   <string name="drafts_are_storing_on_device_only">"Drafts will be storing on your device only"</string>
-   <string name="login_description">Log in on this device using <b>@Telegraph</b> bot in Telegram and then choose Telegraph X app to continue</string>
-   <string name="launch_telegram">"Launch Telegram"</string>
-   <string name="log_in">"Log in"</string>
-   <plurals name="d_posts">
-      <item quantity="one">"%d post"</item>
-      <item quantity="other">"%d posts"</item>
-   </plurals>
-   <string name="about">"About App"</string>
-   <string name="app_version">"App Version"</string>
-   <string name="contact_us">"Contact with me"</string>
-   <string name="report_bug">"Report bug or request a new feature"</string>
-   <string name="developer">"Developer"</string>
-   <string name="edit_account">"Edit Account"</string>
-   <string name="delete">"Delete"</string>
-   <string name="caption_optional">"Caption (optional)"</string>
-   <string name="url_invalid">"Url Invalid"</string>
-   <string name="error_app_not_found">"Application not found. Install and try again please."</string>
-   <string name="invalid">"Invalid"</string>
-   <string name="drafts">"Drafts"</string>
-   <string name="published">"Published"</string>
-   <string name="untitled">"Untitled"</string>
-   <string name="discard_draft">"Discard draft"</string>
-   <string name="delete_post">"Delete post"</string>
-   <string name="insert_image">"Insert image"</string>
-   <string name="from_gallery">"From Gallery"</string>
-   <string name="by_url">"By Url"</string>
-   <string name="official_telegram_channel">"Official Telegram channel"</string>
-   <string name="join_channel">"Join channel and you'll be aware about news, updates, changes and new features"</string>
-   <string name="save_draft">"Save draft"</string>
-   <string name="do_you_want_publish">"Do you want to publish this article?"</string>
-   <string name="delete_post_description">"You won't be able to restore the content."</string>
-   <string name="copy_image_link">"Copy image link"</string>
-   <string name="open">"Open"</string>
-   <string name="night_mode">"Night Mode"</string>
-   <string name="add_account">"Add Account"</string>
-   <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
-   <string name="insert_multiple_images_in_pro">"Install Telegraph X Pro to upload multiple images to the article"</string>
-   <string name="created_with">"Created with "</string>
+    <!-- Errors -->
+    <string name="server_error">"Server error"</string>
+    <string name="network_error">"No internet connection"</string>
+    <string name="unknown_error">"Unknown error"</string>
+    <string name="page_access_denied_error">"You can't publish this article from current account"</string>
+    <string name="something_went_wrong">"Something went wrong, try again please"</string>
+    <string name="not_working_proxy_error">"No internet connection. Try to use another proxy server."</string>
+    <string name="upload_in_progress_error">"Upload in progress. Please wait…"</string>
+    <string name="error_app_not_found">"Application not found. Install and try again please."</string>
 
-   <!-- Errors -->
-   <string name="server_error">"Server error"</string>
-   <string name="network_error">"No internet connection"</string>
-   <string name="unknown_error">"Unknown error"</string>
-   <string name="page_access_denied_error">"You can't publish this article from current account"</string>
-   <string name="something_went_wrong">"Something went wrong, try again please"</string>
-   <string name="not_working_proxy_error">"No internet connection. Try to use another proxy server."</string>
-   <string name="upload_in_progress_error">"Upload in progress. Please wait…"</string>
+    <!-- Privacy Policy -->
+    <string name="privacy_policy_description">"By continuing you agree Privacy Policy"</string>
+    <string name="privacy_policy_description_part_to_click">"Privacy Policy"</string>
+    <string name="privacy_policy">"Privacy Policy"</string>
+    <string name="learn_privacy_policy">"Learn Privacy Policy"</string>
 
-  <!-- Privacy Policy -->
-   <string name="privacy_policy_description">"By continuing you agree Privacy Policy"</string>
-   <string name="privacy_policy_description_part_to_click">"Privacy Policy"</string>
-   <string name="privacy_policy">"Privacy Policy"</string>
-   <string name="learn_privacy_policy">"Learn Privacy Policy"</string>
+    <!-- Editor toolbar -->
+    <string name="format_bold">"Bold"</string>
+    <string name="format_heading">"Heading"</string>
+    <string name="format_subheading">"Subheading"</string>
+    <string name="format_italic">"Italic"</string>
+    <string name="format_list_ordered">"Ordered List"</string>
+    <string name="format_list_unordered">"Unordered List"</string>
+    <string name="format_paragraph">"Paragraph"</string>
+    <string name="format_block_quote">"Block Quote"</string>
+    <string name="format_strike">"Strikethrough"</string>
+    <string name="format_underline">"Underline"</string>
+    <string name="format_link">"Link"</string>
+    <string name="format_hr">"Horizontal Rule"</string>
+    <string name="format_embed">"Embed Video or Post"</string>
+    <string name="format_block_move_up">"Move Up Block"</string>
+    <string name="format_block_move_down">"Move Down Block"</string>
 
-   <!-- Editor toolbar -->
-   <string name="format_bold">"Bold"</string>
-   <string name="format_heading">"Heading"</string>
-   <string name="format_subheading">"Subheading"</string>
-   <string name="format_italic">"Italic"</string>
-   <string name="format_list_ordered">"Ordered List"</string>
-   <string name="format_list_unordered">"Unordered List"</string>
-   <string name="format_paragraph">"Paragraph"</string>
-   <string name="format_block_quote">"Block Quote"</string>
-   <string name="format_strike">"Strikethrough"</string>
-   <string name="format_underline">"Underline"</string>
-   <string name="format_link">"Link"</string>
-   <string name="format_hr">"Horizontal Rule"</string>
-   <string name="format_embed">"Embed Video or Post"</string>
-   <string name="format_block_move_up">"Move Up Block"</string>
-   <string name="format_block_move_down">"Move Down Block"</string>
+    <!-- Proxy -->
+    <string name="proxy">"Proxy"</string>
+    <string name="server">"Server"</string>
+    <string name="port">"Port"</string>
+    <string name="username">"Username"</string>
+    <string name="password">"Password"</string>
+    <string name="socks5">"socks5"</string>
+    <string name="http">"http"</string>
+    <string name="proxy_description">"Proxy server may be helpful in accessing Telegraph if there is no connection in a specific region."</string>
 
-   <!-- Proxy -->
-   <string name="proxy">"Proxy"</string>
-   <string name="server">"Server"</string>
-   <string name="port">"Port"</string>
-   <string name="username">"Username"</string>
-   <string name="password">"Password"</string>
-   <string name="socks5">"socks5"</string>
-   <string name="http">"http"</string>
-   <string name="proxy_description">"Proxy server may be helpful in accessing Telegraph if there is no connection in a specific region."</string>
+    <!-- Statistics -->
+    <string name="statistics">"Statistics"</string>
+    <string name="month">"Month"</string>
+    <string name="prev_month">"Prev month"</string>
+    <string name="next_month">"Next month"</string>
+    <string name="prev_year">"Prev year"</string>
+    <string name="next_year">"Next year"</string>
+    <string name="choose_year">"Choose year"</string>
+    <string name="choose_month">"Choose month"</string>
+    <string name="total_views">"Total views"</string>
+    <string name="views">"Views"</string>
 
-   <string name="developer_name" translatable="false">"Sergey Petrov"</string>
-   <string name="developer_email" translatable="false">"s.a.petrov.spb@gmail.com"</string>
-   <string name="developer_link" translatable="false">"https://github.com/sergpetrov"</string>
-   <string name="channel_link" translatable="false">"https://t.me/telegra_ph_x"</string>
-
-   <!-- Statistics -->
-   <string name="statistics">"Statistics"</string>
-   <string name="month">"Month"</string>
-   <string name="prev_month">"Prev month"</string>
-   <string name="next_month">"Next month"</string>
-   <string name="prev_year">"Prev year"</string>
-   <string name="next_year">"Next year"</string>
-   <string name="choose_year">"Choose year"</string>
-   <string name="choose_month">"Choose month"</string>
-   <string name="total_views">"Total views"</string>
-   <string name="views">"Views"</string>
-
-   <!-- Upgrade to Pro -->
-   <string name="upgrade_to_pro">"Upgrade to Pro"</string>
-   <string name="available_in_pro">"Available in Pro"</string>
-   <string name="why_pro">"Upgrade to Telegraph X Pro to support further development and gain access extra great features:"</string>
-   <string name="install_pro_app">"Install Pro"</string>
-   <string name="delete_posts">"Delete unwanted posts."</string>
-   <string name="support_multiple_accounts">Support multiple accounts at the same time.</string>
-   <string name="detailed_viewing_statistics">Detailed statistics of viewing for a selected month/year.</string>
-   <string name="upload_multiple_images">Upload multiple images to the article at the same time.</string>
-
+    <!-- Upgrade to Pro -->
+    <string name="upgrade_to_pro">"Upgrade to Pro"</string>
+    <string name="available_in_pro">"Available in Pro"</string>
+    <string name="why_pro">"Upgrade to Telegraph X Pro to support further development and gain access extra great features:"</string>
+    <string name="install_pro_app">"Install Pro"</string>
+    <string name="delete_posts">"Delete unwanted posts."</string>
+    <string name="support_multiple_accounts">"Support multiple accounts at the same time."</string>
+    <string name="detailed_viewing_statistics">"Detailed statistics of viewing for a selected month/year."</string>
+    <string name="upload_multiple_images">"Upload multiple images to the article at the same time."</string>
 </resources>
