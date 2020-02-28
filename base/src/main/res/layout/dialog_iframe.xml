@@ -7,7 +7,7 @@
     android:paddingStart="@dimen/margin_16"
     android:paddingEnd="@dimen/margin_16">
 
-    <com.telex.presentation.base.UrlTextInputLayout
+    <com.telex.base.presentation.base.UrlTextInputLayout
         android:id="@+id/urlTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,5 +22,5 @@
             android:singleLine="true"
             android:textSize="@dimen/text_size_small" />
 
-    </com.telex.presentation.base.UrlTextInputLayout>
+    </com.telex.base.presentation.base.UrlTextInputLayout>
 </LinearLayout>

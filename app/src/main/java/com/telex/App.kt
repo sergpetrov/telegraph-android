@@ -3,11 +3,12 @@ package com.telex
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.core.CrashlyticsCore
-import com.telex.di.AnalyticsModule
-import com.telex.di.AppModule
+import com.telex.base.BaseApp
+import com.telex.base.di.AnalyticsModule
+import com.telex.base.di.AppModule
+import com.telex.base.di.Scopes
+import com.telex.base.utils.Constants
 import com.telex.di.RemoteConfigModule
-import com.telex.di.Scopes
-import com.telex.utils.Constants
 import com.telex.utils.DebugTree
 import com.telex.utils.ReleaseTree
 import io.fabric.sdk.android.Fabric

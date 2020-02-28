@@ -20,6 +20,29 @@ android {
         preDexLibraries = false
     }
 
+    flavorDimensions "default"
+
+    productFlavors {
+        free {
+        }
+
+        pro {
+        }
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets']
+            java.srcDirs = ['src/main/java']
+        }
+        free {
+            java.srcDirs = ['src/free/java']
+        }
+        pro {
+            java.srcDirs = ['src/pro/java']
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

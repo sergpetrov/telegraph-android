@@ -29,55 +29,55 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/boldFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_bold" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/italicFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_italic" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/strikethroughFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_strikethrough" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/underlineFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_underlined" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/linkButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_insert_link" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/paragraphButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_block_text_subject" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/headingFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_heading" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/subHeadingFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_subheading" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/quoteFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,13 +88,13 @@
                 style="@style/FormatButtonImageViewStyle"
                 android:src="@drawable/ic_image" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/unorderedListFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_format_list_bulleted" />
 
-            <com.telex.ui.FormatToggleButton
+            <com.telex.base.ui.FormatToggleButton
                 android:id="@+id/orderedListFormatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

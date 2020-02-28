@@ -1,5 +1,7 @@
 package com.telex
 
+import com.telex.base.BaseApp
+
 /**
  * @author Sergey Petrov
  */

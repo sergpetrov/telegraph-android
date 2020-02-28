@@ -4,7 +4,7 @@
 
     <application android:name=".App">
         <activity
-            android:name=".presentation.home.LaunchActivity"
+            android:name="com.telex.base.presentation.home.LaunchActivity"
             android:exported="true"
             android:theme="@style/AppTheme.Splash"
             android:windowSoftInputMode="adjustPan">
