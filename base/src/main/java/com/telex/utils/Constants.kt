@@ -10,9 +10,6 @@ object Constants {
     fun isDebug() = BuildConfig.DEBUG
     fun isRelease() = BuildConfig.BUILD_TYPE == "release"
 
-    const val telegraphServer = "telegra.ph"
-    const val graphServer = "graph.org"
-    const val TELEX = "TELEX"
     const val SHARED_DATA = "AUTH_DATA" // don't change this name because user will be unauthorized
 
     const val ERROR_CODE_UNAUTHORIZED = 401
@@ -34,10 +31,34 @@ object Constants {
     val END_OF_BUFFER_MARKER_STRING = Constants.END_OF_BUFFER_MARKER_STRING
     val END_OF_BUFFER_MARKER = Constants.END_OF_BUFFER_MARKER
     val NEWLINE = Constants.NEWLINE
+}
 
-    object ServerConfig {
-        fun apiEndPoint(server: String) = "https://api.$server"
-        fun endPoint(server: String) = "https://$server"
-        fun imageUploadEndPoint(server: String) = "https://$server/upload"
+enum class ServerConfig(val server: String, val apiEndPoint: String, val endPoint: String, val imageUploadEndPoint: String, val authEndPoint: String) {
+    Telegraph(
+            server = "telegra.ph",
+            apiEndPoint = "https://api.telegra.ph",
+            endPoint = "https://telegra.ph",
+            imageUploadEndPoint = "https://telegra.ph/upload",
+            authEndPoint = "telegra.ph"
+    ),
+    Graph(
+            server = "graph.org",
+            apiEndPoint = "https://api.graph.org",
+            endPoint = "https://graph.org",
+            imageUploadEndPoint = "https://graph.org/upload",
+            authEndPoint = "graph.org"
+    ),
+    Legraph(
+            server = "legra.ph",
+            apiEndPoint = "https://api.legra.ph",
+            endPoint = "https://legra.ph",
+            imageUploadEndPoint = "https://te.legra.ph/upload",
+            authEndPoint = "telegra.ph" // TODO because https://edit.legra.ph/auth returns error now
+    );
+
+    companion object {
+        fun getByServer(server: String): ServerConfig {
+            return values().single { it.server == server }
+        }
     }
 }

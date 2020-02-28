@@ -1,8 +1,8 @@
 package com.telex.model.source.local
 
 import android.content.Context
-import com.telex.utils.Constants
 import com.telex.utils.Constants.SHARED_DATA
+import com.telex.utils.ServerConfig
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,7 +17,7 @@ class AppData @Inject constructor(context: Context) {
     fun getCurrentAccessToken(): String? = preferences.getString(ACCESS_TOKEN, null)
     fun putCurrentAccessToken(token: String?) = preferences.edit().putString(ACCESS_TOKEN, token).apply()
 
-    fun getServer(): String = preferences.getString(SERVER, null) ?: Constants.telegraphServer
+    fun getServer(): String = preferences.getString(SERVER, null) ?: ServerConfig.Telegraph.server
     fun putServer(server: String) = preferences.edit().putString(SERVER, server).apply()
 
     fun needShowAddAccountDialog(): Boolean = preferences.getBoolean(NEED_SHOW_ADD_ACCOUNT_DIALOG, true)

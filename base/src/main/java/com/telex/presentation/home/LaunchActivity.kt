@@ -28,7 +28,7 @@ class LaunchActivity : BaseActivity(), LaunchView {
         setupStatusBar()
         router.setup(supportFragmentManager)
 
-        presenter.login(intent.data)
+        presenter.launch(intent.data)
     }
 
     override fun onResume() {

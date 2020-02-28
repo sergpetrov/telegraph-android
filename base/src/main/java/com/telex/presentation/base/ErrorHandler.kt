@@ -2,6 +2,8 @@ package com.telex.presentation.base
 
 import android.content.res.Resources
 import com.telex.R
+import com.telex.exceptions.ProxyConnectionException
+import com.telex.exceptions.TelegraphUnavailableException
 import com.telex.extention.userMessage
 import com.telex.model.interactors.UserInteractor
 import com.telex.model.system.ServerManager
@@ -39,8 +41,10 @@ class ErrorHandler @Inject constructor(
 
         if (error !is IOException) {
             Timber.e(error)
-        } else if (serverManager.isUserProxyServerEnabled()) {
+        } else if (error is ProxyConnectionException) {
             message = resources.getString(R.string.not_working_proxy_error)
+        } else if (error is TelegraphUnavailableException) {
+            message = resources.getString(R.string.telegraph_unavailable_error)
         }
 
         messageListener(message)

@@ -80,11 +80,12 @@
 
     <!-- Errors -->
     <string name="server_error">"Server error"</string>
-    <string name="network_error">"No internet connection"</string>
+    <string name="network_error">"No connection"</string>
     <string name="unknown_error">"Unknown error"</string>
     <string name="page_access_denied_error">"You can't publish this article from current account"</string>
     <string name="something_went_wrong">"Something went wrong, try again please"</string>
-    <string name="not_working_proxy_error">"No internet connection. Try to use another proxy server."</string>
+    <string name="not_working_proxy_error">"No connection. Try to use another proxy server."</string>
+    <string name="telegraph_unavailable_error">"It seems Telegraph unavailable in your region. Try to use VPN or proxy server."</string>
     <string name="upload_in_progress_error">"Upload in progress. Please wait…"</string>
     <string name="error_app_not_found">"Application not found. Install and try again please."</string>
 

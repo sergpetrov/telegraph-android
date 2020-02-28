@@ -1,7 +1,7 @@
 package com.telex.model.source.remote.interceptor
 
 import com.telex.model.system.ServerManager
-import com.telex.utils.Constants
+import com.telex.utils.ServerConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -10,15 +10,23 @@ import okhttp3.Response
  */
 class GlideInterceptor(private val serverManager: ServerManager) : Interceptor {
 
+    private val wrongTelegraphServer = "a-telegraph.stel.com"
+
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        if (request.url().host() == Constants.telegraphServer &&
+        if ((request.url().host() == ServerConfig.Telegraph.server || request.url().host() == wrongTelegraphServer) &&
                 !serverManager.isUserProxyServerEnabled() &&
-                serverManager.getCurrentServer() == Constants.graphServer
+                serverManager.getCurrentServerConfig() != ServerConfig.Telegraph
         ) {
             request = request
                     .newBuilder()
-                    .url(request.url().toString().replace(Constants.telegraphServer, Constants.graphServer))
+                    .apply {
+                        if (request.url().toString().contains(wrongTelegraphServer)) {
+                            url(request.url().toString().replace(wrongTelegraphServer, serverManager.getCurrentServerConfig().server))
+                        } else {
+                            url(request.url().toString().replace(ServerConfig.Telegraph.server, serverManager.getCurrentServerConfig().server))
+                        }
+                    }
                     .build()
         }
         return chain.proceed(request)
