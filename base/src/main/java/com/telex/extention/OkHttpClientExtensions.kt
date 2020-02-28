@@ -13,6 +13,7 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 import okhttp3.OkHttpClient
+import timber.log.Timber
 
 /**
  * @author Sergey Petrov
@@ -40,23 +41,27 @@ fun OkHttpClient.Builder.withProxy(proxyServer: ProxyServer?): OkHttpClient.Buil
     return this
 }
 
-fun OkHttpClient.Builder.ignoreSSL(): OkHttpClient.Builder {
-    val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
-        override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
+fun OkHttpClient.Builder.ignoreSSLCertificateException(): OkHttpClient.Builder {
+    try {
+        val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+            override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
 
-        @Throws(CertificateException::class)
-        override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {
+            @Throws(CertificateException::class)
+            override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {
+            }
+
+            @Throws(CertificateException::class)
+            override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {
+            }
+        })
+
+        val sslContext = SSLContext.getInstance("SSL").apply {
+            init(null, trustAllCerts, SecureRandom())
         }
-
-        @Throws(CertificateException::class)
-        override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {
-        }
-    })
-
-    val sslContext = SSLContext.getInstance("SSL").apply {
-        init(null, trustAllCerts, SecureRandom())
+        sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
+        hostnameVerifier { _, _ -> true }
+    } catch (error: Exception) {
+        Timber.e(error)
     }
-    sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
-    hostnameVerifier { _, _ -> true }
     return this
 }

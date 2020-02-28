@@ -23,8 +23,10 @@ class UserInteractor @Inject constructor(
     val currentAccountId: String?
         get() = userRepository.currentAccountIdNullable
 
-    fun login(oauthUrl: String): Completable = userRepository.login(oauthUrl)
-            .withDefaults()
+    fun login(oauthUrl: String): Completable {
+        return userRepository.login(oauthUrl)
+                .withDefaults()
+    }
 
     fun logout(): Completable {
         return Single.fromCallable {

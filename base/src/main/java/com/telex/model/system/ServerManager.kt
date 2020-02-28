@@ -6,6 +6,9 @@ import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader
 import com.bumptech.glide.load.model.GlideUrl
 import com.google.gson.Gson
 import com.telex.BuildConfig
+import com.telex.exceptions.ProxyConnectionException
+import com.telex.exceptions.TelegraphUnavailableException
+import com.telex.extention.ignoreSSLCertificateException
 import com.telex.extention.withDefaults
 import com.telex.extention.withProxy
 import com.telex.model.source.local.AppData
@@ -13,12 +16,21 @@ import com.telex.model.source.local.ProxyServer
 import com.telex.model.source.remote.interceptor.AuthInterceptor
 import com.telex.model.source.remote.interceptor.ErrorsInterceptor
 import com.telex.model.source.remote.interceptor.GlideInterceptor
-import com.telex.utils.Constants
+import com.telex.utils.ServerConfig
+import io.reactivex.Completable
+import java.io.IOException
 import java.io.InputStream
+import java.net.Authenticator
+import java.net.HttpURLConnection
+import java.net.InetSocketAddress
+import java.net.PasswordAuthentication
+import java.net.Proxy
+import java.net.URL
 import javax.inject.Inject
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import timber.log.Timber
 
 /**
  * @author Sergey Petrov
@@ -37,25 +49,72 @@ class ServerManager @Inject constructor(
     }
 
     fun getApiEndPoint(): String {
-        return Constants.ServerConfig.apiEndPoint(appData.getServer())
+        return getCurrentServerConfig().apiEndPoint
     }
 
     fun getEndPoint(): String {
-        return Constants.ServerConfig.endPoint(appData.getServer())
+        return getCurrentServerConfig().endPoint
     }
 
     fun getImageUploadEndPoint(): String {
-        return Constants.ServerConfig.imageUploadEndPoint(appData.getServer())
+        return getCurrentServerConfig().imageUploadEndPoint
     }
 
-    fun getCurrentServer(): String {
-        return appData.getServer()
+    fun getCurrentServerConfig(): ServerConfig {
+        return ServerConfig.getByServer(appData.getServer())
     }
 
-    fun changeServer() {
-        appData.putServer(Constants.graphServer)
-        endPoint = getEndPoint()
-        isServerConfigChanged = true
+    fun checkAvailableServer(): Completable {
+        return Completable.fromCallable {
+            val server = findAvailableServer()
+            if (server != null) {
+                appData.putServer(server)
+                endPoint = getEndPoint()
+                isServerConfigChanged = true
+            } else {
+                if (isUserProxyServerEnabled()) {
+                    throw ProxyConnectionException()
+                } else {
+                    throw TelegraphUnavailableException()
+                }
+            }
+        }
+    }
+
+    private fun findAvailableServer(): String? {
+        var connection: HttpURLConnection? = null
+
+        ServerConfig.values().forEach { config ->
+            try {
+                val userProxyServer = getUserProxyServer()
+                val proxyServer = if (userProxyServer != null && userProxyServer.enabled) userProxyServer else null
+                val proxy =
+                        if (proxyServer != null) {
+                            Authenticator.setDefault(object : Authenticator() {
+                                override fun getPasswordAuthentication(): PasswordAuthentication {
+                                    return PasswordAuthentication(proxyServer.user, proxyServer.password?.toCharArray())
+                                }
+                            })
+                            Proxy(Proxy.Type.valueOf(proxyServer.type.name), InetSocketAddress.createUnresolved(proxyServer.host, proxyServer.port))
+                        } else null
+
+                val url = URL(config.endPoint)
+                connection = if (proxy != null) {
+                    url.openConnection(proxy)
+                } else {
+                    url.openConnection()
+                } as HttpURLConnection
+
+                connection?.connectTimeout = 2000
+                connection?.connect()
+                return config.server
+            } catch (error: IOException) {
+                Timber.d(error)
+            } finally {
+                connection?.disconnect()
+            }
+        }
+        return null
     }
 
     fun isUserProxyServerEnabled(): Boolean {
@@ -106,7 +165,7 @@ class ServerManager @Inject constructor(
             }
             addInterceptor(ErrorsInterceptor())
             addNetworkInterceptor(AuthInterceptor(appData))
-
+            ignoreSSLCertificateException()
             build()
         }
     }
@@ -116,6 +175,7 @@ class ServerManager @Inject constructor(
             withDefaults()
             withProxy(getUserProxyServer())
             addInterceptor(GlideInterceptor(this@ServerManager))
+            ignoreSSLCertificateException()
             build()
         }
     }

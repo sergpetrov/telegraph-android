@@ -1,13 +1,16 @@
 package com.telex.presentation.home
 
 import android.net.Uri
+import com.telex.extention.withDefaults
 import com.telex.model.interactors.PageInteractor
 import com.telex.model.interactors.UserInteractor
+import com.telex.model.system.ServerManager
 import com.telex.presentation.base.BasePresenter
 import com.telex.presentation.base.ErrorHandler
 import io.reactivex.Completable
 import javax.inject.Inject
 import moxy.InjectViewState
+import timber.log.Timber
 
 /**
  * @author Sergey Petrov
@@ -16,39 +19,44 @@ import moxy.InjectViewState
 class LaunchPresenter @Inject constructor(
     private val userInteractor: UserInteractor,
     private val pageInteractor: PageInteractor,
+    private val serverManager: ServerManager,
     errorHandler: ErrorHandler
 ) : BasePresenter<LaunchView>(errorHandler) {
 
-    fun login(uri: Uri?) {
-        when {
-            uri != null -> {
-                val oauthUrl = uri.toString()
-                if (oauthUrl.isNotEmpty()) {
-                    userInteractor.login(oauthUrl)
-                            .doOnError { viewState.showNext() }
-                            .andThen(
-                                    userInteractor.refreshCurrentAccount()
-                                            .flatMapCompletable { refreshPages() }
-                            )
-                            .compositeSubscribe()
-                }
+    fun launch(uri: Uri?) {
+        serverManager.checkAvailableServer()
+                .withDefaults()
+                .andThen(login(uri))
+                .doOnError { viewState.showNext() }
+                .compositeSubscribe()
+    }
+
+    private fun login(uri: Uri?): Completable {
+        val oauthUrl = uri.toString()
+
+        return when {
+            uri != null && oauthUrl.isNotEmpty() -> {
+                userInteractor.login(oauthUrl)
+                        .onErrorResumeNext { error ->
+                            Timber.e(error, "Error during login oauthUrl=$oauthUrl")
+                            refreshCurrentAccountAndPages()
+                        }
+                        .andThen(refreshCurrentAccountAndPages())
             }
 
-            userInteractor.isTokenValid() -> {
-                userInteractor.refreshCurrentAccount()
-                        .doOnError { viewState.showNext() }
-                        .flatMapCompletable { refreshPages() }
-                        .compositeSubscribe()
-            }
+            userInteractor.isTokenValid() -> refreshCurrentAccountAndPages()
 
             else -> {
-                viewState.onLogout()
+                Completable.fromCallable {
+                    viewState.onLogout()
+                }.withDefaults()
             }
         }
     }
 
-    private fun refreshPages(): Completable {
-        return pageInteractor.loadPages(offset = 0)
+    private fun refreshCurrentAccountAndPages(): Completable {
+        return userInteractor.refreshCurrentAccount()
+                .flatMapCompletable { pageInteractor.loadPages(offset = 0) }
                 .doOnSubscribe { viewState.showProgress(true) }
                 .doOnError { viewState.showProgress(false) }
                 .doOnComplete { viewState.showNext() }

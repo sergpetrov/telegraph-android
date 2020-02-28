@@ -8,14 +8,13 @@ import com.telex.model.source.local.entity.User
 import com.telex.model.source.remote.UserRemoteDataSource
 import com.telex.model.source.remote.data.UserData
 import com.telex.model.system.ServerManager
-import com.telex.utils.Constants
+import com.telex.utils.ServerConfig
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.subjects.PublishSubject
-import java.io.IOException
 import javax.inject.Inject
 
 /**
@@ -41,12 +40,6 @@ class UserRepository @Inject constructor(
 
     fun refreshCurrentAccount(): Single<User> {
         return userRemoteDataSource.getAccountInfo()
-                .onErrorResumeNext { error ->
-                    if (error is IOException) {
-                        serverManager.changeServer()
-                        userRemoteDataSource.getAccountInfo()
-                    } else Single.error(error)
-                }
                 .map { userData ->
                     val user = userLocalDataSource.getUserByAccountName(userData.accountName)
                     if (user != null) {
@@ -95,18 +88,10 @@ class UserRepository @Inject constructor(
 
     fun login(oauthUrl: String): Completable {
         return userRemoteDataSource.login(changeOAuthUrlIfNeeded(oauthUrl))
-                .onErrorResumeNext { error ->
-                    if (error is IOException) {
-                        serverManager.changeServer()
-                        userRemoteDataSource.login(changeOAuthUrlIfNeeded(oauthUrl))
-                    } else Completable.error(error)
-                }
     }
 
     private fun changeOAuthUrlIfNeeded(oauthUrl: String): String {
-        return if (serverManager.getEndPoint().contains(Constants.graphServer)) {
-            oauthUrl.replace(Constants.telegraphServer, Constants.graphServer)
-        } else oauthUrl
+        return oauthUrl.replace(ServerConfig.Telegraph.authEndPoint, serverManager.getCurrentServerConfig().authEndPoint)
     }
 
     private fun convertUser(user: User, data: UserData): User {

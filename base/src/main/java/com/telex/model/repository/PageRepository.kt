@@ -9,14 +9,12 @@ import com.telex.model.source.local.entity.Page.Companion.OLD_DELETED_TITLE
 import com.telex.model.source.remote.PageRemoteDataSource
 import com.telex.model.source.remote.data.NodeElementData
 import com.telex.model.source.remote.data.PageData
-import com.telex.model.system.ServerManager
 import id.zelory.compressor.Compressor
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.io.File
-import java.io.IOException
 import java.util.UUID
 import javax.inject.Inject
 import kotlin.collections.LinkedHashMap
@@ -28,8 +26,7 @@ class PageRepository @Inject constructor(
     private val pageLocalDataSource: PageLocalDataSource,
     private val pageRemoteDataSource: PageRemoteDataSource,
     private val userRepository: UserRepository,
-    private val imageCompressor: Compressor,
-    private val serverManager: ServerManager
+    private val imageCompressor: Compressor
 ) {
 
     private val currentAccountId: String
@@ -144,12 +141,6 @@ class PageRepository @Inject constructor(
         return imageCompressor.compressToFileAsFlowable(file, file.name + "_compressed").toObservable()
                 .flatMap {
                     pageRemoteDataSource.uploadImage(it)
-                            .onErrorResumeNext { error: Throwable ->
-                                if (error is IOException) {
-                                    serverManager.changeServer()
-                                    pageRemoteDataSource.uploadImage(it)
-                                } else Observable.error(error)
-                            }
                 }
     }
 

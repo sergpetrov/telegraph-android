@@ -74,8 +74,9 @@
 
     <!-- Errors -->
     <string name="server_error">Ошибка сервера</string>
-    <string name="network_error">Нет соединения с интернетом</string>
-    <string name="not_working_proxy_error">Нет соединения с интернетом. Попробуйте использовать другой прокси-сервер.</string>
+    <string name="network_error">Не удалось подключиться</string>
+    <string name="not_working_proxy_error">Не удалось подключиться. Попробуйте использовать другой прокси-сервер.</string>
+    <string name="telegraph_unavailable_error">"Кажется Telegraph недоступен в вашем регионе. Попробуйте использовать VPN или прокси-сервер."</string>
     <string name="unknown_error">Неизвестная ошибка</string>
     <string name="page_access_denied_error">Вы не можете опубликовать эту статью из текущего аккаунта</string>
     <string name="something_went_wrong">Что-то пошло не так, пожалуйста, попробуйте еще раз</string>
@@ -92,8 +93,8 @@
     <string name="format_heading">Заголовок</string>
     <string name="format_subheading">Подзаголовок</string>
     <string name="format_italic">Курсивный</string>
-    <string name="format_list_ordered">Нумеровнный список</string>
-    <string name="format_list_unordered">Ненумеровнный список</string>
+    <string name="format_list_ordered">Нумерованный список</string>
+    <string name="format_list_unordered">Ненумерованный список</string>
     <string name="format_paragraph">Параграф</string>
     <string name="format_block_quote">Цитата</string>
     <string name="format_strike">Зачеркнутый</string>
