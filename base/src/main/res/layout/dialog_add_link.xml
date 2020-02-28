@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="@dimen/margin_16">
 
-    <com.telex.presentation.base.UrlTextInputLayout
+    <com.telex.base.presentation.base.UrlTextInputLayout
         android:id="@+id/urlTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +20,6 @@
             android:inputType="textUri"
             android:singleLine="true" />
 
-    </com.telex.presentation.base.UrlTextInputLayout>
+    </com.telex.base.presentation.base.UrlTextInputLayout>
 
 </LinearLayout>

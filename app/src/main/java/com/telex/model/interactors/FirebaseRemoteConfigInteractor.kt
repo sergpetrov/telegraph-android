@@ -6,10 +6,11 @@ import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.telex.BuildConfig
 import com.telex.R
-import com.telex.model.interactors.RemoteConfigInteractor.Companion.CACHE_EXPIRATION
-import com.telex.model.interactors.RemoteConfigInteractor.Companion.CREATED_WITH_CAPTION_DISABLED
-import com.telex.model.interactors.RemoteConfigInteractor.Companion.TOP_BANNER
-import com.telex.model.source.remote.data.TopBannerData
+import com.telex.base.model.interactors.RemoteConfigInteractor
+import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.CACHE_EXPIRATION
+import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.CREATED_WITH_CAPTION_DISABLED
+import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.TOP_BANNER
+import com.telex.base.model.source.remote.data.TopBannerData
 import timber.log.Timber
 
 /**

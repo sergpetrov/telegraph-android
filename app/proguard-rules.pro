@@ -39,8 +39,8 @@
 -dontwarn sun.misc.**
 -keep class com.google.gson.stream.** { *; }
 # Application classes that will be serialized/deserialized over Gson
--keep class com.telex.model.source.remote.data.** { *; }
--keep class com.telex.model.source.local.** { *; }
+-keep class com.telex.base.model.source.remote.data.** { *; }
+-keep class com.telex.base.model.source.local.** { *; }
 # Prevent proguard from stripping interface information from TypeAdapterFactory,
 # JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
 -keep class * implements com.google.gson.TypeAdapterFactory
@@ -95,6 +95,7 @@
 
 -keepnames class * { @javax.inject.Inject <init>(...); }
 
+-keepclassmembers enum * { *; }
 
 # ===== Aztec =====
 
