@@ -6,6 +6,9 @@ import com.crashlytics.android.Crashlytics
 import com.telex.base.exceptions.NoNetworkConnectionException
 import com.telex.base.exceptions.ProxyConnectionException
 import java.io.IOException
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import timber.log.Timber
 
 /**
@@ -29,6 +32,9 @@ class ReleaseTree : Timber.Tree() {
     companion object {
         private val IGNORED_ERRORS =
                 arrayListOf(
+                        ConnectException::class.java,
+                        UnknownHostException::class.java,
+                        SocketTimeoutException::class.java,
                         ProxyConnectionException::class.java,
                         NoNetworkConnectionException::class.java
                 )

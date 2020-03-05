@@ -1,10 +1,13 @@
 package com.telex.base.extention
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Build
 import android.text.Html
 import android.util.Patterns
@@ -22,6 +25,7 @@ import android.widget.ImageView
 import androidx.annotation.AttrRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.core.content.PermissionChecker
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -247,4 +251,34 @@ fun View.elevateOnScroll(recyclerView: RecyclerView) {
                 }
             }
     )
+}
+
+@Suppress("DEPRECATION")
+fun Context.isOnline(): Boolean {
+    if (isPermissionsGranted(Manifest.permission.ACCESS_NETWORK_STATE)) {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            return if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                    else -> false
+                }
+            } else false
+        } else {
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo ?: return false
+            return activeNetworkInfo.isConnected
+        }
+    } else return false
+}
+
+fun Context.isPermissionsGranted(vararg permissions: String): Boolean {
+    permissions.forEach { permission ->
+        if (PermissionChecker.checkSelfPermission(this, permission) != PermissionChecker.PERMISSION_GRANTED) {
+            return false
+        }
+    }
+    return true
 }
