@@ -8,9 +8,9 @@ import android.os.Bundle
 import com.telex.base.R
 import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.di.Scopes
-import com.telex.base.model.system.ServerManager
 import com.telex.base.presentation.base.BaseOptionsFragment
 import com.telex.base.presentation.page.EditorMode
+import com.telex.base.utils.ServerConfig
 import com.telex.base.utils.ViewUtils.Companion.copyToClipboard
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
@@ -34,7 +34,7 @@ class PageOptionsFragment : BaseOptionsFragment(), PageOptionsView {
         arguments?.getBoolean(PAGE_IS_DRAFT) ?: throw IllegalArgumentException("draft can't be null")
     }
     private val pageUrl: String
-        get() = "${ServerManager.endPoint}/$pagePath"
+        get() = "${ServerConfig.Telegraph.endPoint}/$pagePath"
 
     @InjectPresenter
     lateinit var presenter: PageOptionsPresenter

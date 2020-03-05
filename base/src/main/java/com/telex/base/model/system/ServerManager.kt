@@ -10,13 +10,13 @@ import com.telex.base.exceptions.NoNetworkConnectionException
 import com.telex.base.exceptions.ProxyConnectionException
 import com.telex.base.exceptions.TelegraphUnavailableException
 import com.telex.base.extention.ignoreSSLCertificateException
+import com.telex.base.extention.isOnline
 import com.telex.base.extention.withDefaults
 import com.telex.base.model.source.local.AppData
 import com.telex.base.model.source.local.ProxyServer
 import com.telex.base.model.source.remote.interceptor.AuthInterceptor
 import com.telex.base.model.source.remote.interceptor.ErrorsInterceptor
 import com.telex.base.model.source.remote.interceptor.GlideInterceptor
-import com.telex.base.utils.NetworkUtils
 import com.telex.base.utils.ServerConfig
 import io.reactivex.Completable
 import java.io.IOException
@@ -66,49 +66,64 @@ class ServerManager @Inject constructor(
     }
 
     fun checkAvailableServer(): Completable {
-        return Completable.fromCallable {
-            if (NetworkUtils.hasNetwork(context)) {
-                val server = findAvailableServer()
-                if (server != null) {
-                    appData.putServer(server)
-                    endPoint = getEndPoint()
-                    isServerConfigChanged = true
-                } else {
-                    if (isUserProxyServerEnabled()) {
-                        throw ProxyConnectionException()
+        return Completable.create { emitter ->
+            if (!emitter.isDisposed) {
+                if (context.isOnline()) {
+                    val config = findAvailableServer()
+                    if (config != null) {
+                        appData.putServer(config.server)
+                        endPoint = getEndPoint()
+                        isServerConfigChanged = true
+                        emitter.onComplete()
                     } else {
-                        throw TelegraphUnavailableException()
+                        val error = when {
+                            isUserProxyServerEnabled() -> ProxyConnectionException()
+                            else -> TelegraphUnavailableException()
+                        }
+                        emitter.onError(error)
                     }
+                } else {
+                    emitter.onError(NoNetworkConnectionException())
                 }
-            } else {
-                throw NoNetworkConnectionException()
             }
         }
     }
 
-    private fun findAvailableServer(): String? {
-        var connection: HttpURLConnection? = null
-
-        ServerConfig.values().forEach { config ->
-            try {
-                val proxy = configureProxy(getUserProxyServer())
-                val url = URL(config.endPoint)
-                connection = if (proxy != null) {
-                    url.openConnection(proxy)
-                } else {
-                    url.openConnection()
-                } as HttpURLConnection
-
-                connection?.connectTimeout = 2000
-                connection?.connect()
-                return config.server
-            } catch (error: IOException) {
-                Timber.d(error)
-            } finally {
-                connection?.disconnect()
+    private fun findAvailableServer(): ServerConfig? {
+        val currentServerConfig = getCurrentServerConfig()
+        return when {
+            isServerAvailable(currentServerConfig) -> currentServerConfig
+            else -> {
+                ServerConfig.values().forEach { config ->
+                    if (config != currentServerConfig && isServerAvailable(config)) {
+                        return config
+                    }
+                }
+                null
             }
         }
-        return null
+    }
+
+    private fun isServerAvailable(config: ServerConfig): Boolean {
+        var connection: HttpURLConnection? = null
+        try {
+            val proxy = configureProxy(getUserProxyServer())
+            val url = URL(config.endPoint)
+            connection = if (proxy != null) {
+                url.openConnection(proxy)
+            } else {
+                url.openConnection()
+            } as HttpURLConnection
+
+            connection.connectTimeout = 5000
+            connection.connect()
+            return true
+        } catch (error: IOException) {
+            Timber.e(error)
+        } finally {
+            connection?.disconnect()
+        }
+        return false
     }
 
     fun isUserProxyServerEnabled(): Boolean {

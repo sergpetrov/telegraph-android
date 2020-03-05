@@ -91,7 +91,7 @@ class UserRepository @Inject constructor(
     }
 
     private fun changeOAuthUrlIfNeeded(oauthUrl: String): String {
-        return oauthUrl.replace(ServerConfig.Telegraph.authEndPoint, serverManager.getCurrentServerConfig().authEndPoint)
+        return oauthUrl.replace(ServerConfig.Telegraph.server, serverManager.getCurrentServerConfig().server)
     }
 
     private fun convertUser(user: User, data: UserData): User {

@@ -33,27 +33,29 @@ object Constants {
     val NEWLINE = Constants.NEWLINE
 }
 
-enum class ServerConfig(val server: String, val apiEndPoint: String, val endPoint: String, val imageUploadEndPoint: String, val authEndPoint: String) {
+enum class ServerConfig(
+    val server: String,
+    val apiEndPoint: String,
+    val endPoint: String,
+    val imageUploadEndPoint: String
+) {
     Telegraph(
             server = "telegra.ph",
             apiEndPoint = "https://api.telegra.ph",
             endPoint = "https://telegra.ph",
-            imageUploadEndPoint = "https://telegra.ph/upload",
-            authEndPoint = "telegra.ph"
+            imageUploadEndPoint = "https://telegra.ph/upload"
     ),
     Graph(
             server = "graph.org",
             apiEndPoint = "https://api.graph.org",
             endPoint = "https://graph.org",
-            imageUploadEndPoint = "https://graph.org/upload",
-            authEndPoint = "graph.org"
+            imageUploadEndPoint = "https://graph.org/upload"
     ),
     Legraph(
             server = "legra.ph",
             apiEndPoint = "https://api.legra.ph",
             endPoint = "https://legra.ph",
-            imageUploadEndPoint = "https://te.legra.ph/upload",
-            authEndPoint = "telegra.ph" // TODO because https://edit.legra.ph/auth returns error now
+            imageUploadEndPoint = "https://te.legra.ph/upload"
     );
 
     companion object {

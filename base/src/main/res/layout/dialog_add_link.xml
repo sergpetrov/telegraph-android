@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:inputType="textUri"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="@dimen/text_size_small" />
 
     </com.telex.base.presentation.base.UrlTextInputLayout>
 

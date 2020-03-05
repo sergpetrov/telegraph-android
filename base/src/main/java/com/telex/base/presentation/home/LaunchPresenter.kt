@@ -25,8 +25,9 @@ class LaunchPresenter @Inject constructor(
 
     fun launch(uri: Uri?) {
         serverManager.checkAvailableServer()
-                .withDefaults()
+                .retry(1)
                 .andThen(login(uri))
+                .withDefaults()
                 .doOnError { viewState.showNext() }
                 .compositeSubscribe()
     }
