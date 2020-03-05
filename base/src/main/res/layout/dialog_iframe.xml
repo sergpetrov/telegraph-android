@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="@dimen/margin_16"
-    android:paddingEnd="@dimen/margin_16">
+    android:padding="@dimen/margin_16">
 
     <com.telex.base.presentation.base.UrlTextInputLayout
         android:id="@+id/urlTextInputLayout"
