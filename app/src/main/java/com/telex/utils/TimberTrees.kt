@@ -9,6 +9,7 @@ import java.io.IOException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import javax.net.ssl.SSLHandshakeException
 import timber.log.Timber
 
 /**
@@ -32,6 +33,7 @@ class ReleaseTree : Timber.Tree() {
     companion object {
         private val IGNORED_ERRORS =
                 arrayListOf(
+                        SSLHandshakeException::class.java,
                         ConnectException::class.java,
                         UnknownHostException::class.java,
                         SocketTimeoutException::class.java,
