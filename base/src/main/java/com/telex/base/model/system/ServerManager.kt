@@ -67,24 +67,22 @@ class ServerManager @Inject constructor(
 
     fun checkAvailableServer(): Completable {
         return Completable.create { emitter ->
-            if (!emitter.isDisposed) {
-                if (context.isOnline()) {
-                    val config = findAvailableServer()
-                    if (config != null) {
-                        appData.putServer(config.server)
-                        endPoint = getEndPoint()
-                        isServerConfigChanged = true
-                        emitter.onComplete()
-                    } else {
-                        val error = when {
-                            isUserProxyServerEnabled() -> ProxyConnectionException()
-                            else -> TelegraphUnavailableException()
-                        }
-                        emitter.onError(error)
-                    }
+            if (context.isOnline()) {
+                val config = findAvailableServer()
+                if (config != null) {
+                    appData.putServer(config.server)
+                    endPoint = getEndPoint()
+                    isServerConfigChanged = true
+                    emitter.onComplete()
                 } else {
-                    emitter.onError(NoNetworkConnectionException())
+                    val error = when {
+                        isUserProxyServerEnabled() -> ProxyConnectionException()
+                        else -> TelegraphUnavailableException()
+                    }
+                    emitter.tryOnError(error)
                 }
+            } else {
+                emitter.tryOnError(NoNetworkConnectionException())
             }
         }
     }
