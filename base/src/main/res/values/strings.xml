@@ -7,6 +7,7 @@
     <string name="developer_email" translatable="false">"s.a.petrov.spb@gmail.com"</string>
     <string name="developer_link" translatable="false">"https://github.com/sergpetrov"</string>
     <string name="channel_link" translatable="false">"https://t.me/telegra_ph_x"</string>
+    <string name="page_item_view_shared_element" translatable="false">pageItemView_%s</string>
     <string name="ok">"OK"</string>
     <string name="share_using">"Share using…"</string>
     <string name="add">"Add"</string>

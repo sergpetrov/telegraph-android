@@ -1,5 +1,7 @@
 package com.telex.base.extention
 
+import okhttp3.OkHttpClient
+import timber.log.Timber
 import java.security.SecureRandom
 import java.security.cert.CertificateException
 import java.security.cert.X509Certificate
@@ -7,8 +9,6 @@ import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
-import okhttp3.OkHttpClient
-import timber.log.Timber
 
 /**
  * @author Sergey Petrov

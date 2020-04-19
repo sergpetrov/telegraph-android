@@ -4,10 +4,9 @@
 
     <application android:name=".App">
         <activity
-            android:name="com.telex.base.presentation.home.LaunchActivity"
+            android:name=".base.presentation.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/AppTheme.Splash"
-            android:windowSoftInputMode="adjustPan">
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +20,7 @@
 
                 <data android:scheme="https" />
                 <data android:host="edit.graph.org" />
+                <data android:host="edit.legra.ph" />
                 <data android:host="edit.telegra.ph" />
             </intent-filter>
         </activity>

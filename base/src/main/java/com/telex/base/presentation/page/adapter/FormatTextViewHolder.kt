@@ -134,11 +134,11 @@ class FormatTextViewHolder(
                 true
             }
 
-            val editTextState = editTextStates[format.uid]
+            val editTextState = editTextStates[format.id]
             if (editTextState != null) {
                 // it's needed to restore cursor position after toggle block style
                 editText.onRestoreInstanceState(editTextState)
-                editTextStates.remove(format.uid)
+                editTextStates.remove(format.id)
             } else {
                 editText.fromHtml(item.toHtml(), isInit = false)
             }
@@ -157,7 +157,7 @@ class FormatTextViewHolder(
             LINK -> showLinkDialog()
             else -> {
                 toggleFormatType(formatType)
-                editTextStates[format.uid] = itemView.editText.onSaveInstanceState()
+                editTextStates[format.id] = itemView.editText.onSaveInstanceState()
                 updateHtml(itemView.editText.toHtml())
             }
         }

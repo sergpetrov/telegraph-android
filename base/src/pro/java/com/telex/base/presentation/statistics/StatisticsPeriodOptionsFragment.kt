@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.ContextThemeWrapper
-import androidx.fragment.app.FragmentManager
 import com.telex.base.R
 import com.telex.base.presentation.base.BaseBottomSheetFragment
 import com.telex.base.utils.DateUtils
@@ -57,10 +56,6 @@ class StatisticsPeriodOptionsFragment : BaseBottomSheetFragment() {
         }
 
         dialog?.findViewById<ViewGroup>(R.id.containerLayout)?.addView(textView)
-    }
-
-    fun show(supportFragmentManager: FragmentManager) {
-        show(supportFragmentManager, tag)
     }
 
     class Option(val value: Int, val title: String, var onClick: ((Int) -> Unit))

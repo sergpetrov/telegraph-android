@@ -3,6 +3,7 @@ package com.telex.base.presentation.home
 import android.content.Intent
 import com.telex.base.model.source.remote.data.TopBannerData
 import com.telex.base.presentation.base.BaseActivity
+import com.telex.base.presentation.pages.BaseTopBannerDelegate
 
 /**
  * @author Sergey Petrov

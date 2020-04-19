@@ -2,6 +2,7 @@ package com.telex.base.presentation.page.adapter
 
 import android.text.SpannableStringBuilder
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -49,6 +50,36 @@ class FormatAdapter(
 
     var itemTouchHelper: ItemTouchHelper? = null
     private var recyclerView: RecyclerView? = null
+
+
+    private class DiffCallback(private val oldItems: List<Format>, private val newItems: List<Format>) : DiffUtil.Callback() {
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldItems[oldItemPosition].id == newItems[newItemPosition].id
+        }
+
+        override fun getOldListSize(): Int {
+            return oldItems.size
+        }
+
+        override fun getNewListSize(): Int {
+            return newItems.size
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldItems[oldItemPosition] == newItems[newItemPosition]
+        }
+    }
+
+    fun submitList(newItems: List<Format>) {
+        val oldItems = items.toList()
+        items.clear()
+        items.addAll(newItems)
+
+        DiffUtil
+                .calculateDiff(DiffCallback(oldItems, items), false)
+                .dispatchUpdatesTo(this)
+    }
 
     var focusedItem: Format? = null
         set(value) {
@@ -345,7 +376,7 @@ class FormatAdapter(
 
     private fun getPositionForItem(item: Format): Int {
         items.forEachIndexed { index, format ->
-            if (item.uid == format.uid) return index + 1 // '+ 1' because we have title at header
+            if (item.id == format.id) return index + 1 // '+ 1' because we have title at header
         }
         return RecyclerView.NO_POSITION
     }

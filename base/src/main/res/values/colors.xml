@@ -7,6 +7,7 @@
 
     <color name="primary_black">#232830</color>
     <color name="primary_dark_black">#1d2027</color>
+    <color name="secondary_black">#2B3039</color>
 
     <color name="dark_white">#F8F8F8</color>
     <color name="grey">#979eaf</color>
@@ -25,4 +26,5 @@
 
     <color name="chart_color">#3CC23F</color>
 
+    <color name="system_bar_color">#80ffffff</color>
 </resources>

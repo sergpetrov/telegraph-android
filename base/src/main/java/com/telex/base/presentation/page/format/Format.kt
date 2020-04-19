@@ -9,7 +9,7 @@ open class Format(
     open var type: FormatType,
     open var html: String = getEmptyHtml(type).orEmpty()
 ) {
-    val uid = UUID.randomUUID().toString()
+    val id = UUID.nameUUIDFromBytes((type.tag + html).toByteArray()).toString()
 
     open fun toHtml() = html
 
@@ -23,7 +23,7 @@ open class Format(
 
         if (type != other.type) return false
         if (html != other.html) return false
-        if (uid != other.uid) return false
+        if (id != other.id) return false
 
         return true
     }
@@ -31,7 +31,7 @@ open class Format(
     override fun hashCode(): Int {
         var result = type.hashCode()
         result = 31 * result + html.hashCode()
-        result = 31 * result + (uid?.hashCode() ?: 0)
+        result = 31 * result + id.hashCode()
         return result
     }
 

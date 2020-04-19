@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="margin_2">2dp</dimen>
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_12">12dp</dimen>
@@ -27,7 +28,16 @@
     <dimen name="height_drawer_header_layout">170dp</dimen>
     <dimen name="chip_height">32dp</dimen>
     <dimen name="chip_radius">16dp</dimen>
-    <dimen name="dialog_corner_radius">8dp</dimen>
+    <dimen name="dialog_corner_radius">12dp</dimen>
     <dimen name="toolbar_layout_elevation">4dp</dimen>
     <dimen name="item_format_more_width">6dp</dimen>
+    <dimen name="swipe_slingshot_distance">88dp</dimen>
+    <dimen name="swipe_progress_offset">72dp</dimen>
+    <dimen name="min_touch_target_size">48dp</dimen>
+
+    <!--BottomAppBar-->
+    <dimen name="bottom_app_bar_fab_cradle_corner_radius">32dp</dimen>
+    <dimen name="bottom_app_bar_fab_cradle_margin">8dp</dimen>
+    <dimen name="bottom_app_bar_logo_size">32dp</dimen>
+
 </resources>

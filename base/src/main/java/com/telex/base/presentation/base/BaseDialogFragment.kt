@@ -2,17 +2,13 @@ package com.telex.base.presentation.base
 
 import android.content.Context
 import android.widget.Toast
-import com.telex.base.presentation.Router
-import javax.inject.Inject
+import androidx.fragment.app.FragmentManager
 import moxy.MvpAppCompatDialogFragment
 
 /**
  * @author Sergey Petrov
  */
 abstract class BaseDialogFragment : MvpAppCompatDialogFragment() {
-
-    @Inject
-    lateinit var router: Router
 
     override fun getContext(): Context {
         return super.getContext() as Context
@@ -26,10 +22,10 @@ abstract class BaseDialogFragment : MvpAppCompatDialogFragment() {
         Toast.makeText(context, getString(resourceId), Toast.LENGTH_SHORT).show()
     }
 
-    fun onLogout() {
-        router.showHomeActivity(context)
+    fun showProgress(isVisible: Boolean) {
     }
 
-    fun showProgress(isVisible: Boolean) {
+    fun show(fragmentManager: FragmentManager) {
+        show(fragmentManager, tag)
     }
 }

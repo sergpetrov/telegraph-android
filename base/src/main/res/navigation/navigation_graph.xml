@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/pagesFragment"
+        android:name="com.telex.base.presentation.pages.PagesFragment"
+        android:label="PagesFragment">
+        <action
+            android:id="@+id/openPageEditorAction"
+            app:destination="@id/pageEditorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pageEditorFragment"
+        android:name="com.telex.base.presentation.page.PageEditorFragment"
+        android:label="PageEditorFragment">
+        <argument
+            android:name="mode"
+            app:argType="com.telex.base.presentation.page.EditorMode" />
+        <argument
+            android:name="pageId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <argument
+            android:name="title"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="authorName"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="authorUrl"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/draftsFragment"
+        android:name="com.telex.base.presentation.pages.DraftsFragment"
+        android:label="DraftsFragment">
+        <action
+            android:id="@+id/openPageEditorAction"
+            app:destination="@id/pageEditorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.telex.base.presentation.login.LoginFragment"
+        android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/accountSettingsFragment"
+        android:name="com.telex.base.presentation.settings.account.AccountSettingsFragment"
+        android:label="AccountSettingsFragment" />
+
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.telex.base.presentation.settings.AboutAppFragment"
+        android:label="AboutAppFragment" />
+
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.telex.base.presentation.settings.PrivacyPolicyFragment"
+        android:label="PrivacyPolicyFragment" />
+
+    <fragment
+        android:id="@+id/proxyServerFragment"
+        android:name="com.telex.base.presentation.settings.proxy.ProxyServerFragment"
+        android:label="ProxyServerFragment" />
+
+    <action
+        android:id="@+id/openLoginGlobalAction"
+        app:destination="@+id/loginFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/openPagesGlobalAction"
+        app:destination="@+id/pagesFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/openPageEditorGlobalAction"
+        app:destination="@+id/pageEditorFragment"
+        app:launchSingleTop="true">
+        <argument
+            android:name="mode"
+            android:defaultValue="Create"
+            app:argType="com.telex.base.presentation.page.EditorMode" />
+    </action>
+
+    <action
+        android:id="@+id/openDraftsGlobalAction"
+        app:destination="@+id/draftsFragment"
+        app:launchSingleTop="true" />
+
+</navigation>

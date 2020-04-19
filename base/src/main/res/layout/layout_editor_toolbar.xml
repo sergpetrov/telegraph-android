@@ -5,7 +5,7 @@
     android:layout_height="@dimen/editor_toolbar_height"
     android:layout_alignParentBottom="true"
     android:layout_gravity="bottom"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/colorSecondary"
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"

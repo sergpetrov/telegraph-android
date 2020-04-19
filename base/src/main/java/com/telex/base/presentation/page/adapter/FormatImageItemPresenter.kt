@@ -4,11 +4,11 @@ import com.telex.base.model.interactors.PageInteractor
 import com.telex.base.presentation.base.BasePresenter
 import com.telex.base.presentation.base.ErrorHandler
 import com.telex.base.presentation.page.format.ImageFormat
+import moxy.InjectViewState
 import java.io.File
 import java.net.URI
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
-import moxy.InjectViewState
 
 /**
  * @author Sergey Petrov

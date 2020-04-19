@@ -32,7 +32,7 @@ abstract class BaseFragment : MvpAppCompatFragment() {
 
     protected open val scopeModuleInstaller: (Scope) -> Unit = {}
 
-    private lateinit var scopeName: String
+    lateinit var scopeName: String
     protected lateinit var scope: Scope
         private set
 
@@ -85,7 +85,7 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         return view?.findViewById(R.id.toolbar)
     }
 
-    private fun isRealRemoving(): Boolean =
+    fun isRealRemoving(): Boolean =
             (isRemoving && !instanceStateSaved) || // because isRemoving == true for fragment in backstack on screen rotation
                     ((parentFragment as? BaseFragment)?.isRealRemoving() ?: false)
 
@@ -120,9 +120,6 @@ abstract class BaseFragment : MvpAppCompatFragment() {
     protected fun hideOverlay() {
         overlayDialog?.hide()
         overlayDialog = null
-    }
-
-    fun onLogout() {
     }
 
     companion object {

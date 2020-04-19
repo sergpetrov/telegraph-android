@@ -18,10 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".presentation.home.LaunchActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/AppTheme.Splash"
-            android:windowSoftInputMode="adjustPan">
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,15 +40,12 @@
         </activity>
 
         <activity
-            android:name=".presentation.home.HomeActivity"
-            android:theme="@style/AppTheme.Transparent"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".presentation.AppActivity"
+            android:theme="@style/AppTheme.Transparent" />
 
-        <activity android:name=".presentation.settings.AccountSettingsActivity" />
-        <activity android:name=".presentation.settings.AboutActivity" />
-        <activity android:name=".presentation.page.PageActivity" />
-        <activity android:name=".presentation.settings.PrivacyPolicyActivity" />
-        <activity android:name=".presentation.settings.ProxyServerActivity" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 
