@@ -1,5 +1,6 @@
 package com.telex.base.presentation.settings.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
@@ -9,6 +10,7 @@ import com.telex.base.extention.applySystemWindowInsetsPadding
 import com.telex.base.extention.color
 import com.telex.base.extention.isUrl
 import com.telex.base.model.source.local.entity.User
+import com.telex.base.presentation.AppActivity
 import com.telex.base.presentation.base.BaseFragment
 import com.telex.base.utils.CharacterCountErrorWatcher
 import com.telex.base.utils.Constants
@@ -107,6 +109,8 @@ class AccountSettingsFragment : BaseFragment(), AccountSettingsView {
     }
 
     override fun onLogout() {
-        findNavController().navigate(NavigationGraphDirections.openLoginGlobalAction())
+        val intent = Intent(context, AppActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
     }
 }

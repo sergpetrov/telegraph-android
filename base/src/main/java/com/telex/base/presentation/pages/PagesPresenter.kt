@@ -51,7 +51,7 @@ class PagesPresenter @Inject constructor(
     fun refreshUserAndPages() {
         offset = 0
         userInteractor.refreshCurrentAccount()
-                .flatMapCompletable { pageInteractor.loadPages(offset = offset, clear = true) }
+                .flatMapCompletable { pageInteractor.loadPages(offset = offset) }
                 .doOnSubscribe { viewState.showProgress(true) }
                 .doAfterTerminate { viewState.showProgress(false) }
                 .compositeSubscribe()

@@ -12,8 +12,8 @@ import javax.inject.Inject
  */
 @InjectViewState
 class AccountSettingsPresenter @Inject constructor(
-    private val userInteractor: UserInteractor,
-    errorHandler: ErrorHandler
+        private val userInteractor: UserInteractor,
+        errorHandler: ErrorHandler
 ) : BasePresenter<AccountSettingsView>(errorHandler) {
 
     override fun onFirstViewAttach() {
@@ -30,8 +30,6 @@ class AccountSettingsPresenter @Inject constructor(
 
     fun logout() {
         userInteractor.logout()
-                .doOnSubscribe { viewState.showProgress(true) }
-                .doAfterTerminate { viewState.showProgress(false) }
                 .compositeSubscribe(
                         onSuccess = {
                             AnalyticsHelper.logLogout()

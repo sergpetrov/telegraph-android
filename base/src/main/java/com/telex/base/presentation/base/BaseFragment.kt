@@ -97,8 +97,6 @@ abstract class BaseFragment : MvpAppCompatFragment() {
                 else -> isRealRemoving()
             }
 
-    open fun onBackPressed() {}
-
     fun showError(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }

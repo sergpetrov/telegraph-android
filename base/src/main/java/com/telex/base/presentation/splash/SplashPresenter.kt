@@ -17,49 +17,52 @@ import javax.inject.Inject
  */
 @InjectViewState
 class SplashPresenter @Inject constructor(
-    private val userInteractor: UserInteractor,
-    private val pageInteractor: PageInteractor,
-    private val serverManager: ServerManager,
-    errorHandler: ErrorHandler
+        private val userInteractor: UserInteractor,
+        private val pageInteractor: PageInteractor,
+        private val serverManager: ServerManager,
+        errorHandler: ErrorHandler
 ) : BasePresenter<SplashView>(errorHandler) {
 
     fun launch(uri: Uri?) {
-        serverManager.checkAvailableServer()
-                .retry(1)
-                .andThen(login(uri))
-                .withDefaults()
-                .doOnError { viewState.showNext() }
-                .compositeSubscribe()
-    }
-
-    private fun login(uri: Uri?): Completable {
         val oauthUrl = uri.toString()
 
-        return when {
+        when {
             uri != null && oauthUrl.isNotEmpty() -> {
-                userInteractor.login(oauthUrl)
+                serverManager.checkAvailableServer()
+                        .retry(1)
+                        .andThen(userInteractor.login(oauthUrl))
                         .onErrorResumeNext { error ->
                             Timber.e(error, "Error during login oauthUrl=$oauthUrl")
                             refreshCurrentAccountAndPages()
                         }
                         .andThen(refreshCurrentAccountAndPages())
+                        .doOnSubscribe { viewState.showProgress(true) }
+                        .doAfterTerminate {
+                            viewState.showProgress(false)
+                            viewState.showNext()
+                        }
+                        .withDefaults()
+                        .compositeSubscribe()
             }
 
-            userInteractor.isTokenValid() -> refreshCurrentAccountAndPages()
+            userInteractor.isTokenValid() -> {
+                viewState.showNext()
 
-            else -> {
-                Completable.fromCallable {
-                    viewState.onLogout()
-                }.withDefaults()
+                serverManager.checkAvailableServer()
+                        .retry(1)
+                        .andThen(refreshCurrentAccountAndPages())
+                        .withDefaults()
+                        .justSubscribe()
             }
+
+            else -> viewState.onLogout()
         }
     }
 
     private fun refreshCurrentAccountAndPages(): Completable {
-        return userInteractor.refreshCurrentAccount()
-                .flatMapCompletable { pageInteractor.loadPages(offset = 0) }
-                .doOnSubscribe { viewState.showProgress(true) }
-                .doOnError { viewState.showProgress(false) }
-                .doOnComplete { viewState.showNext() }
+        return Completable.mergeArray(
+                userInteractor.refreshCurrentAccount().ignoreElement(),
+                pageInteractor.loadPages(offset = 0)
+        )
     }
 }

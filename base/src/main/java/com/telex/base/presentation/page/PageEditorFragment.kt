@@ -194,10 +194,10 @@ class PageEditorFragment : BaseFragment(), PageEditorView {
                 pageId = page.id,
                 pagePath = page.path,
                 draft = page.draft
-        ).apply {
-            publishOption.onClick = { doneOnClicked() }
-            onDraftDiscardedListener = { this@PageEditorFragment.presenter.isDraftNeeded = false }
-            onOnPostDeletedListener = { findNavController().popBackStack() }
+        ).also {
+            it.publishOption.onClick = { doneOnClicked() }
+            it.onDraftDiscardedListener = { presenter.isDraftNeeded = false }
+            it.onOnPostDeletedListener = { findNavController().popBackStack() }
         }.show(parentFragmentManager)
     }
 
@@ -360,7 +360,6 @@ class PageEditorFragment : BaseFragment(), PageEditorView {
         if (isInputValid()) {
             val builder = MaterialAlertDialogBuilder(context)
             builder.setMessage(R.string.do_you_want_publish)
-
             builder.setPositiveButton(getString(R.string.publish)) { _, _ ->
                 presenter.publishPage(getPageTitle(), authorName, authorUrl, formatAdapter.items)
             }
@@ -376,7 +375,6 @@ class PageEditorFragment : BaseFragment(), PageEditorView {
                         force = true
                 )
                 dialog.dismiss()
-                findNavController().popBackStack()
             }
             builder.create().show()
         }
