@@ -456,40 +456,42 @@ class PageEditorFragment : BaseFragment(), PageEditorView {
     }
 
     private fun onTextSelected(selected: Boolean = false, format: Format? = null, formatTypes: List<FormatType> = emptyList()) {
-        with(editorToolbar) {
-            boldFormatButton.isChecked = formatTypes.contains(FormatType.BOLD)
-            italicFormatButton.isChecked = formatTypes.contains(FormatType.ITALIC)
-            strikethroughFormatButton.isChecked = formatTypes.contains(FormatType.STRIKETHROUGH)
-            underlineFormatButton.isChecked = formatTypes.contains(FormatType.UNDERLINE)
-            linkButton.isChecked = formatTypes.contains(FormatType.LINK)
+        if (isInLayout) {
+            with(editorToolbar) {
+                boldFormatButton.isChecked = formatTypes.contains(FormatType.BOLD)
+                italicFormatButton.isChecked = formatTypes.contains(FormatType.ITALIC)
+                strikethroughFormatButton.isChecked = formatTypes.contains(FormatType.STRIKETHROUGH)
+                underlineFormatButton.isChecked = formatTypes.contains(FormatType.UNDERLINE)
+                linkButton.isChecked = formatTypes.contains(FormatType.LINK)
 
-            boldFormatButton.setGone(!selected)
-            italicFormatButton.setGone(!selected)
-            strikethroughFormatButton.setGone(!selected)
-            underlineFormatButton.setGone(!selected)
-            linkButton.setGone(!selected)
+                boldFormatButton.setGone(!selected)
+                italicFormatButton.setGone(!selected)
+                strikethroughFormatButton.setGone(!selected)
+                underlineFormatButton.setGone(!selected)
+                linkButton.setGone(!selected)
 
-            paragraphButton.setGone(selected)
-            headingFormatButton.setGone(selected)
-            subHeadingFormatButton.setGone(selected)
-            quoteFormatButton.setGone(selected)
-            unorderedListFormatButton.setGone(selected)
-            orderedListFormatButton.setGone(selected)
-            insertImageButton.setGone(selected)
-            insertLineButton.setGone(selected)
-            insertIframeButton.setGone(selected)
-            moveUpButton.setGone(selected)
-            moveDownButton.setGone(selected)
+                paragraphButton.setGone(selected)
+                headingFormatButton.setGone(selected)
+                subHeadingFormatButton.setGone(selected)
+                quoteFormatButton.setGone(selected)
+                unorderedListFormatButton.setGone(selected)
+                orderedListFormatButton.setGone(selected)
+                insertImageButton.setGone(selected)
+                insertLineButton.setGone(selected)
+                insertIframeButton.setGone(selected)
+                moveUpButton.setGone(selected)
+                moveDownButton.setGone(selected)
 
-            if (format != null) {
-                italicFormatButton.enable()
-                boldFormatButton.enable()
-                italicFormatButton.enable()
-                strikethroughFormatButton.enable()
-                underlineFormatButton.enable()
+                if (format != null) {
+                    italicFormatButton.enable()
+                    boldFormatButton.enable()
+                    italicFormatButton.enable()
+                    strikethroughFormatButton.enable()
+                    underlineFormatButton.enable()
 
-                when (format.type) {
-                    FormatType.QUOTE, FormatType.ASIDE -> italicFormatButton.disable()
+                    when (format.type) {
+                        FormatType.QUOTE, FormatType.ASIDE -> italicFormatButton.disable()
+                    }
                 }
             }
         }
