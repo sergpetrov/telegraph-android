@@ -264,12 +264,14 @@ class PageEditorFragment : BaseFragment(), PageEditorView {
     }
 
     override fun showPage(page: Page, formats: List<Format>) {
+        val state = recyclerView.layoutManager?.onSaveInstanceState()
         with(formatAdapter) {
             pageTitle = page.title
             submitList(formats)
             focusedItem = null
-            recyclerView.scrollToPosition(0)
         }
+        // it's needed to prevent scroll to bottom https://stackoverflow.com/a/44053550/2271651
+        recyclerView.layoutManager?.onRestoreInstanceState(state)
     }
 
     private fun setupEditorToolbar() {
