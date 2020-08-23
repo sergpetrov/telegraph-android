@@ -27,6 +27,7 @@ class PagesPresenter @Inject constructor(
     private var offset = 0
     private var pages = emptyList<Page>()
     private var observePageDisposable: Disposable? = null
+    private var totalPageCount: Int? = null
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -39,6 +40,17 @@ class PagesPresenter @Inject constructor(
                             offset = 0
                             pages = emptyList()
                             observePages()
+                        }
+                )
+
+        userInteractor.observeCurrentAccount()
+                .compositeSubscribe(
+                        onNext = { user ->
+                            val count = totalPageCount
+                            if (count != null && count < user.pageCount) {
+                                viewState.onNewPagePublished()
+                            }
+                            totalPageCount = user.pageCount
                         }
                 )
     }

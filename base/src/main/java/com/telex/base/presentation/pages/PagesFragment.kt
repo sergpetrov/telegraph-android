@@ -6,7 +6,6 @@ import androidx.core.view.doOnPreDraw
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.transition.Hold
 import com.telex.base.R
 import com.telex.base.extention.applySystemWindowInsetsPadding
 import com.telex.base.extention.getColorFromAttr
@@ -17,6 +16,7 @@ import com.telex.base.presentation.base.BaseFragment
 import com.telex.base.presentation.home.TopBannerDelegate
 import com.telex.base.presentation.page.EditorMode
 import kotlinx.android.synthetic.main.fragment_pages.*
+import kotlinx.android.synthetic.main.fragment_pages.coordinatorLayout
 import kotlinx.android.synthetic.main.layout_no_stories.view.*
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
@@ -93,6 +93,10 @@ open class PagesFragment : BaseFragment(), PagesView {
 
     override fun hideTopBanner() {
         topBannerDelegate?.hideBanner(coordinatorLayout, topBannerLayout)
+    }
+
+    override fun onNewPagePublished() {
+        pagesRecyclerView.smoothScrollToPosition(0)
     }
 
     override fun showPages(pages: List<Page>, hasMore: Boolean) {

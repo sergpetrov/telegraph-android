@@ -4,6 +4,7 @@ import com.telex.base.model.source.local.entity.Page
 import com.telex.base.model.source.remote.data.TopBannerData
 import com.telex.base.presentation.base.BaseMvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
+import moxy.viewstate.strategy.OneExecutionStateStrategy
 import moxy.viewstate.strategy.StateStrategyType
 
 /**
@@ -19,4 +20,6 @@ interface PagesView : BaseMvpView {
     fun hideAdapterProgress()
     fun showTopBanner(banner: TopBannerData)
     fun hideTopBanner()
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun onNewPagePublished()
 }
