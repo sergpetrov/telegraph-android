@@ -2,11 +2,11 @@ package com.telex.base.presentation.page.adapter
 
 import android.text.SpannableStringBuilder
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.telex.base.R
+import com.telex.base.presentation.page.EditorMode
 import com.telex.base.presentation.page.format.Format
 import com.telex.base.presentation.page.format.FormatType
 import com.telex.base.presentation.page.format.FormatType.ASIDE
@@ -41,6 +41,7 @@ import timber.log.Timber
  * @author Sergey Petrov
  */
 class FormatAdapter(
+    val mode: EditorMode,
     val onFocusItemChanged: (Format?) -> Unit,
     val onTextSelected: (Boolean, format: Format?, List<FormatType>) -> Unit,
     val onPaste: (html: String) -> List<Format>,
@@ -50,36 +51,6 @@ class FormatAdapter(
 
     var itemTouchHelper: ItemTouchHelper? = null
     private var recyclerView: RecyclerView? = null
-
-
-    private class DiffCallback(private val oldItems: List<Format>, private val newItems: List<Format>) : DiffUtil.Callback() {
-
-        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldItems[oldItemPosition].id == newItems[newItemPosition].id
-        }
-
-        override fun getOldListSize(): Int {
-            return oldItems.size
-        }
-
-        override fun getNewListSize(): Int {
-            return newItems.size
-        }
-
-        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldItems[oldItemPosition] == newItems[newItemPosition]
-        }
-    }
-
-    fun submitList(newItems: List<Format>) {
-        val oldItems = items.toList()
-        items.clear()
-        items.addAll(newItems)
-
-        DiffUtil
-                .calculateDiff(DiffCallback(oldItems, items), false)
-                .dispatchUpdatesTo(this)
-    }
 
     var focusedItem: Format? = null
         set(value) {
@@ -106,7 +77,7 @@ class FormatAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == TYPE_HEADER) {
-            return PageHeaderViewHolder(parent, this)
+            return PageHeaderViewHolder(mode, parent, this)
         } else {
             return when (val formatType = FormatType.getByOrdinal(viewType)) {
                 BREAK_LINE,
@@ -159,6 +130,12 @@ class FormatAdapter(
             position == 0 -> TYPE_HEADER
             else -> getFormatItem(position).type.ordinal
         }
+    }
+
+    fun submitList(newItems: List<Format>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
     }
 
     fun isPageTitleValid(): Boolean {

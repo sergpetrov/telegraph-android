@@ -56,18 +56,21 @@ class PageEditorPresenter @Inject constructor(
                 .map { page -> Pair(page, convertNodes(page.nodes.content)) }
                 .observeOn(AndroidSchedulers.mainThread(), true)
                 .doOnSubscribe {
-                    if (pageId != null) {
-                        //    viewState.showProgress(true)
+                    if (page?.nodes?.content.isNullOrEmpty()) {
+                        viewState.showContentProgress(true)
                     }
                 }
-                .doAfterTerminate { viewState.showProgress(false) }
                 .doOnNext { result ->
                     page = result.first
+                    if (!page?.nodes?.content.isNullOrEmpty()) {
+                        viewState.showContentProgress(false)
+                    }
                     viewState.showPage(page = result.first, formats = result.second)
                 }
                 .doOnComplete {
                     isDraftNeeded = true
                 }
+                .doAfterTerminate { viewState.showContentProgress(false) }
                 .compositeSubscribe()
     }
 

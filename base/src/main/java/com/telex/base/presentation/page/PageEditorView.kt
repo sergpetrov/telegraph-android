@@ -12,6 +12,7 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface PageEditorView : BaseMvpView {
     fun showProgress(isVisible: Boolean)
+    fun showContentProgress(isVisible: Boolean)
     fun showPage(page: Page, formats: List<Format>)
     fun onPageSaved()
     fun showMore(page: Page)

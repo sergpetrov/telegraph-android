@@ -9,7 +9,8 @@ open class Format(
     open var type: FormatType,
     open var html: String = getEmptyHtml(type).orEmpty()
 ) {
-    val id = UUID.nameUUIDFromBytes((type.tag + html).toByteArray()).toString()
+
+    val id = UUID.randomUUID().toString()
 
     open fun toHtml() = html
 
