@@ -107,10 +107,11 @@ class PageRepository @Inject constructor(
                 .flatMap { result ->
                     getCachedPage(result.path)
                             .map { localPage ->
+                                localPage.populate(result)
                                 localPage.id = pageId
                                 localPage.draft = false
                                 localPage.imageUrl = pageImageUrl
-                                localPage.populate(result)
+                                localPage
                             }
                 }
                 .doOnSuccess { page ->
