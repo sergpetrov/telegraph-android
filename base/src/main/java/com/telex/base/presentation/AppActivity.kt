@@ -128,6 +128,11 @@ class AppActivity : BaseActivity(), AppActivityView {
         getCurrentFragment()?.onActivityResult(requestCode, resultCode, data)
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        getCurrentFragment()?.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
     private fun showBottomAppBar() {
         fab.setImageState(intArrayOf(-android.R.attr.state_activated), true)
         bottomAppBar.visibility = View.VISIBLE
