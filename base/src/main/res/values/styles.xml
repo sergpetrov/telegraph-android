@@ -85,12 +85,10 @@
         <item name="textColorHint">@color/secondary_text_color</item>
     </style>
 
-    <style name="BottomSheetDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+    <style name="BottomSheetDialogStyle" parent="@style/Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="android:windowIsFloating">false</item>
-        <item name="android:navigationBarColor">@color/white</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
