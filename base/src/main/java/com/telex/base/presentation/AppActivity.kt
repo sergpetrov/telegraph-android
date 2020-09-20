@@ -2,6 +2,7 @@ package com.telex.base.presentation
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewAnimationUtils
@@ -120,6 +121,11 @@ class AppActivity : BaseActivity(), AppActivityView {
         circularReveal.duration = 700
         coordinatorLayout.visibility = View.VISIBLE
         circularReveal.start()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        getCurrentFragment()?.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun showBottomAppBar() {
