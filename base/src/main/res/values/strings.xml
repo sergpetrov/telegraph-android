@@ -68,14 +68,10 @@
     <string name="unknown_error">"Unknown error"</string>
     <string name="page_access_denied_error">"You can't publish this article from current account"</string>
     <string name="something_went_wrong">"Something went wrong, try again please"</string>
-
-    <!-- Privacy Policy -->
     <string name="privacy_policy_description">"By continuing you agree Privacy Policy"</string>
     <string name="privacy_policy_description_part_to_click">"Privacy Policy"</string>
     <string name="privacy_policy">"Privacy Policy"</string>
     <string name="learn_privacy_policy">"Learn Privacy Policy"</string>
-
-    <!-- Editor toolbar -->
     <string name="format_bold">"Bold"</string>
     <string name="format_heading">"Heading"</string>
     <string name="format_subheading">"Subheading"</string>
@@ -91,8 +87,6 @@
     <string name="format_embed">"Embed Video or Post"</string>
     <string name="format_block_move_up">"Move Up Block"</string>
     <string name="format_block_move_down">"Move Down Block"</string>
-
-    <!-- Proxy -->
     <string name="proxy">"Proxy"</string>
     <string name="server">"Server"</string>
     <string name="port">"Port"</string>
@@ -109,8 +103,6 @@
     <string name="upload_in_progress_error">"Upload in progress. Please wait…"</string>
     <string name="add_account">"Add Account"</string>
     <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
-
-    <!-- Statistics -->
     <string name="statistics">"Statistics"</string>
     <string name="month">"Month"</string>
     <string name="prev_month">"Prev month"</string>
@@ -121,8 +113,6 @@
     <string name="choose_month">"Choose month"</string>
     <string name="total_views">"Total views"</string>
     <string name="views">"Views"</string>
-
-    <!-- Upgrade to Pro -->
     <string name="upgrade_to_pro">"Upgrade to Pro"</string>
     <string name="available_in_pro">"Available in Pro"</string>
     <string name="why_pro">"Upgrade to Telegraph X Pro to support further development and gain access extra great features:"</string>

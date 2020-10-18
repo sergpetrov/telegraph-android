@@ -91,8 +91,6 @@
     <string name="format_embed">"Incorpora video o post"</string>
     <string name="format_block_move_up">"Sposta blocco su"</string>
     <string name="format_block_move_down">"Sposta blocco giù"</string>
-
-    <!-- Proxy -->
     <string name="proxy">"Proxy"</string>
     <string name="server">"Server"</string>
     <string name="port">"Porta"</string>
@@ -104,8 +102,6 @@
     <string name="upload_in_progress_error">"Upload in corso. Attendere prego…"</string>
     <string name="add_account">"Add Account"</string>
     <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
-
-    <!-- Statistics -->
     <string name="statistics">"Statistica"</string>
     <string name="month">"Month"</string>
     <string name="prev_month">"Prev month"</string>
@@ -116,8 +112,6 @@
     <string name="choose_month">"Choose month"</string>
     <string name="total_views">"Total views"</string>
     <string name="views">"Views"</string>
-
-    <!-- Upgrade to Pro -->
     <string name="upgrade_to_pro">"Passa a PRO"</string>
     <string name="available_in_pro">"Disponibile con PRO"</string>
     <string name="why_pro">"Perché hai bisogno della versione PRO?"</string>
