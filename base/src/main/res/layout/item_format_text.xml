@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="@dimen/margin_8"
     android:clickable="true"
     android:focusable="true"
@@ -18,10 +19,11 @@
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:inputType="textMultiLine|textNoSuggestions"
+        android:inputType="textMultiLine|textNoSuggestions|textCapSentences"
         android:padding="@dimen/margin_8"
-        android:textSize="@dimen/text_size_tiny"
-        tools:text="@tools:sample/lorem" />
+        app:lineSpacingExtra="6sp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:text="@tools:sample/lorem/random" />
 
     <include layout="@layout/layout_item_format_more" />
 

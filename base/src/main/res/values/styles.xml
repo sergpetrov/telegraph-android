@@ -5,11 +5,14 @@
     <style name="AppTheme.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorAccent">@color/primary_black</item>
         <item name="colorAccentDark">@color/dark_white</item>
         <item name="colorControlNormal">@color/primary_black</item>
+        <item name="colorOnSurface">@color/dark_primary_text_color</item>
         <item name="android:textColor">@color/dark_primary_text_color</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">@color/system_bar_color</item>
+        <item name="android:statusBarColor">@color/system_bar_color</item>
         <item name="placeholderColor">@color/light_grey</item>
         <item name="dividerColor">@color/light_divider_color</item>
         <item name="selectorColor">@color/light_grey</item>
@@ -18,13 +21,34 @@
         <item name="textInputStyle">@style/TextInputStyle</item>
         <item name="editTextStyle">@style/EditTextStyle</item>
         <item name="tabStyle">@style/TabLayoutStyle</item>
-        <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogStyle</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LargeComponent</item>
+
+        <item name="motionInterpolatorPersistent">@android:interpolator/fast_out_slow_in</item>
+        <item name="motionInterpolatorIncoming">@android:interpolator/decelerate_cubic</item>
+        <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
+
+        <item name="emphasisHighAlpha">0.87</item>
+
+        <!--Typography-->
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Overline</item>
     </style>
 
     <style name="AppTheme.Transparent" parent="AppTheme">
-        <item name="android:windowBackground">@color/dark_primary_text_color</item>
+        <item name="android:windowBackground">@color/black</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="AppTheme.Splash" parent="AppTheme">
@@ -61,18 +85,19 @@
         <item name="textColorHint">@color/secondary_text_color</item>
     </style>
 
-    <style name="BottomSheetDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+    <style name="BottomSheetDialogStyle" parent="@style/Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="BottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.BottomSheet</item>
-        <item name="android:background">?attr/colorPrimaryDark</item>
-        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+        <item name="android:background">?attr/colorSecondary</item>
+        <item name="backgroundTint">?attr/colorSecondary</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay.BottomSheet">
+    <style name="ShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">@dimen/dialog_corner_radius</item>
         <item name="cornerSizeTopLeft">@dimen/dialog_corner_radius</item>
@@ -81,7 +106,7 @@
     </style>
 
     <style name="AlertDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="android:background">?attr/colorSecondary</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.AlertDialogStyle</item>
         <item name="colorPrimary">?attr/colorAccent</item>
     </style>
@@ -104,7 +129,7 @@
     </style>
 
     <style name="TextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="FormatButtonCheckBoxStyle">
@@ -137,7 +162,6 @@
     </style>
 
     <style name="EditTextStyle" parent="@style/Base.Widget.MaterialComponents.TextInputEditText">
-        <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:textColorHint">@color/secondary_text_color</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
@@ -163,7 +187,7 @@
     </style>
 
     <style name="NavigationViewStyle">
-        <item name="android:listDivider">?attr/dividerColor</item>
+        <item name="android:listDivider">@drawable/item_divider</item>
     </style>
 
     <style name="OptionTextViewStyle" parent="TextViewStyle">

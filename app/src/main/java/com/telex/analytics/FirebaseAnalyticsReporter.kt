@@ -1,15 +1,18 @@
 package com.telex.analytics
 
-import com.crashlytics.android.answers.Answers
-import com.crashlytics.android.answers.CustomEvent
+import android.content.Context
+import android.os.Bundle
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.telex.base.analytics.AnalyticsReporter
 
 /**
  * @author Sergey Petrov
  */
-class FirebaseAnalyticsReporter : AnalyticsReporter {
+class FirebaseAnalyticsReporter(
+        private val context: Context
+) : AnalyticsReporter {
 
     override fun logEvent(eventKey: String) {
-        Answers.getInstance().logCustom(CustomEvent(eventKey))
+        FirebaseAnalytics.getInstance(context).logEvent(eventKey, Bundle())
     }
 }

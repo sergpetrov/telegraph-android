@@ -11,6 +11,7 @@ import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.extention.inflate
 import com.telex.base.model.source.local.AppData
 import com.telex.base.model.source.local.entity.User
+import com.telex.base.presentation.pages.BaseDrawerNavigationDelegate
 import com.telex.base.utils.ViewUtils
 
 /**

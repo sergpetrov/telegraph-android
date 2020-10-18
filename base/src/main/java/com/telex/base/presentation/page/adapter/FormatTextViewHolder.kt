@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.postDelayed
 import com.telex.base.extention.hideKeyboard
 import com.telex.base.extention.isUrl
 import com.telex.base.model.system.ServerManager
@@ -43,11 +44,11 @@ import timber.log.Timber
  * @author Sergey Petrov
  */
 class FormatTextViewHolder(
-    layout: Int,
-    parent: ViewGroup,
-    private val adapter: FormatAdapter,
-    private val onTextSelected: (Boolean, Format?, List<FormatType>) -> Unit,
-    private val onPaste: (html: String) -> List<Format>
+        layout: Int,
+        parent: ViewGroup,
+        private val adapter: FormatAdapter,
+        private val onTextSelected: (Boolean, Format?, List<FormatType>) -> Unit,
+        private val onPaste: (html: String) -> List<Format>
 ) : BaseFormatViewHolder<Format>(parent, layout) {
 
     private var textWatcher: FormatTextWatcher? = null
@@ -134,11 +135,11 @@ class FormatTextViewHolder(
                 true
             }
 
-            val editTextState = editTextStates[format.uid]
+            val editTextState = editTextStates[format.id]
             if (editTextState != null) {
                 // it's needed to restore cursor position after toggle block style
                 editText.onRestoreInstanceState(editTextState)
-                editTextStates.remove(format.uid)
+                editTextStates.remove(format.id)
             } else {
                 editText.fromHtml(item.toHtml(), isInit = false)
             }
@@ -157,7 +158,7 @@ class FormatTextViewHolder(
             LINK -> showLinkDialog()
             else -> {
                 toggleFormatType(formatType)
-                editTextStates[format.uid] = itemView.editText.onSaveInstanceState()
+                editTextStates[format.id] = itemView.editText.onSaveInstanceState()
                 updateHtml(itemView.editText.toHtml())
             }
         }
@@ -261,9 +262,13 @@ class FormatTextViewHolder(
     }
 
     private fun onTextSelected(selStart: Int, selEnd: Int) {
-        with(itemView.editText) {
-            val appliedStyles = getAppliedStyles(selStart, selEnd).mapNotNull { FormatType.getByAztecFormat(it) }
-            postDelayed({ onTextSelected.invoke(getSelectedText().isNotEmpty(), format, appliedStyles) }, 100)
+        with(itemView) {
+            val appliedStyles = editText.getAppliedStyles(selStart, selEnd).mapNotNull { FormatType.getByAztecFormat(it) }
+            postDelayed(delayInMillis = 100) {
+                if (editText?.isLaidOut == true) {
+                    onTextSelected.invoke(editText.getSelectedText().isNotEmpty(), format, appliedStyles)
+                }
+            }
         }
     }
 

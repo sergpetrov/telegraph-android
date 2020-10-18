@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/margin_24">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.05"
+        android:text="@string/log_in"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/login_description"
+        android:textSize="@dimen/text_size_tiny" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/launchButton"
+        style="@style/OutlinedButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:paddingStart="@dimen/margin_24"
+        android:paddingEnd="@dimen/margin_24"
+        android:text="@string/launch_telegram" />
+
+    <TextView
+        android:id="@+id/privacyPolicyDescriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:autoLink="web"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.05"
+        android:textColor="@color/secondary_text_color"
+        android:textColorLink="@color/secondary_text_color"
+        android:textSize="@dimen/text_size_tiny_extra"
+        tools:text="@string/privacy_policy_description" />
+
+</LinearLayout>

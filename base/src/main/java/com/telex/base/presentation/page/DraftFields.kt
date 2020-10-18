@@ -9,5 +9,5 @@ data class DraftFields(
     val title: String,
     val authorName: String?,
     val authorUrl: String?,
-    val formats: ArrayList<Format>
+    val formats: List<Format>
 )

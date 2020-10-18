@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.telex.base.R
+import com.telex.base.presentation.page.EditorMode
 import com.telex.base.presentation.page.format.Format
 import com.telex.base.presentation.page.format.FormatType
 import com.telex.base.presentation.page.format.FormatType.ASIDE
@@ -40,6 +41,7 @@ import timber.log.Timber
  * @author Sergey Petrov
  */
 class FormatAdapter(
+    val mode: EditorMode,
     val onFocusItemChanged: (Format?) -> Unit,
     val onTextSelected: (Boolean, format: Format?, List<FormatType>) -> Unit,
     val onPaste: (html: String) -> List<Format>,
@@ -75,7 +77,7 @@ class FormatAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == TYPE_HEADER) {
-            return PageHeaderViewHolder(parent, this)
+            return PageHeaderViewHolder(mode, parent, this)
         } else {
             return when (val formatType = FormatType.getByOrdinal(viewType)) {
                 BREAK_LINE,
@@ -128,6 +130,12 @@ class FormatAdapter(
             position == 0 -> TYPE_HEADER
             else -> getFormatItem(position).type.ordinal
         }
+    }
+
+    fun submitList(newItems: List<Format>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
     }
 
     fun isPageTitleValid(): Boolean {
@@ -345,7 +353,7 @@ class FormatAdapter(
 
     private fun getPositionForItem(item: Format): Int {
         items.forEachIndexed { index, format ->
-            if (item.uid == format.uid) return index + 1 // '+ 1' because we have title at header
+            if (item.id == format.id) return index + 1 // '+ 1' because we have title at header
         }
         return RecyclerView.NO_POSITION
     }

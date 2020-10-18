@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:aztec="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,9 +20,10 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:inputType="textMultiLine|textNoSuggestions"
-        android:textSize="@dimen/text_size_tiny"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:lineSpacingExtra="6sp"
         aztec:textColor="@color/black"
-        tools:text="@tools:sample/lorem" />
+        tools:text="@tools:sample/lorem/random" />
 
     <include
         layout="@layout/layout_item_format_more_overlay"

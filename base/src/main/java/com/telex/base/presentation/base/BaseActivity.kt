@@ -1,6 +1,7 @@
 package com.telex.base.presentation.base
 
 import android.app.Dialog
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -14,8 +15,6 @@ import androidx.appcompat.widget.Toolbar
 import com.telex.base.R
 import com.telex.base.di.Scopes
 import com.telex.base.extention.objectScopeName
-import com.telex.base.presentation.Router
-import javax.inject.Inject
 import moxy.MvpAppCompatActivity
 import toothpick.Scope
 import toothpick.Toothpick
@@ -27,8 +26,6 @@ abstract class BaseActivity : MvpAppCompatActivity() {
 
     abstract val layoutRes: Int
     private var overlayDialog: Dialog? = null
-    @Inject
-    lateinit var router: Router
 
     private var instanceStateSaved: Boolean = false
 
@@ -41,6 +38,21 @@ abstract class BaseActivity : MvpAppCompatActivity() {
         private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.apply {
+            if (!isNightMode()) {
+                decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    decorView.systemUiVisibility = decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    decorView.systemUiVisibility = decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                }
+            } else {
+                decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            }
+        }
+
         val scopeWasClosed = savedInstanceState?.getBoolean(STATE_SCOPE_WAS_CLOSED) ?: true
 
         scopeName = savedInstanceState?.getString(STATE_SCOPE_NAME) ?: objectScopeName()
@@ -139,8 +151,13 @@ abstract class BaseActivity : MvpAppCompatActivity() {
         overlayDialog?.dismiss()
     }
 
-    open fun onLogout() {
-        router.showHomeActivity(this)
+    protected fun isNightMode(): Boolean {
+        return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> true
+            Configuration.UI_MODE_NIGHT_NO -> false
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> false
+            else -> false
+        }
     }
 
     companion object {

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">"Application for publishing tool &lt;a href=http://telegra.ph&gt;Telegra.ph&lt;/a&gt;"</string>
+    <string name="app_name" translatable="false">"Telegraph X"</string>
+    <string name="app_link" translatable="false">"https://play.google.com/store/apps/details?id=com.telex"</string>
+    <string name="app_description">Application for publishing tool <a href="http://telegra.ph">Telegra.ph</a></string>
+    <string name="developer_name" translatable="false">"Sergey Petrov"</string>
+    <string name="developer_email" translatable="false">"s.a.petrov.spb@gmail.com"</string>
+    <string name="developer_link" translatable="false">"https://github.com/sergpetrov"</string>
+    <string name="channel_link" translatable="false">"https://t.me/telegra_ph_x"</string>
+    <string name="page_item_view_shared_element" translatable="false">pageItemView_%s</string>
     <string name="ok">"OK"</string>
     <string name="share_using">"Share using…"</string>
     <string name="add">"Add"</string>
@@ -19,7 +26,7 @@
     <string name="edit">"Edit"</string>
     <string name="publish">"Publish"</string>
     <string name="copy_link">"Copy link"</string>
-    <string name="link_copied"></string>
+    <string name="link_copied">"Link has been copied to the clipboard"</string>
     <string name="account_name">"Account Name"</string>
     <string name="author_name">"Author Name"</string>
     <string name="author_url">"Author Link"</string>
@@ -30,7 +37,7 @@
     <string name="click_button_to_create_a_new_post">"Click + button to create a new post"</string>
     <string name="no_drafts">"No Drafts"</string>
     <string name="drafts_are_storing_on_device_only">"Drafts will be storing on your device only"</string>
-    <string name="login_description">"Log in on this device using &lt;b&gt;@Telegraph&lt;/b&gt; bot in Telegram and then choose Telegraph X app to continue"</string>
+    <string name="login_description">Log in on this device using <b>@Telegraph</b> bot in Telegram and then choose Telegraph X app to continue</string>
     <string name="launch_telegram">"Launch Telegram"</string>
     <string name="log_in">"Log in"</string>
     <plurals name="d_posts">
@@ -51,6 +58,7 @@
     <string name="published">"Published"</string>
     <string name="untitled">"Untitled"</string>
     <string name="discard_draft">"Discard draft"</string>
+    <string name="delete_post">"Delete post"</string>
     <string name="insert_image">"Insert image"</string>
     <string name="from_gallery">"From Gallery"</string>
     <string name="by_url">"By Url"</string>
@@ -58,16 +66,29 @@
     <string name="join_channel">"Join channel and you'll be aware about news, updates, changes and new features"</string>
     <string name="save_draft">"Save draft"</string>
     <string name="do_you_want_publish">"Do you want to publish this article?"</string>
+    <string name="delete_post_description">"You won't be able to restore the content."</string>
     <string name="copy_image_link">"Copy image link"</string>
     <string name="open">"Open"</string>
     <string name="night_mode">"Night Mode"</string>
+    <string name="add_account">"Add Account"</string>
+    <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
+    <string name="insert_multiple_images_in_pro">"Install Telegraph X Pro to upload multiple images to the article"</string>
+    <string name="created_with">"Created with "</string>
+    <string name="add_link">"Add link"</string>
+    <string name="delete_link">"Delete link"</string>
+    <string name="add_iframe">"Add iframe"</string>
+    <string name="iframe_hint">"Paste link on YouTube, Vimeo, Twitter or Telegram post"</string>
 
     <!-- Errors -->
     <string name="server_error">"Server error"</string>
-    <string name="network_error">"No internet connection"</string>
+    <string name="network_error">"No connection"</string>
     <string name="unknown_error">"Unknown error"</string>
     <string name="page_access_denied_error">"You can't publish this article from current account"</string>
     <string name="something_went_wrong">"Something went wrong, try again please"</string>
+    <string name="not_working_proxy_error">"No connection. Try to use another proxy server."</string>
+    <string name="telegraph_unavailable_error">"It seems Telegraph unavailable in your region. Try to use VPN or proxy server."</string>
+    <string name="upload_in_progress_error">"Upload in progress. Please wait…"</string>
+    <string name="error_app_not_found">"Application not found. Install and try again please."</string>
 
     <!-- Privacy Policy -->
     <string name="privacy_policy_description">"By continuing you agree Privacy Policy"</string>
@@ -101,14 +122,6 @@
     <string name="socks5">"socks5"</string>
     <string name="http">"http"</string>
     <string name="proxy_description">"Proxy server may be helpful in accessing Telegraph if there is no connection in a specific region."</string>
-    <string name="developer_name" translatable="false">"Sergey Petrov"</string>
-    <string name="developer_email" translatable="false">"s.a.petrov.spb@gmail.com"</string>
-    <string name="developer_link" translatable="false">"https://github.com/sergpetrov"</string>
-    <string name="channel_link" translatable="false">"https://t.me/telegra_ph_x"</string>
-    <string name="app_link" translatable="false">"https://play.google.com/store/apps/details?id=com.telex"</string>
-    <string name="upload_in_progress_error">"Upload in progress. Please wait…"</string>
-    <string name="add_account">"Add Account"</string>
-    <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
 
     <!-- Statistics -->
     <string name="statistics">"Statistics"</string>
@@ -127,20 +140,8 @@
     <string name="available_in_pro">"Available in Pro"</string>
     <string name="why_pro">"Upgrade to Telegraph X Pro to support further development and gain access extra great features:"</string>
     <string name="install_pro_app">"Install Pro"</string>
-    <string name="not_working_proxy_error">"No internet connection. Try to use another proxy server."</string>
-    <string name="app_name" translatable="false">"Telegraph X"</string>
-    <string name="add_link">"Add link"</string>
-    <string name="delete_link">"Delete link"</string>
-    <string name="add_iframe">"Add iframe"</string>
-    <string name="iframe_hint">"Paste link on YouTube, Vimeo, Twitter or Telegram post"</string>
-    <string name="error_app_not_found">"Application not found. Install and try again please."</string>
-    <string name="delete_post">"Delete post"</string>
-    <string name="delete_post_description">"You won't be able to restore the content."</string>
-    <string name="insert_multiple_images_in_pro">"Install Telegraph X Pro to upload multiple images to the article"</string>
-    <string name="created_with">"Created with "</string>
     <string name="delete_posts">"Delete unwanted posts."</string>
     <string name="support_multiple_accounts">"Support multiple accounts at the same time."</string>
     <string name="detailed_viewing_statistics">"Detailed statistics of viewing for a selected month/year."</string>
     <string name="upload_multiple_images">"Upload multiple images to the article at the same time."</string>
-    <string name="telegraph_unavailable_error"></string>
 </resources>

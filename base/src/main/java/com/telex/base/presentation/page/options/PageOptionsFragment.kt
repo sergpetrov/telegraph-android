@@ -1,10 +1,10 @@
 package com.telex.base.presentation.page.options
 
-import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import androidx.navigation.fragment.findNavController
 import com.telex.base.R
 import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.di.Scopes
@@ -56,7 +56,7 @@ class PageOptionsFragment : BaseOptionsFragment(), PageOptionsView {
                 presenter.discardDraft(pageId)
                 onDraftDiscardedListener?.invoke()
                 if (mode == EditorMode.Edit) {
-                    (context as Activity).finish()
+                    findNavController().popBackStack()
                 }
             }
     )

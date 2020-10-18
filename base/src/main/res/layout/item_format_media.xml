@@ -39,8 +39,8 @@
         android:focusableInTouchMode="true"
         android:gravity="center"
         android:hint="@string/caption_optional"
-        android:inputType="textMultiLine|textNoSuggestions"
-        android:textColor="@color/secondary_text_color"
-        android:textSize="@dimen/text_size_tiny_extra" />
+        android:inputType="textMultiLine|textNoSuggestions|textCapSentences"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:textColor="@color/secondary_text_color" />
 
 </LinearLayout>
