@@ -32,10 +32,6 @@
             android:name="firebase_analytics_collection_enabled"
             android:value="${enableAnalytics}" />
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="2dcdfa4a6c153fa965c63348e2850867f2ece6fb" />
-
     </application>
 
 </manifest>

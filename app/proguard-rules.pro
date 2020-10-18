@@ -3,14 +3,6 @@
     static ** CREATOR;
 }
 
-# ===== Crashlytics =====
-
--keepattributes SourceFile,LineNumberTable
--keep public class * extends java.lang.Exception
--keep class com.crashlytics.** { *; }
--dontwarn com.crashlytics.**
-
-
 # ===== Retrofit =====
 
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and

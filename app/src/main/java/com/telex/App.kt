@@ -1,17 +1,13 @@
 package com.telex
 
-import com.crashlytics.android.Crashlytics
-import com.crashlytics.android.answers.Answers
-import com.crashlytics.android.core.CrashlyticsCore
 import com.telex.base.BaseApp
-import com.telex.base.di.AnalyticsModule
 import com.telex.base.di.AppModule
 import com.telex.base.di.Scopes
 import com.telex.base.utils.Constants
+import com.telex.di.AnalyticsModule
 import com.telex.di.RemoteConfigModule
 import com.telex.utils.DebugTree
 import com.telex.utils.ReleaseTree
-import io.fabric.sdk.android.Fabric
 import timber.log.Timber
 import toothpick.Scope
 import toothpick.Toothpick
@@ -21,16 +17,11 @@ import toothpick.Toothpick
  */
 class App : BaseApp() {
 
-    override fun onCreate() {
-        super.onCreate()
-        setupFabric()
-    }
-
     override fun buildToothpickScope(): Scope? {
         val scope = Toothpick.openScope(Scopes.App)
         scope.installModules(
                 AppModule(this),
-                AnalyticsModule(),
+                AnalyticsModule(this),
                 RemoteConfigModule()
         )
         return scope
@@ -42,14 +33,5 @@ class App : BaseApp() {
         } else {
             Timber.plant(DebugTree())
         }
-    }
-
-    private fun setupFabric() {
-        val crashlyticsCore = CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build()
-        Fabric.with(this, Crashlytics.Builder()
-                .core(crashlyticsCore)
-                .answers(Answers())
-                .build()
-        )
     }
 }
