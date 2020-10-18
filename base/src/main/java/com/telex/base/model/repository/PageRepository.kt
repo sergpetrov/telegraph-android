@@ -105,10 +105,9 @@ class PageRepository @Inject constructor(
         return pageRemoteDataSource.editPage(path, title, authorName, authorUrl, content)
                 .map { it.result }
                 .flatMap { result ->
-                    getCachedPage(result.path)
+                    getCachedPage(pageId)
                             .map { localPage ->
                                 localPage.populate(result)
-                                localPage.id = pageId
                                 localPage.draft = false
                                 localPage.imageUrl = pageImageUrl
                                 localPage
