@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">"Application for publishing tool &lt;a href=http://telegra.ph&gt;Telegra.ph&lt;/a&gt;"</string>
+    <string name="app_description">Application for publishing tool <a href="http://telegra.ph">Telegra.ph</a></string>
     <string name="ok">"OK"</string>
     <string name="share_using">"Share using…"</string>
     <string name="add">"Add"</string>
@@ -30,7 +30,7 @@
     <string name="click_button_to_create_a_new_post">"Click + button to create a new post"</string>
     <string name="no_drafts">"No Drafts"</string>
     <string name="drafts_are_storing_on_device_only">"Drafts will be storing on your device only"</string>
-    <string name="login_description">"Log in on this device using &lt;b&gt;@Telegraph&lt;/b&gt; bot in Telegram and then choose Telegraph X app to continue"</string>
+    <string name="login_description">"Log in on this device using <b>@Telegraph</b> bot in Telegram and then choose Telegraph X app to continue"</string>
     <string name="launch_telegram">"Launch Telegram"</string>
     <string name="log_in">"Log in"</string>
     <plurals name="d_posts">
@@ -61,8 +61,6 @@
     <string name="copy_image_link">"Copy image link"</string>
     <string name="open">"Open"</string>
     <string name="night_mode">"Night Mode"</string>
-
-    <!-- Errors -->
     <string name="server_error">"Server error"</string>
     <string name="network_error">"No connection"</string>
     <string name="unknown_error">"Unknown error"</string>

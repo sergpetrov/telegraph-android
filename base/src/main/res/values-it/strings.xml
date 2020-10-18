@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">"Applicazione non ufficiale per &lt;a href=http://telegra.ph&gt;Telegra.ph&lt;/a&gt;"</string>
+    <string name="app_description">Applicazione non ufficiale per <a href="http://telegra.ph">Telegra.ph</a></string>
     <string name="ok">"Ok"</string>
     <string name="share_using">"Condividi…"</string>
     <string name="add">"Aggiungi"</string>
@@ -30,7 +30,7 @@
     <string name="click_button_to_create_a_new_post">"Clicca il tasto + per creare un nuovo post"</string>
     <string name="no_drafts">"Nessuna bozza"</string>
     <string name="drafts_are_storing_on_device_only">"Le tue bozze rimarranno solo sul tuo dispositivo"</string>
-    <string name="login_description">"Per gestire i post devi entrare usando il bot &lt;b&gt;@Telegraph&lt;/b&gt;. Se hai un account di Telegram, puoi conettere Telegraph."</string>
+    <string name="login_description">"Per gestire i post devi entrare usando il bot <b>@Telegrah</b>. Se hai un account di Telegram, puoi conettere Telegraph."</string>
     <string name="launch_telegram">"Avvia Telegram"</string>
     <string name="log_in">"Entra"</string>
     <plurals name="d_posts">
@@ -61,21 +61,15 @@
     <string name="copy_image_link">"Copia link"</string>
     <string name="open">"Aperto"</string>
     <string name="night_mode">"Modalità notte"</string>
-
-    <!-- Errors -->
     <string name="server_error">"Errore del server"</string>
     <string name="network_error">"Nessuna connessione a internet"</string>
     <string name="unknown_error">"Errore sconosciuto"</string>
     <string name="page_access_denied_error">"Non puoi pubblicare questo articolo da questo account"</string>
     <string name="something_went_wrong">"Qualcosa è andato storto, riprova"</string>
-
-    <!-- Privacy Policy -->
     <string name="privacy_policy_description">"Continuando accetti le politiche sulla privacy"</string>
     <string name="privacy_policy_description_part_to_click">"politiche sulla privacy"</string>
     <string name="privacy_policy">"Informativa sulla privacy"</string>
     <string name="learn_privacy_policy">"Scopri l'informativa sulla privacy"</string>
-
-    <!-- Editor toolbar -->
     <string name="format_bold">"Grassetto"</string>
     <string name="format_heading">"Titolo"</string>
     <string name="format_subheading">"Sottotitolo"</string>
@@ -100,8 +94,8 @@
     <string name="http">"http"</string>
     <string name="proxy_description">"I server proxy possono essere utili per accedere a Telegraph se non c'è connessione in una zona specifica."</string>
     <string name="upload_in_progress_error">"Upload in corso. Attendere prego…"</string>
-    <string name="add_account">"Add Account"</string>
-    <string name="add_account_description">"Choose one more account via @Telegraph bot and open link with %s app"</string>
+    <string name="add_account">"Aggiungi account"</string>
+    <string name="add_account_description">"Scegli un altro account tramite il bot @Telegraph e apri il collegamento con l'app %s"</string>
     <string name="statistics">"Statistica"</string>
     <string name="month">"Month"</string>
     <string name="prev_month">"Prev month"</string>
@@ -122,13 +116,13 @@
     <string name="add_iframe">"Aggiungi iframe"</string>
     <string name="iframe_hint">"Incolla un link di YouTube Vimeo, Twitter o Telegram post…"</string>
     <string name="error_app_not_found">"L'app di non è stato trovata. Installa e riprova."</string>
-    <string name="delete_post">"Delete post"</string>
-    <string name="delete_post_description">"You won't be able to restore the content."</string>
-    <string name="insert_multiple_images_in_pro">"Install Telegraph X Pro to upload multiple images to the article"</string>
-    <string name="created_with">"Created with "</string>
-    <string name="delete_posts">"Delete unwanted posts."</string>
-    <string name="support_multiple_accounts">"Support multiple accounts at the same time."</string>
-    <string name="detailed_viewing_statistics">"Detailed statistics of viewing for a selected month/year."</string>
-    <string name="upload_multiple_images">"Upload multiple images to the article at the same time."</string>
-    <string name="telegraph_unavailable_error">"It seems Telegraph unavailable in your region. Try to use VPN or proxy server."</string>
+    <string name="delete_post">"Elimina post"</string>
+    <string name="delete_post_description">"Non sarai in grado di ripristinare il contenuto."</string>
+    <string name="insert_multiple_images_in_pro">"Installa Telegraph X Pro per caricare più immagini nell'articolo"</string>
+    <string name="created_with">"Creato con "</string>
+    <string name="delete_posts">"Elimina i post indesiderati."</string>
+    <string name="support_multiple_accounts">"Supporta più account contemporaneamente."</string>
+    <string name="detailed_viewing_statistics">"Statistiche dettagliate di visualizzazione per un mese / anno selezionato."</string>
+    <string name="upload_multiple_images">"Carica più immagini nell'articolo contemporaneamente."</string>
+    <string name="telegraph_unavailable_error">"Sembra che Telegraph non sia disponibile nella tua regione. Prova a utilizzare VPN o server proxy."</string>
 </resources>
