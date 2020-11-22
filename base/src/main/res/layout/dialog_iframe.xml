@@ -4,8 +4,8 @@
     android:id="@+id/containerLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/margin_8"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="@dimen/margin_8">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -48,7 +48,6 @@
         android:layout_gravity="end"
         android:layout_marginEnd="@dimen/margin_8"
         android:layout_marginBottom="@dimen/margin_8"
-        android:text="@string/add"
-        android:textColor="@color/black" />
+        android:text="@string/add" />
 
 </LinearLayout>
