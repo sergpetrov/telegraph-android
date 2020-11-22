@@ -44,12 +44,6 @@
         <item name="textAppearanceOverline">@style/TextAppearance.Overline</item>
     </style>
 
-    <style name="AppTheme.Transparent" parent="AppTheme">
-        <item name="android:windowBackground">@color/black</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-    </style>
-
     <style name="AppTheme.Splash" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash</item>
         <item name="android:statusBarColor">@android:color/transparent</item>

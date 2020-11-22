@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="AppTheme.Transparent" parent="AppTheme">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:statusBarColor">@color/transparent_black</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+</resources>
