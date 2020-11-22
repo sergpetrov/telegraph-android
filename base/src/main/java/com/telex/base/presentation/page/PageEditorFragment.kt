@@ -26,6 +26,7 @@ import com.telex.base.extention.getColorFromAttr
 import com.telex.base.extention.setGone
 import com.telex.base.extention.showKeyboard
 import com.telex.base.extention.themeInterpolator
+import com.telex.base.extention.hideKeyboard
 import com.telex.base.model.source.local.entity.Page
 import com.telex.base.presentation.base.BaseFragment
 import com.telex.base.presentation.page.adapter.FormatAdapter
@@ -220,6 +221,7 @@ class PageEditorFragment : BaseFragment(), PageEditorView {
 
     override fun onDestroy() {
         super.onDestroy()
+        activity?.hideKeyboard()
         presenter.discardDraftPageIfNeeded(getPageTitle(), formatAdapter.items)
     }
 

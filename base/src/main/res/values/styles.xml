@@ -22,7 +22,6 @@
         <item name="editTextStyle">@style/EditTextStyle</item>
         <item name="tabStyle">@style/TabLayoutStyle</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogStyle</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LargeComponent</item>
 
         <item name="motionInterpolatorPersistent">@android:interpolator/fast_out_slow_in</item>
         <item name="motionInterpolatorIncoming">@android:interpolator/decelerate_cubic</item>
@@ -95,9 +94,11 @@
     <style name="BottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
         <item name="android:background">?attr/colorSecondary</item>
         <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="shapeAppearance">@style/ShapeAppearance</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance</item>
     </style>
 
-    <style name="ShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+    <style name="ShapeAppearance" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">@dimen/dialog_corner_radius</item>
         <item name="cornerSizeTopLeft">@dimen/dialog_corner_radius</item>
@@ -186,8 +187,9 @@
         <item name="android:textSize">@dimen/text_size_tiny</item>
     </style>
 
-    <style name="NavigationViewStyle">
-        <item name="android:listDivider">@drawable/item_divider</item>
+    <style name="NavigationViewStyle" parent="Widget.Design.NavigationView">
+        <item name="elevation">0dp</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
     <style name="OptionTextViewStyle" parent="TextViewStyle">

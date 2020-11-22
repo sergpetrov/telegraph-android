@@ -6,11 +6,10 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
+        style="@style/NavigationViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="?attr/colorPrimaryDark"
-        android:theme="@style/NavigationViewStyle"
         app:headerLayout="@layout/layout_drawer_header"
         app:itemIconTint="?attr/colorControlNormal"
         app:menu="@menu/menu_drawer">

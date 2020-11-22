@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.LayoutRes
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.ShapeAppearanceModel
+import com.telex.base.R
 import com.telex.base.di.Scopes
 import com.telex.base.extention.objectScopeName
 import moxy.MvpAppCompatDialogFragment
@@ -50,6 +53,10 @@ abstract class BaseBottomSheetFragment : MvpAppCompatDialogFragment() {
         return super.getContext() as Context
     }
 
+    override fun getTheme(): Int {
+        return R.style.BottomSheetDialogStyle
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val scopeWasClosed = savedInstanceState?.getBoolean(STATE_SCOPE_WAS_CLOSED) ?: true
         scopeName = savedInstanceState?.getString(STATE_SCOPE_NAME) ?: objectScopeName()
@@ -88,27 +95,26 @@ abstract class BaseBottomSheetFragment : MvpAppCompatDialogFragment() {
             }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return BottomSheetDialog(context, theme)
+        val dialog = BottomSheetDialog(context, R.style.BottomSheetDialogStyle)
+        dialog.behavior.addBottomSheetCallback(mBottomSheetBehaviorCallback)
+        return dialog
     }
 
     override fun setupDialog(dialog: Dialog, style: Int) {
         val contentView = View.inflate(context, layout, null)
         dialog.setContentView(contentView)
-
-        val layoutParams = (contentView.parent as View).layoutParams as CoordinatorLayout.LayoutParams
-        val behavior = layoutParams.behavior
-        if (behavior != null && behavior is BottomSheetBehavior<*>) {
-            behavior.setBottomSheetCallback(mBottomSheetBehaviorCallback)
-        }
-
         setupView(dialog)
     }
 
     abstract fun setupView(dialog: Dialog)
 
     protected fun onStateChanged(bottomSheet: View, newState: Int) {
-        if (newState == BottomSheetBehavior.STATE_HIDDEN) {
-            dismiss()
+        when (newState) {
+            BottomSheetBehavior.STATE_HIDDEN -> dismiss()
+            BottomSheetBehavior.STATE_EXPANDED -> {
+                val newMaterialShapeDrawable = createMaterialShapeDrawable(bottomSheet)
+                ViewCompat.setBackground(bottomSheet, newMaterialShapeDrawable)
+            }
         }
     }
 
@@ -129,6 +135,21 @@ abstract class BaseBottomSheetFragment : MvpAppCompatDialogFragment() {
 
     fun show(fragmentManager: FragmentManager) {
         show(fragmentManager, tag)
+    }
+
+    private fun createMaterialShapeDrawable(bottomSheet: View): MaterialShapeDrawable? {
+        val shapeAppearanceModel = ShapeAppearanceModel
+                .builder(context, 0, R.style.ShapeAppearance)
+                .build()
+        val currentMaterialShapeDrawable: MaterialShapeDrawable = bottomSheet.background as MaterialShapeDrawable
+        val newMaterialShapeDrawable = MaterialShapeDrawable(shapeAppearanceModel)
+        newMaterialShapeDrawable.initializeElevationOverlay(context)
+        newMaterialShapeDrawable.fillColor = currentMaterialShapeDrawable.getFillColor()
+        newMaterialShapeDrawable.setTintList(currentMaterialShapeDrawable.getTintList())
+        newMaterialShapeDrawable.setElevation(currentMaterialShapeDrawable.getElevation())
+        newMaterialShapeDrawable.setStrokeWidth(currentMaterialShapeDrawable.getStrokeWidth())
+        newMaterialShapeDrawable.setStrokeColor(currentMaterialShapeDrawable.getStrokeColor())
+        return newMaterialShapeDrawable
     }
 
     companion object {

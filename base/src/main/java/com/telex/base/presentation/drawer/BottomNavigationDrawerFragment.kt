@@ -7,6 +7,8 @@ import android.os.Handler
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.internal.NavigationMenuView
 import com.telex.base.NavigationGraphDirections
 import com.telex.base.R
