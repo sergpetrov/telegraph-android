@@ -14,9 +14,6 @@ data class ImageFormat(
 
     var uploadStatus: ImageUploadStatus? = null
 
-    override fun toHtml(): String {
-        return "<figure><img src=\"$url\"/><figcaption>$caption</figcaption></figure>"
-    }
-
     fun getFullUrl() = if (!url.isUrl()) ServerManager.endPoint + url else url
+
 }

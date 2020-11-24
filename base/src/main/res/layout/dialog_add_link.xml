@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="@dimen/margin_16">
+    android:paddingTop="@dimen/margin_8">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_8"
+        android:paddingEnd="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_8"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold"
+        tools:text="@string/choose_action" />
 
     <com.telex.base.presentation.base.UrlTextInputLayout
         android:id="@+id/urlTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginVertical="@dimen/margin_8"
         app:hintEnabled="false">
 
         <EditText
@@ -18,9 +34,21 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:inputType="textUri"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
             android:singleLine="true"
             android:textSize="@dimen/text_size_small" />
 
     </com.telex.base.presentation.base.UrlTextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submitButton"
+        style="@style/TextButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:layout_marginBottom="@dimen/margin_8"
+        tools:text="@string/add_link" />
 
 </LinearLayout>

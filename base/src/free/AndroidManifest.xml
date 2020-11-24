@@ -4,7 +4,9 @@
 
     <application>
 
-        <activity android:name="com.telex.base.presentation.home.UpgradeToProActivity" />
+        <activity
+            android:name="com.telex.base.presentation.home.UpgradeToProActivity"
+            android:theme="@style/AppTheme.Transparent" />
 
     </application>
 

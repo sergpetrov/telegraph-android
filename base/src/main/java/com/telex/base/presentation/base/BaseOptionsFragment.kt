@@ -8,10 +8,10 @@ import androidx.annotation.StringRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import androidx.fragment.app.FragmentManager
 import com.telex.base.R
 import com.telex.base.extention.color
 import com.telex.base.extention.getColorFromAttr
+import com.telex.base.extention.setGone
 import kotlinx.android.synthetic.main.fragment_bottom_sheet_options.*
 
 /**
@@ -21,11 +21,18 @@ abstract class BaseOptionsFragment : BaseBottomSheetFragment() {
 
     override val layout: Int = R.layout.fragment_bottom_sheet_options
 
-    protected open val title: Int
-        get() = R.string.choose_action
+    @StringRes
+    protected open val titleResId: Int? = null
 
     override fun setupView(dialog: Dialog) {
-        dialog.titleTextView.text = getString(title)
+        dialog.titleTextView.apply {
+            if (titleResId != null) {
+                setGone(false)
+                text = getString(requireNotNull(titleResId))
+            } else {
+                setGone(true)
+            }
+        }
     }
 
     protected open fun addOptions(vararg options: Option) {
@@ -54,10 +61,6 @@ abstract class BaseOptionsFragment : BaseBottomSheetFragment() {
         }
 
         dialog?.containerLayout?.addView(textView)
-    }
-
-    fun show(supportFragmentManager: FragmentManager) {
-        show(supportFragmentManager, tag)
     }
 
     class Option(@DrawableRes val icon: Int, @StringRes val title: Int, @ColorRes val color: Int? = null, var onClick: (() -> Unit)? = null)

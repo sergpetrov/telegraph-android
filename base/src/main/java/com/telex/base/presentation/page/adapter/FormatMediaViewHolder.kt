@@ -81,6 +81,7 @@ class FormatMediaViewHolder(
                 (context as Activity).hideKeyboard()
                 adapter.itemTouchHelper?.startDrag(this@FormatMediaViewHolder)
                 adapter.focusedItem = format
+                adapter.requestFocusForFormatItem(format)
                 true
             }
         }

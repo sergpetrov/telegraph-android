@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.telex.base.R
 import com.telex.base.extention.showKeyboard
+import com.telex.base.presentation.page.EditorMode
 import com.telex.base.presentation.page.format.Format
 import com.telex.base.presentation.page.format.FormatType
 import com.telex.base.utils.CharacterCountErrorWatcher
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.item_page_header.view.*
  * @author Sergey Petrov
  */
 class PageHeaderViewHolder(
+    private val mode: EditorMode,
     parent: ViewGroup,
     private val adapter: FormatAdapter
 ) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_page_header, parent, false)) {
@@ -37,7 +39,7 @@ class PageHeaderViewHolder(
             }
             titleEditText.removeTextChangedListener(titleTextWatcher)
             titleEditText.addTextChangedListener(titleTextWatcher)
-            showContentPlaceholder(adapter.items.isEmpty())
+            showContentPlaceholder(mode == EditorMode.Create)
             contentTextView.setOnClickListener {
                 adapter.addBlockFormatItem(Format(FormatType.PARAGRAPH))
                 postDelayed({ (context as Activity).showKeyboard() }, 100)
@@ -92,6 +94,7 @@ class PageHeaderViewHolder(
                         adapter.addBlockFormatItem(Format(FormatType.PARAGRAPH))
                     } else {
                         adapter.focusedItem = adapter.items.firstOrNull()
+                        adapter.requestFocusForFormatItem(adapter.focusedItem)
                     }
                 }
             }

@@ -4,18 +4,16 @@ import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.model.source.local.PageLocalDataSource
 import com.telex.base.model.source.local.entity.Nodes
 import com.telex.base.model.source.local.entity.Page
-import com.telex.base.model.source.local.entity.Page.Companion.DELETED_TITLE
-import com.telex.base.model.source.local.entity.Page.Companion.OLD_DELETED_TITLE
+import com.telex.base.model.source.local.entity.populate
 import com.telex.base.model.source.remote.PageRemoteDataSource
 import com.telex.base.model.source.remote.data.NodeElementData
-import com.telex.base.model.source.remote.data.PageData
 import id.zelory.compressor.Compressor
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.io.File
-import java.util.UUID
+import java.util.*
 import javax.inject.Inject
 import kotlin.collections.LinkedHashMap
 
@@ -23,10 +21,10 @@ import kotlin.collections.LinkedHashMap
  * @author Sergey Petrov
  */
 class PageRepository @Inject constructor(
-    private val pageLocalDataSource: PageLocalDataSource,
-    private val pageRemoteDataSource: PageRemoteDataSource,
-    private val userRepository: UserRepository,
-    private val imageCompressor: Compressor
+        private val pageLocalDataSource: PageLocalDataSource,
+        private val pageRemoteDataSource: PageRemoteDataSource,
+        private val userRepository: UserRepository,
+        private val imageCompressor: Compressor
 ) {
 
     private val currentAccountId: String
@@ -64,7 +62,7 @@ class PageRepository @Inject constructor(
 
                                     for (remotePage in result.pages) {
                                         val localPage = localPages[remotePage.path] ?: Page(currentAccountId)
-                                        resultPages[remotePage.path] = convertPage(localPage, remotePage)
+                                        resultPages[remotePage.path] = localPage.populate(remotePage)
                                     }
 
                                     pageLocalDataSource.insert(resultPages.values.toList())
@@ -96,7 +94,7 @@ class PageRepository @Inject constructor(
         return when {
             !page.draft && path != null -> {
                 pageRemoteDataSource.getPage(path)
-                        .map { convertPage(page, it.result) }
+                        .map { page.populate(it.result) }
                         .doOnSuccess { pageLocalDataSource.update(it) }
             }
             else -> Single.just(page)
@@ -105,13 +103,18 @@ class PageRepository @Inject constructor(
 
     fun editPage(pageId: Long, path: String, title: String, authorName: String?, authorUrl: String?, content: List<NodeElementData>, pageImageUrl: String?): Single<Page> {
         return pageRemoteDataSource.editPage(path, title, authorName, authorUrl, content)
-                .flatMap { convertLocalPage(it.result) }
+                .map { it.result }
+                .flatMap { result ->
+                    getCachedPage(pageId)
+                            .map { localPage ->
+                                localPage.populate(result)
+                                localPage.draft = false
+                                localPage.imageUrl = pageImageUrl
+                                localPage
+                            }
+                }
                 .doOnSuccess { page ->
                     AnalyticsHelper.logEditPage()
-
-                    page.id = pageId
-                    page.draft = false
-                    page.imageUrl = pageImageUrl
                     pageLocalDataSource.update(page)
                 }
     }
@@ -124,15 +127,14 @@ class PageRepository @Inject constructor(
                                 getCachedPage(pageId)
                                         .map { localPage ->
                                             localPage.number = user.pageCount // add last number for display on top of list
-                                            convertPage(localPage, response.result)
+                                            localPage.draft = false
+                                            localPage.imageUrl = pageImageUrl
+                                            localPage.populate(response.result)
                                         }
                             }
                 }
                 .doOnSuccess { page ->
                     AnalyticsHelper.logCreatePage()
-
-                    page.draft = false
-                    page.imageUrl = pageImageUrl
                     pageLocalDataSource.update(page)
                 }
     }
@@ -142,17 +144,6 @@ class PageRepository @Inject constructor(
                 .flatMap {
                     pageRemoteDataSource.uploadImage(it)
                 }
-    }
-
-    private fun convertLocalPage(data: PageData): Single<Page> {
-        return getCachedPage(data.path)
-                .map { convertPage(it, data) }
-    }
-
-    private fun convertPage(page: Page, data: PageData): Page {
-        val result = Page.convert(page, data)
-        result.deleted = data.title == DELETED_TITLE && data.authorName == DELETED_TITLE && data.description.isEmpty() || data.title == OLD_DELETED_TITLE
-        return result
     }
 
     fun savePageDraft(pageId: Long, title: String?, authorName: String?, authorUrl: String?, content: List<NodeElementData>, pageImageUrl: String?): Single<Page> {

@@ -9,6 +9,5 @@ import moxy.viewstate.strategy.StateStrategyType
  */
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface AuthorView : BaseMvpView {
-    fun showProgress(isVisible: Boolean)
     fun showAuthor(name: String?, url: String?)
 }

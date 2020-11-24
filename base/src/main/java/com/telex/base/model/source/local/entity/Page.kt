@@ -40,21 +40,23 @@ data class Page(
 
         const val OLD_DELETED_TITLE = "DЕLЕТЕD"
         const val DELETED_TITLE = "DELETED"
-
-        fun convert(page: Page, data: PageData): Page {
-            page.path = data.path
-            data.number?.let { page.number = data.number }
-            page.url = data.url
-            page.title = data.title
-            page.imageUrl = data.imageUrl
-            if (data.views > 0) { // it's api.telegra.ph bug
-                page.views = data.views
-            }
-            page.authorName = data.authorName
-            page.authorUrl = data.authorUrl
-            data.content?.let { page.nodes = Nodes(it) }
-
-            return page
-        }
     }
+}
+
+fun Page.populate(data: PageData): Page {
+    path = data.path
+    url = data.url
+    data.number?.let { number = data.number }
+    deleted = data.title == Page.DELETED_TITLE && data.authorName == Page.DELETED_TITLE && data.description.isEmpty() || data.title == Page.OLD_DELETED_TITLE
+    if (data.views > 0) { // it's api.telegra.ph bug
+        views = data.views
+    }
+    if (!draft) {
+        title = data.title
+        imageUrl = data.imageUrl
+        authorName = data.authorName
+        authorUrl = data.authorUrl
+        data.content?.let { nodes = Nodes(it) }
+    }
+    return this
 }

@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_drawer_header_layout">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/currentAccountLayout"

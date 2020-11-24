@@ -8,6 +8,7 @@ import com.google.android.material.navigation.NavigationView
 import com.telex.base.R
 import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.model.source.local.entity.User
+import com.telex.base.presentation.pages.BaseDrawerNavigationDelegate
 
 /**
  * @author Sergey Petrov

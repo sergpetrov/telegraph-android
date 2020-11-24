@@ -11,6 +11,7 @@ dependencies {
 }
 
 task ktlint(type: JavaExec, group: "verification") {
+    enabled = false
     description = "Check Kotlin code style."
     classpath = configurations.ktlint
     main = "com.pinterest.ktlint.Main"

@@ -3,15 +3,22 @@
     <style name="AppTheme" parent="AppTheme.Base">
         <item name="colorPrimary">@color/primary_black</item>
         <item name="colorPrimaryDark">@color/primary_dark_black</item>
+        <item name="colorSecondary">@color/secondary_black</item>
         <item name="colorAccent">@color/white</item>
         <item name="colorAccentDark">@color/primary_dark_black</item>
         <item name="colorControlNormal">@color/white</item>
+        <item name="colorOnSurface">@color/light_primary_text_color</item>
         <item name="android:textColor">@color/light_primary_text_color</item>
         <item name="android:textColorHint">@color/secondary_text_color</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="placeholderColor">@color/primary_black</item>
         <item name="dividerColor">@color/dark_divider_color</item>
         <item name="selectorColor">@color/dark_divider_color</item>
+    </style>
+
+    <style name="BottomSheetDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowIsFloating">false</item>
     </style>
 
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,16 +18,16 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:hint="@string/title"
-        android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
-        android:textSize="@dimen/text_size_large" />
+        android:inputType="textMultiLine|textNoSuggestions|textCapSentences"
+        android:textAppearance="?attr/textAppearanceHeadline4" />
 
     <TextView
         android:id="@+id/titleLimitTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
         android:textColor="@color/secondary_text_color"
-        android:textSize="@dimen/text_size_tiny"
         android:visibility="gone"
         tools:text="0/256"
         tools:visibility="visible" />
@@ -39,8 +40,8 @@
         android:paddingStart="@dimen/margin_8"
         android:paddingEnd="@dimen/margin_8"
         android:text="@string/your_story"
-        android:textColor="@color/secondary_text_color"
-        android:textSize="@dimen/text_size_tiny" />
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/secondary_text_color" />
 
     <TextView
         android:id="@+id/emptyContentTextView"
@@ -48,8 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:text="@string/empty_content"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
         android:textColor="@color/error"
-        android:textSize="@dimen/text_size_tiny"
         android:visibility="gone"
         tools:visibility="visible" />
 

@@ -9,8 +9,7 @@ import com.telex.base.presentation.base.BaseOptionsFragment
  */
 class InsertImageOptionsFragment : BaseOptionsFragment() {
 
-    override val title: Int
-        get() = R.string.insert_image
+    override val titleResId: Int = R.string.insert_image
 
     val fromGalleryOption = Option(R.drawable.ic_image, R.string.from_gallery)
     val byUrlOption = Option(R.drawable.ic_insert_link, R.string.by_url)
