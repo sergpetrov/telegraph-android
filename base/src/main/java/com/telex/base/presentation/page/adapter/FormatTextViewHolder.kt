@@ -132,6 +132,7 @@ class FormatTextViewHolder(
                 (context as Activity).hideKeyboard()
                 adapter.itemTouchHelper?.startDrag(this@FormatTextViewHolder)
                 adapter.focusedItem = item
+                adapter.requestFocusForFormatItem(format)
                 true
             }
 
@@ -294,6 +295,7 @@ class FormatTextViewHolder(
                     format.type = formatType
                 }
                 adapter.focusedItem = format
+                adapter.requestFocusForFormatItem(format)
             }
             ITALIC,
             UNDERLINE,

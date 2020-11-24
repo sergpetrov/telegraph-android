@@ -94,6 +94,7 @@ class PageHeaderViewHolder(
                         adapter.addBlockFormatItem(Format(FormatType.PARAGRAPH))
                     } else {
                         adapter.focusedItem = adapter.items.firstOrNull()
+                        adapter.requestFocusForFormatItem(adapter.focusedItem)
                     }
                 }
             }

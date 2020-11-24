@@ -56,9 +56,6 @@ class FormatAdapter(
         set(value) {
             if (field != value) clearFocusForFocusedFormatItem()
             field = value
-            if (field != null) {
-                requestFocusForFocusedFormatItem()
-            }
             onFocusItemChanged.invoke(field)
         }
 
@@ -322,10 +319,6 @@ class FormatAdapter(
         }
     }
 
-    private fun requestFocusForFocusedFormatItem() {
-        requestFocusForFormatItem(focusedItem)
-    }
-
     private fun clearFocusForFocusedFormatItem() {
         val holder = getFocusedItemViewHolder() as? BaseFormatViewHolder<*>
         holder?.clearViewHolderFocus()
@@ -341,6 +334,7 @@ class FormatAdapter(
 
     private fun onFormatItemAdded(position: Int, format: Format) {
         focusedItem = format
+        requestFocusForFormatItem(format)
         recyclerView?.post {
             val layoutManager = recyclerView?.layoutManager as? LinearLayoutManager
             if (layoutManager != null) {
