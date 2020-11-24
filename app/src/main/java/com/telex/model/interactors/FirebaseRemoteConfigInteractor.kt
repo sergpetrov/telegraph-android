@@ -4,8 +4,8 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
-import com.telex.BuildConfig
 import com.telex.R
+import com.telex.base.BuildConfig
 import com.telex.base.model.interactors.RemoteConfigInteractor
 import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.CACHE_EXPIRATION
 import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.CREATED_WITH_CAPTION_DISABLED
