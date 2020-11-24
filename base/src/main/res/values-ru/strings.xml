@@ -58,12 +58,13 @@
     <string name="untitled">Без заголовка</string>
     <string name="discard_draft">Удалить черновик</string>
     <string name="delete_post">Удалить публикацию</string>
-    <string name="insert_image">Вставить изображение</string>
+    <string name="insert_image">Добавить изображение</string>
     <string name="from_gallery">Из галереи</string>
     <string name="by_url">По ссылке</string>
     <string name="official_telegram_channel">Официальный телеграм канал</string>
     <string name="join_channel">Присоединяйтесь к каналу, чтобы быть в курсе новостей, обновлений и новых функций</string>
     <string name="save_draft">В черновики</string>
+    <string name="save">Сохранить</string>
     <string name="do_you_want_publish">Вы хотите опубликовать эту статью?</string>
     <string name="delete_post_description">Восстановить содержимое будет невозможно.</string>
     <string name="copy_image_link">Копировать ссылку</string>

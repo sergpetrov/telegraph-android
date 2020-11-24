@@ -53,12 +53,13 @@
     <string name="published">"פורסם"</string>
     <string name="untitled">"ללא כותרת"</string>
     <string name="discard_draft">"מחק טיוטה"</string>
-    <string name="insert_image">"הכנס תמונה"</string>
+    <string name="insert_image">"הוסף תמונה"</string>
     <string name="from_gallery">"מהגלריה"</string>
     <string name="by_url">"ע\"י קישור"</string>
     <string name="official_telegram_channel">"ערוץ הטלגרם הרשמי"</string>
     <string name="join_channel">"הצטרף לערוץ ותקבל את החדשות, העדכונים, השינויים והתכונות החדשות"</string>
     <string name="save_draft">"שמור טיוטה"</string>
+    <string name="save">"שמור"</string>
     <string name="do_you_want_publish">"תרצה לפרסם את המאמר הזה?"</string>
     <string name="copy_image_link">"הדבק קישור לתמונה"</string>
     <string name="open">"פתח"</string>

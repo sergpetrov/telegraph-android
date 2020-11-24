@@ -57,6 +57,7 @@
     <string name="official_telegram_channel">"Resmi Telegram kanalı"</string>
     <string name="join_channel">"Kanala katılarak haber, güncelleme, değişiklik ve yeni özellikleri kaçırmayın"</string>
     <string name="save_draft">"Taslağı kaydet"</string>
+    <string name="save">"Kaydet"</string>
     <string name="do_you_want_publish">"Bu makaleyi yayınlamak istiyor musunuz?"</string>
     <string name="copy_image_link">"Görsel bağlantısını kopyala"</string>
     <string name="open">"Aç"</string>

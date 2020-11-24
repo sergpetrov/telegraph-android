@@ -51,12 +51,13 @@
     <string name="published">"Published"</string>
     <string name="untitled">"Untitled"</string>
     <string name="discard_draft">"Discard draft"</string>
-    <string name="insert_image">"Insert image"</string>
+    <string name="insert_image">"Add image"</string>
     <string name="from_gallery">"From Gallery"</string>
     <string name="by_url">"By Url"</string>
     <string name="official_telegram_channel">"Official Telegram channel"</string>
     <string name="join_channel">"Join channel and you'll be aware about news, updates, changes and new features"</string>
     <string name="save_draft">"Save draft"</string>
+    <string name="save">"Save"</string>
     <string name="do_you_want_publish">"Do you want to publish this article?"</string>
     <string name="copy_image_link">"Copy image link"</string>
     <string name="open">"Open"</string>

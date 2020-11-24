@@ -51,12 +51,13 @@
     <string name="published">"Veröffentlicht"</string>
     <string name="untitled">"Unbenannt"</string>
     <string name="discard_draft">"Entwurf verwerfen"</string>
-    <string name="insert_image">"Bild einfügen"</string>
+    <string name="insert_image">"Bild hinzufügen"</string>
     <string name="from_gallery">"Aus Galerie"</string>
     <string name="by_url">"Von Url"</string>
     <string name="official_telegram_channel">"Offizieller Telegram channel"</string>
     <string name="join_channel">"Channel beitreten um über alle News, Updates, Veränderungen und neue Funktionen informiert zu werden"</string>
     <string name="save_draft">"Entwurf speichern"</string>
+    <string name="save">"Speichern"</string>
     <string name="do_you_want_publish">"Willst du diesen Artikel veröffentlichen?"</string>
     <string name="copy_image_link">"Bildlink kopieren"</string>
     <string name="open">"Öffnen"</string>

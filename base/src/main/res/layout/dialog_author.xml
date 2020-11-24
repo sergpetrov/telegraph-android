@@ -65,6 +65,6 @@
         android:layout_gravity="end"
         android:layout_marginEnd="@dimen/margin_8"
         android:layout_marginBottom="@dimen/margin_8"
-        android:text="@string/add" />
+        android:text="@string/save" />
 
 </LinearLayout>
