@@ -80,10 +80,10 @@ android {
 dependencies {
     implementation project(':base')
 
-    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
-    implementation 'com.google.firebase:firebase-analytics:17.6.0'
-    implementation 'com.google.firebase:firebase-core:17.5.1'
-    implementation 'com.google.firebase:firebase-config:19.2.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-core:18.0.0'
+    implementation 'com.google.firebase:firebase-config:20.0.1'
 
     kapt "com.github.moxy-community:moxy-compiler:$moxyVersion"
     kapt 'com.github.stephanenicolas.toothpick:toothpick-compiler:3.0.2'
