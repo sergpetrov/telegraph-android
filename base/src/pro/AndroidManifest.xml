@@ -4,7 +4,9 @@
 
     <application>
 
-        <activity android:name=".presentation.statistics.PageStatisticsActivity" />
+        <activity
+            android:name=".presentation.statistics.PageStatisticsActivity"
+            android:theme="@style/AppTheme.Transparent" />
 
     </application>
 

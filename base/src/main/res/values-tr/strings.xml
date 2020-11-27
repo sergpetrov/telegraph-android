@@ -30,7 +30,7 @@
     <string name="click_button_to_create_a_new_post">"Yeni yazı oluşturmak için + butonuna tıklayın"</string>
     <string name="no_drafts">"Taslak Yok"</string>
     <string name="drafts_are_storing_on_device_only">"Taslaklar sadece cihazınızda depolanacak"</string>
-    <string name="login_description">"Yazılarınızı yönetmek için <b>@Telegrah</b> botunu kullanarak giriş yapmanız gerekir. Telegram hesabınız varsa, şu an bağlanabilirsiniz."</string>
+    <string name="login_description">"Yazılarınızı yönetmek için <b>@Telegraph</b> botunu kullanarak giriş yapmanız gerekir. Telegram hesabınız varsa, şu an bağlanabilirsiniz."</string>
     <string name="launch_telegram">"Telegram’ı Başlat"</string>
     <string name="log_in">"Giriş yap"</string>
     <plurals name="d_posts">
