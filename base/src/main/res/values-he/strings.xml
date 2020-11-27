@@ -30,7 +30,7 @@
     <string name="click_button_to_create_a_new_post">"לחץ על + על מנת ליצור פוסט חדש"</string>
     <string name="no_drafts">"אין טיוטה"</string>
     <string name="drafts_are_storing_on_device_only">"הטיוטות יאוחסנו במכשיר שלך בלבד"</string>
-    <string name="login_description">"התחבר למכשיר זה באמצעות <b>@Telegrah</b> בוט בטלגרם ואז בחר באפליקציית Telegraph X כדי להמשיך"</string>
+    <string name="login_description">"התחבר למכשיר זה באמצעות <b>@Telegraph</b> בוט בטלגרם ואז בחר באפליקציית Telegraph X כדי להמשיך"</string>
     <string name="launch_telegram">"הפעל טלגרם"</string>
     <string name="log_in">"התחבר"</string>
     <plurals name="d_posts">

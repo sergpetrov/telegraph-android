@@ -30,7 +30,7 @@
     <string name="click_button_to_create_a_new_post">"Clicca il tasto + per creare un nuovo post"</string>
     <string name="no_drafts">"Nessuna bozza"</string>
     <string name="drafts_are_storing_on_device_only">"Le tue bozze rimarranno solo sul tuo dispositivo"</string>
-    <string name="login_description">"Per gestire i post devi entrare usando il bot <b>@Telegrah</b>. Se hai un account di Telegram, puoi conettere Telegraph."</string>
+    <string name="login_description">"Per gestire i post devi entrare usando il bot <b>@Telegraph</b>. Se hai un account di Telegram, puoi conettere Telegraph."</string>
     <string name="launch_telegram">"Avvia Telegram"</string>
     <string name="log_in">"Entra"</string>
     <plurals name="d_posts">
