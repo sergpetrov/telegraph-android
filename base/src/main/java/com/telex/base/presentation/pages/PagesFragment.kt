@@ -87,7 +87,7 @@ open class PagesFragment : BaseFragment(), PagesView {
     }
 
     override fun showTopBanner(banner: TopBannerData) {
-        topBannerDelegate = TopBannerDelegate(activity as BaseActivity, banner)
+        topBannerDelegate = TopBannerDelegate(this, banner)
         topBannerDelegate?.showBanner(coordinatorLayout, topBannerLayout)
     }
 
