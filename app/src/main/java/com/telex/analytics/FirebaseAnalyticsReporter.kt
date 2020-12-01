@@ -1,18 +1,18 @@
 package com.telex.analytics
 
-import android.content.Context
 import android.os.Bundle
-import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.telex.base.analytics.AnalyticsReporter
 
 /**
  * @author Sergey Petrov
  */
-class FirebaseAnalyticsReporter(
-        private val context: Context
-) : AnalyticsReporter {
+class FirebaseAnalyticsReporter : AnalyticsReporter {
+
+    private val firebaseAnalytics = Firebase.analytics
 
     override fun logEvent(eventKey: String) {
-        FirebaseAnalytics.getInstance(context).logEvent(eventKey, Bundle())
+        firebaseAnalytics.logEvent(eventKey, Bundle())
     }
 }

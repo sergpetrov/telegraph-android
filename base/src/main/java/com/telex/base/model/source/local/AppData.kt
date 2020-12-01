@@ -26,6 +26,12 @@ class AppData @Inject constructor(context: Context) {
     fun needShowMultipleImagesUploadingDialog(): Boolean = preferences.getBoolean(MULTIPLE_IMAGES_UPLOADING_DIALOG, true)
     fun putNeedShowMultipleImagesUploadingDialog(need: Boolean) = preferences.edit().putBoolean(MULTIPLE_IMAGES_UPLOADING_DIALOG, need).apply()
 
+    fun getLastAppReviewRequestTime(): Long = preferences.getLong(LAST_APP_REVIEW_REQUEST_TIME, -1)
+    fun putLastAppReviewRequestTime(time: Long) = preferences.edit().putLong(LAST_APP_REVIEW_REQUEST_TIME, time).apply()
+
+    fun getAuthorizedAppLaunch(): Int = preferences.getInt(AUTHORIZED_APP_LAUNCH, 0)
+    fun putAuthorizedAppLaunch(count: Int) = preferences.edit().putInt(AUTHORIZED_APP_LAUNCH, count).apply()
+
     fun clearAuthData() {
         putCurrentAccessToken(null)
     }
@@ -53,5 +59,7 @@ class AppData @Inject constructor(context: Context) {
         private const val NIGHT_MODE_ENABLED = "NIGHT_MODE_ENABLED"
         private const val NEED_SHOW_ADD_ACCOUNT_DIALOG = "NEED_SHOW_ADD_ACCOUNT_DIALOG"
         private const val MULTIPLE_IMAGES_UPLOADING_DIALOG = "MULTIPLE_IMAGES_UPLOADING_DIALOG"
+        private const val LAST_APP_REVIEW_REQUEST_TIME = "LAST_APP_REVIEW_REQUEST_TIME"
+        private const val AUTHORIZED_APP_LAUNCH = "AUTHORIZED_APP_LAUNCH"
     }
 }

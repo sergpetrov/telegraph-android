@@ -13,15 +13,21 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.Hold
 import com.telex.base.R
+import com.telex.base.extention.justSubscribe
+import com.telex.base.extention.withDefaults
 import com.telex.base.model.interactors.UserInteractor
 import com.telex.base.presentation.base.BaseActivity
 import com.telex.base.presentation.drawer.BottomNavigationDrawerFragment
 import com.telex.base.presentation.page.PageEditorFragmentDirections
 import com.telex.base.presentation.pages.DraftsFragment
 import com.telex.base.presentation.pages.PagesFragment
+import com.telex.base.review.AppReviewManager
+import io.reactivex.Completable
 import kotlinx.android.synthetic.main.activity_app.*
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
+import toothpick.Toothpick
+import javax.inject.Inject
 
 /**
  * @author Sergey Petrov
@@ -30,6 +36,8 @@ class AppActivity : BaseActivity(), AppActivityView {
 
     override val layoutRes: Int = R.layout.activity_app
 
+    @Inject
+    lateinit var appReviewManager: AppReviewManager
     private var navController: NavController? = null
     private lateinit var navGraph: NavGraph
 
@@ -44,6 +52,8 @@ class AppActivity : BaseActivity(), AppActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        Toothpick.inject(this, scope)
+
         setupStatusBar()
         overridePendingTransition(0, 0)
 
@@ -53,6 +63,7 @@ class AppActivity : BaseActivity(), AppActivityView {
         if (savedInstanceState == null) {
             if (scope.getInstance(UserInteractor::class.java).isTokenValid()) {
                 navGraph.startDestination = R.id.pagesFragment
+                trackAndTryRequestAppReview()
             } else {
                 navGraph.startDestination = R.id.loginFragment
             }
@@ -113,16 +124,6 @@ class AppActivity : BaseActivity(), AppActivityView {
         }
     }
 
-    private fun circularRevealActivity() {
-        val cx = coordinatorLayout.width / 2
-        val cy = coordinatorLayout.height / 2
-        val finalRadius = coordinatorLayout.width.coerceAtLeast(coordinatorLayout.height)
-        val circularReveal = ViewAnimationUtils.createCircularReveal(coordinatorLayout, cx, cy, 0f, finalRadius.toFloat())
-        circularReveal.duration = 700
-        coordinatorLayout.visibility = View.VISIBLE
-        circularReveal.start()
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         getCurrentFragment()?.onActivityResult(requestCode, resultCode, data)
@@ -131,6 +132,16 @@ class AppActivity : BaseActivity(), AppActivityView {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         getCurrentFragment()?.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    private fun circularRevealActivity() {
+        val cx = coordinatorLayout.width / 2
+        val cy = coordinatorLayout.height / 2
+        val finalRadius = coordinatorLayout.width.coerceAtLeast(coordinatorLayout.height)
+        val circularReveal = ViewAnimationUtils.createCircularReveal(coordinatorLayout, cx, cy, 0f, finalRadius.toFloat())
+        circularReveal.duration = 700
+        coordinatorLayout.visibility = View.VISIBLE
+        circularReveal.start()
     }
 
     private fun showBottomAppBar() {
@@ -159,5 +170,13 @@ class AppActivity : BaseActivity(), AppActivityView {
 
     private fun getCurrentFragment(): Fragment? {
         return supportFragmentManager.findFragmentById(R.id.fragmentContainerView)?.childFragmentManager?.primaryNavigationFragment
+    }
+
+    private fun trackAndTryRequestAppReview() {
+        Completable
+                .fromAction { appReviewManager.trackAuthorizedAppLaunch() }
+                .andThen(appReviewManager.tryRequestAppReview(this))
+                .withDefaults()
+                .justSubscribe()
     }
 }

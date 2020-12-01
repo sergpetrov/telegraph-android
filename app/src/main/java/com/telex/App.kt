@@ -4,8 +4,7 @@ import com.telex.base.BaseApp
 import com.telex.base.di.AppModule
 import com.telex.base.di.Scopes
 import com.telex.base.utils.Constants
-import com.telex.di.AnalyticsModule
-import com.telex.di.RemoteConfigModule
+import com.telex.di.AppToolsModule
 import com.telex.utils.DebugTree
 import com.telex.utils.ReleaseTree
 import timber.log.Timber
@@ -21,8 +20,7 @@ class App : BaseApp() {
         val scope = Toothpick.openScope(Scopes.App)
         scope.installModules(
                 AppModule(this),
-                AnalyticsModule(this),
-                RemoteConfigModule()
+                AppToolsModule(this)
         )
         return scope
     }

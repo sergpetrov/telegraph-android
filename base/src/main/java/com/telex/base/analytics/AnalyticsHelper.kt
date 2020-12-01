@@ -31,6 +31,7 @@ object AnalyticsHelper {
     private const val CLICK_TOP_BANNER = "Click Top Banner"
     private const val CLICK_ADD_ACCOUNT = "Click Add Account"
     private const val CLICK_DRAWER_UPGRADE_TO_PRO_BUTTON = "Click Drawer Upgrade To Pro Button"
+    private const val APP_REVIEW_REQUESTED = "App Review Requested"
 
     private var analyticsReporter: AnalyticsReporter = Toothpick.openScope(Scopes.App).getInstance(AnalyticsReporter::class.java)
 
@@ -130,5 +131,9 @@ object AnalyticsHelper {
 
     fun logClickDrawerUpgradeToProButton() {
         logEvent(CLICK_DRAWER_UPGRADE_TO_PRO_BUTTON)
+    }
+
+    fun logAppReviewRequested() {
+        logEvent(APP_REVIEW_REQUESTED)
     }
 }
