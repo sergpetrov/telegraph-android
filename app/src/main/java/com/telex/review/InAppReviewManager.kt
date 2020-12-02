@@ -28,14 +28,16 @@ class InAppReviewManager constructor(
             if (needRequestAppReview()) {
                 val reviewManager = ReviewManagerFactory.create(context)
                 val requestReviewFlow = reviewManager.requestReviewFlow()
+
+                AnalyticsHelper.logAppReviewRequested()
+                appData.putLastAppReviewRequestTime(System.currentTimeMillis())
+
                 requestReviewFlow.addOnCompleteListener { request ->
                     when {
                         request.isSuccessful -> {
                             activityReference.get()?.apply {
                                 reviewManager.launchReviewFlow(this, request.result)
                                         .addOnCompleteListener {
-                                            AnalyticsHelper.logAppReviewRequested()
-                                            appData.putLastAppReviewRequestTime(System.currentTimeMillis())
                                             emitter.onComplete()
                                         }.addOnFailureListener { emitter.tryOnError(it) }
                             } ?: emitter.onComplete()
