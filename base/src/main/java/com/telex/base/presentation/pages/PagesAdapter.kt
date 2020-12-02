@@ -24,7 +24,6 @@ class PagesAdapter(
         val onItemClickListener: (View, Page, EditorMode) -> Unit,
         private var items: ArrayList<Page> = ArrayList(),
         private val onNextPageListener: (() -> Unit)?
-
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var footer: Footer? = null

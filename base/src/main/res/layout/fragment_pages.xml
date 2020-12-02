@@ -31,8 +31,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorAccentDark"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:background="?attr/colorAccentDark">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pagesRecyclerView"
