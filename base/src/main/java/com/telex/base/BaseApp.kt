@@ -2,9 +2,8 @@ package com.telex.base
 
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDexApplication
-import com.telex.base.di.AnalyticsModule
 import com.telex.base.di.AppModule
-import com.telex.base.di.RemoteConfigModule
+import com.telex.base.di.AppToolsModule
 import com.telex.base.di.Scopes
 import com.telex.base.model.interactors.RemoteConfigInteractor
 import com.telex.base.model.source.local.AppData
@@ -53,8 +52,7 @@ abstract class BaseApp : MultiDexApplication() {
         val scope = Toothpick.openScope(Scopes.App)
         scope.installModules(
                 AppModule(this),
-                AnalyticsModule(),
-                RemoteConfigModule()
+                AppToolsModule(this)
         )
         return scope
     }

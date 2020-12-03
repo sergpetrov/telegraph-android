@@ -5,12 +5,12 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.telex.R
-import com.telex.base.BuildConfig
 import com.telex.base.model.interactors.RemoteConfigInteractor
-import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.CACHE_EXPIRATION
 import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.CREATED_WITH_CAPTION_DISABLED
+import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.MINIMUM_FETCH_INTERVAL_IN_SECONDS
 import com.telex.base.model.interactors.RemoteConfigInteractor.Companion.TOP_BANNER
 import com.telex.base.model.source.remote.data.TopBannerData
+import com.telex.base.utils.Constants.isDebug
 import timber.log.Timber
 
 /**
@@ -19,21 +19,23 @@ import timber.log.Timber
 class FirebaseRemoteConfigInteractor : RemoteConfigInteractor {
     private var remoteConfig = FirebaseRemoteConfig.getInstance()
 
+    private val minimumFetchIntervalInSeconds = when {
+        isDebug() -> 0
+        else -> MINIMUM_FETCH_INTERVAL_IN_SECONDS
+    }
+
     init {
         val configSettings = FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+                .setMinimumFetchIntervalInSeconds(minimumFetchIntervalInSeconds)
                 .build()
-        remoteConfig.setConfigSettings(configSettings)
-        remoteConfig.setDefaults(R.xml.remote_config_defaults)
+        remoteConfig.setConfigSettingsAsync(configSettings)
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
     }
 
     override fun fetch(onCompleted: () -> Unit) {
-        val cacheExpiration = if (BuildConfig.DEBUG) 0 else CACHE_EXPIRATION
-
-        remoteConfig.fetch(cacheExpiration)
+        remoteConfig.fetchAndActivate()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        remoteConfig.activateFetched()
                         onCompleted.invoke()
                     }
                 }

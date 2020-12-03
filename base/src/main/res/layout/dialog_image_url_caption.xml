@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_16"
-        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginVertical="@dimen/margin_8"
         app:hintEnabled="false">
 
         <EditText
@@ -45,13 +45,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_16"
-        android:layout_marginTop="@dimen/margin_16"
+        android:paddingVertical="@dimen/margin_8"
         android:background="@android:color/transparent"
         android:hint="@string/caption_optional"
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
         android:singleLine="true"
-        android:textSize="@dimen/text_size_small" />
+        android:textSize="@dimen/text_size_tiny" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submitButton"

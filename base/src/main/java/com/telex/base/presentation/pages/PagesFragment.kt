@@ -11,7 +11,6 @@ import com.telex.base.extention.applySystemWindowInsetsPadding
 import com.telex.base.extention.getColorFromAttr
 import com.telex.base.model.source.local.entity.Page
 import com.telex.base.model.source.remote.data.TopBannerData
-import com.telex.base.presentation.base.BaseActivity
 import com.telex.base.presentation.base.BaseFragment
 import com.telex.base.presentation.home.TopBannerDelegate
 import com.telex.base.presentation.page.EditorMode
@@ -87,7 +86,7 @@ open class PagesFragment : BaseFragment(), PagesView {
     }
 
     override fun showTopBanner(banner: TopBannerData) {
-        topBannerDelegate = TopBannerDelegate(activity as BaseActivity, banner)
+        topBannerDelegate = TopBannerDelegate(this, banner)
         topBannerDelegate?.showBanner(coordinatorLayout, topBannerLayout)
     }
 

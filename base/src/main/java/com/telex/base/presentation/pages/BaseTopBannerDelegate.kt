@@ -10,7 +10,6 @@ import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.extention.isVisible
 import com.telex.base.extention.setGone
 import com.telex.base.model.source.remote.data.TopBannerData
-import com.telex.base.presentation.base.BaseActivity
 import com.telex.base.utils.ViewUtils
 import kotlinx.android.synthetic.main.layout_top_banner.view.*
 
@@ -18,8 +17,8 @@ import kotlinx.android.synthetic.main.layout_top_banner.view.*
  * @author Sergey Petrov
  */
 abstract class BaseTopBannerDelegate(
-    protected val activity: BaseActivity,
-    protected val banner: TopBannerData
+        protected val fragment: PagesFragment?,
+        protected val banner: TopBannerData
 ) {
 
     abstract val enabled: Boolean
@@ -36,7 +35,7 @@ abstract class BaseTopBannerDelegate(
                     firstActionButton.text = action.title
                     firstActionButton.setOnClickListener {
                         AnalyticsHelper.logTopBannerActionClick(action.title)
-                        ViewUtils.openUrl(activity, action.url, onError = { message -> activity.showError(message) })
+                        ViewUtils.openUrl(context, action.url, onError = { message -> fragment?.showError(message) })
                     }
                 }
                 banner.secondAction?.let { action ->
@@ -44,15 +43,17 @@ abstract class BaseTopBannerDelegate(
                     secondActionButton.text = action.title
                     secondActionButton.setOnClickListener {
                         AnalyticsHelper.logTopBannerActionClick(action.title)
-                        ViewUtils.openUrl(activity, action.url, onError = { message -> activity.showError(message) })
+                        if (fragment != null) {
+                            ViewUtils.openUrl(fragment.context, action.url, onError = { message -> fragment.showError(message) })
+                        }
                         if (action.url.isNullOrEmpty()) {
                             showDefaultOnSecondActionClicked()
                         }
                     }
                 }
             }
-            val recyclerView = activity.findViewById<RecyclerView>(R.id.recyclerView)
-            if (recyclerView.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
+            val recyclerView = fragment?.view?.findViewById<RecyclerView>(R.id.pagesRecyclerView)
+            if (recyclerView?.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
                 TransitionManager.beginDelayedTransition(coordinatorLayout, ChangeBounds())
             }
         }
@@ -61,8 +62,8 @@ abstract class BaseTopBannerDelegate(
     fun hideBanner(coordinatorLayout: CoordinatorLayout, bannerView: View) {
         if (bannerView.isVisible) {
             bannerView.setGone(true)
-            val recyclerView = activity.findViewById<RecyclerView>(R.id.recyclerView)
-            if (recyclerView.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
+            val recyclerView = fragment?.view?.findViewById<RecyclerView>(R.id.pagesRecyclerView)
+            if (recyclerView?.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
                 TransitionManager.beginDelayedTransition(coordinatorLayout, ChangeBounds())
             }
         }

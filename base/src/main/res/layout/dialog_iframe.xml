@@ -40,6 +40,15 @@
 
     </com.telex.base.presentation.base.UrlTextInputLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_tiny"
+        android:textColor="@color/secondary_text_color"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginVertical="@dimen/margin_8"
+        android:text="@string/iframe_hint" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submitButton"
         style="@style/TextButtonStyle"
