@@ -8,35 +8,35 @@ import toothpick.Toothpick
  * @author Sergey Petrov
  */
 object AnalyticsHelper {
-    private const val LAUNCH_TELEGRAM = "Launch Telegram"
+    private const val LAUNCH_TELEGRAM = "Launch_Telegram"
     private const val LOGOUT = "Logout"
-    private const val CREATE_PAGE = "Create Page"
-    private const val EDIT_PAGE = "Edit Page"
-    private const val EDIT_ACCOUNT_INFO = "Edit Account Info"
-    private const val OPEN_ACCOUNT_SETTINGS = "Open Account Settings"
-    private const val OPEN_PROXY = "Open Proxy"
-    private const val SAVE_PROXY = "Save Proxy"
-    private const val PROXY_ON = "Proxy On"
-    private const val PROXY_OFF = "Proxy Off"
-    private const val OPEN_PAGE_IN_BROWSER = "Open Page In Browser"
-    private const val COPY_PAGE_LINK = "Copy Page Link"
-    private const val SHARE_PAGE = "Share Page"
-    private const val OPEN_ABOUT_DEVELOPER = "About Developer"
-    private const val MOVE_BLOCK_UP = "Move Block Up"
-    private const val MOVE_BLOCK_DOWN = "Move Block Down"
-    private const val DELETE_BLOCK = "Delete Block"
-    private const val DUPLICATE_BLOCK = "Duplicate Block"
-    private const val OPEN_PAGE_STATISTICS = "Open Page Statistics"
-    private const val CLICK_DELETE_POST = "Click Delete Post"
-    private const val CLICK_TOP_BANNER = "Click Top Banner"
-    private const val CLICK_ADD_ACCOUNT = "Click Add Account"
-    private const val CLICK_DRAWER_UPGRADE_TO_PRO_BUTTON = "Click Drawer Upgrade To Pro Button"
-    private const val APP_REVIEW_REQUESTED = "App Review Requested"
+    private const val CREATE_PAGE = "Create_Page"
+    private const val EDIT_PAGE = "Edit_Page"
+    private const val EDIT_ACCOUNT_INFO = "Edit_Account_Info"
+    private const val OPEN_ACCOUNT_SETTINGS = "Open_Account_Settings"
+    private const val OPEN_PROXY = "Open_Proxy"
+    private const val SAVE_PROXY = "Save_Proxy"
+    private const val PROXY_ON = "Proxy_On"
+    private const val PROXY_OFF = "Proxy_Off"
+    private const val OPEN_PAGE_IN_BROWSER = "Open_Page_In_Browser"
+    private const val COPY_PAGE_LINK = "Copy_Page_Link"
+    private const val SHARE_PAGE = "Share_Page"
+    private const val OPEN_ABOUT_DEVELOPER = "About_Developer"
+    private const val MOVE_BLOCK_UP = "Move_Block_Up"
+    private const val MOVE_BLOCK_DOWN = "Move_Block_Down"
+    private const val DELETE_BLOCK = "Delete_Block"
+    private const val DUPLICATE_BLOCK = "Duplicate_Block"
+    private const val OPEN_PAGE_STATISTICS = "Open_Page_Statistics"
+    private const val CLICK_DELETE_POST = "Click_Delete_Post"
+    private const val CLICK_TOP_BANNER = "Click_Top_Banner"
+    private const val CLICK_ADD_ACCOUNT = "Click_Add_Account"
+    private const val CLICK_DRAWER_UPGRADE_TO_PRO_BUTTON = "Click_Drawer_Upgrade_To_Pro_Button"
+    private const val APP_REVIEW_REQUESTED = "App_Review_Requested"
 
     private var analyticsReporter: AnalyticsReporter = Toothpick.openScope(Scopes.App).getInstance(AnalyticsReporter::class.java)
 
     private fun logEvent(eventKey: String) {
-        if (!BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             analyticsReporter.logEvent(eventKey)
         }
     }
