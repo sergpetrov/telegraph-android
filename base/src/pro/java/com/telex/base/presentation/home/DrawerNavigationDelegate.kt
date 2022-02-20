@@ -62,6 +62,6 @@ class DrawerNavigationDelegate(
     }
 
     private fun openTelegram() {
-        ViewUtils.openTelegram(context as Activity)
+        ViewUtils.openTelegramToLogin(context as Activity)
     }
 }

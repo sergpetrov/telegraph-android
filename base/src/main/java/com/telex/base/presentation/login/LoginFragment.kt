@@ -21,15 +21,23 @@ class LoginFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ViewUtils.createLink(view.privacyPolicyDescriptionTextView, getString(R.string.privacy_policy_description), getString(R.string.privacy_policy_description_part_to_click), clickableAction = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-               findNavController().navigate(R.id.privacyPolicyFragment)
-            }
-        })
+        ViewUtils.createLink(
+            view.privacyPolicyDescriptionTextView,
+            getString(R.string.privacy_policy_description),
+            getString(R.string.privacy_policy_description_part_to_click),
+            clickableAction = object : ClickableSpan() {
+                override fun onClick(widget: View) {
+                    findNavController().navigate(R.id.privacyPolicyFragment)
+                }
+            })
 
         view.launchButton.setOnClickListener {
-            AnalyticsHelper.logLaunchTelegram()
-            ViewUtils.openTelegram(requireActivity())
+            openTelegram()
         }
+    }
+
+    private fun openTelegram() {
+        AnalyticsHelper.logLaunchTelegram()
+        ViewUtils.openTelegramToLogin(requireActivity())
     }
 }

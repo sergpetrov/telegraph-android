@@ -32,8 +32,8 @@ ext {
     versionCode = 54
     versionName = "2.4.2"
 
-    compileSdk = 29
-    targetSdk = 29
+    compileSdk = 31
+    targetSdk = 31
     minSdk = 21
 
     moxyVersion = '2.0.2'

@@ -140,4 +140,8 @@
     <string name="support_multiple_accounts">Поддержка нескольких аккаунтов одновременно.</string>
     <string name="detailed_viewing_statistics">Детальная статистика просмотров за выбранный месяц/год.</string>
     <string name="upload_multiple_images">Загрузка нескольких изображений одновременно.</string>
+
+    <string name="open_settings">"Открыть настройки"</string>
+    <string name="configure_supported_links">"Настроить поддерживаемые ссылки"</string>
+    <string name="configure_supported_links_description">"Начиная с Android 12, вам необходимо вручную разрешить открытие веб-ссылок в этом приложении. Чтобы продолжить, откройте настройки и добавьте все типы поддерживаемых ссылок из списка."</string>
 </resources>
