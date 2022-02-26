@@ -21,7 +21,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.telex.base.R
-import com.telex.base.presentation.home.AddAccountDialogFragment
 import com.telex.base.presentation.login.ConfigureSupportedLinksDialogFragment
 
 /**
