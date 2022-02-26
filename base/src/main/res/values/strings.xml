@@ -133,4 +133,7 @@
     <string name="upload_multiple_images">"Upload multiple images to the article at the same time."</string>
     <string name="telegraph_unavailable_error">"It seems Telegraph unavailable in your region. Try to use VPN or proxy server."</string>
     <string name="page_item_view_shared_element" translatable="false">"pageItemView_%s"</string>
+    <string name="open_settings">"Open settings"</string>
+    <string name="configure_supported_links">"Configure supported links"</string>
+    <string name="configure_supported_links_description">"Starting in Android 12, you need manually allow the web links to open in this app. To continue, open the settings and add all types of supported links from the list."</string>
 </resources>
