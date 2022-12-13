@@ -22,6 +22,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.telex.base.R
 import com.telex.base.presentation.login.ConfigureSupportedLinksDialogFragment
+import timber.log.Timber
 
 /**
  * @author Sergey Petrov
@@ -73,7 +74,7 @@ class ViewUtils {
 
         fun openTelegram(activity: Activity) {
             try {
-                activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://telegram.me/telegraph")))
+                activity.startActivity(Intent(ACTION_VIEW, Uri.parse("https://telegram.me/telegraph")))
                 activity.finish()
             } catch (e: ActivityNotFoundException) {
                 Toast.makeText(activity, activity.getString(R.string.error_app_not_found), Toast.LENGTH_SHORT).show()
@@ -82,16 +83,28 @@ class ViewUtils {
 
         @RequiresApi(Build.VERSION_CODES.S)
         fun openByDefaultSettings(activity: Activity) {
-            val intent = Intent(
-                Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
-                Uri.parse("package:${activity.packageName}")
-            )
-            activity.startActivity(intent)
+            try {
+                val intent = Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS, Uri.parse("package:${activity.packageName}"))
+                activity.startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                Timber.e(e)
+                openAppDetailsSettings(activity)
+            }
+        }
+
+        fun openAppDetailsSettings(activity: Activity) {
+            try {
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:${activity.packageName}"))
+                activity.startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                Timber.e(e)
+                Toast.makeText(activity, activity.getString(R.string.unknown_error), Toast.LENGTH_SHORT).show()
+            }
         }
 
         fun openPro(activity: Activity) {
             try {
-                activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.telex.pro")))
+                activity.startActivity(Intent(ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.telex.pro")))
             } catch (e: ActivityNotFoundException) {
                 Toast.makeText(activity, activity.getString(R.string.error_app_not_found), Toast.LENGTH_SHORT).show()
             }
