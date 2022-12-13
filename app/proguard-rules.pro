@@ -1,3 +1,6 @@
+-keepattributes SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
+-renamesourcefileattribute SourceFile
 
 -keepclassmembers class * implements android.os.Parcelable {
     static ** CREATOR;

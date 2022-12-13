@@ -1,4 +1,4 @@
 [submodule "editor"]
 	path = editor
-	url = git://github.com/sergpetrov/AztecEditor-Android.git
+	url = https://github.com/sergpetrov/AztecEditor-Android.git
 	branch = develop_telex
