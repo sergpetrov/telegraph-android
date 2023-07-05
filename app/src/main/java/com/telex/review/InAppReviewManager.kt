@@ -7,14 +7,11 @@ import com.telex.base.analytics.AnalyticsHelper
 import com.telex.base.model.source.local.AppData
 import com.telex.base.review.AppReviewManager
 import io.reactivex.Completable
-import java.lang.ref.WeakReference
+import java.time.Duration
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-/**
- * @author Sergey Petrov
- */
-private val APP_REVIEW_REQUEST_INTERVAL = TimeUnit.DAYS.toMillis(60) // 2 months
+private val APP_REVIEW_REQUEST_INTERVAL = Duration.ofDays(60).toMillis()
 
 @Singleton
 class InAppReviewManager constructor(
@@ -23,8 +20,9 @@ class InAppReviewManager constructor(
 ) : AppReviewManager {
 
     override fun tryRequestAppReview(activity: Activity): Completable {
-        val activityReference = WeakReference(activity)
         return Completable.create { emitter ->
+            appData.incrementAuthorizedAppLaunchCount()
+
             if (needRequestAppReview()) {
                 val reviewManager = ReviewManagerFactory.create(context)
                 val requestReviewFlow = reviewManager.requestReviewFlow()
@@ -33,30 +31,29 @@ class InAppReviewManager constructor(
                 appData.putLastAppReviewRequestTime(System.currentTimeMillis())
 
                 requestReviewFlow.addOnCompleteListener { request ->
-                    when {
-                        request.isSuccessful -> {
-                            activityReference.get()?.apply {
-                                reviewManager.launchReviewFlow(this, request.result)
-                                        .addOnCompleteListener {
-                                            emitter.onComplete()
-                                        }.addOnFailureListener { emitter.tryOnError(it) }
-                            } ?: emitter.onComplete()
-                        }
-                        else -> {
+                    activity.let {
+                        if (request.isSuccessful) {
+                            reviewManager.launchReviewFlow(it, request.result)
+                                .addOnCompleteListener { emitter.onComplete() }
+                                .addOnFailureListener { emitter.tryOnError(it) }
+                        } else {
                             emitter.onComplete()
                         }
                     }
                 }.addOnFailureListener { emitter.tryOnError(it) }
-            } else emitter.onComplete()
+            } else {
+                emitter.onComplete()
+            }
         }
     }
 
-    override fun trackAuthorizedAppLaunch() {
-        appData.putAuthorizedAppLaunch(appData.getAuthorizedAppLaunch() + 1)
-    }
-
     private fun needRequestAppReview(): Boolean {
-        return appData.getAuthorizedAppLaunch() % 10 == 0 &&
-                System.currentTimeMillis() - appData.getLastAppReviewRequestTime() > APP_REVIEW_REQUEST_INTERVAL
+        val hasEnoughAppLaunches = appData.getAuthorizedAppLaunch() % 10 == 0
+        val enoughTimeHasPassed = System.currentTimeMillis() - appData.getLastAppReviewRequestTime() > APP_REVIEW_REQUEST_INTERVAL
+        return hasEnoughAppLaunches && enoughTimeHasPassed
     }
+}
+
+private fun AppData.incrementAuthorizedAppLaunchCount() {
+    putAuthorizedAppLaunch(getAuthorizedAppLaunch() + 1)
 }
